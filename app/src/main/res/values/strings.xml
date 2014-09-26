@@ -11,5 +11,6 @@
     <string name="nextLabel">Next!</string>
     <string name="browseLabel">Browse!</string>
     <string name="action_settings">Settings</string>
+    <string name="action_about">About</string>
 
 </resources>
