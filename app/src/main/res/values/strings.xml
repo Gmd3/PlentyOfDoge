@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <string name="title_section1">PlentyOfDoge</string>
+    <string name="title_section2">PlentyOfDoge</string>
+    <string name="title_section3">PlentyOfDoge</string>
     <string name="app_name">PlentyOfDoge</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="version">Plenty of Doge v.1</string>
+    <string name="welcomeTo">Welcome to</string>
+    <string name="mainTitle">Plenty of Doge</string>
+    <string name="namePrompt">What is your name?</string>
+    <string name="nextLabel">Next!</string>
+    <string name="browseLabel">Browse!</string>
     <string name="action_settings">Settings</string>
 
 </resources>
