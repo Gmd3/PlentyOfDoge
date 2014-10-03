@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.dtran.plentyofdog" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".WelcomeScreen"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ProfileBuild"
+            android:label="@string/title_activity_profile_build" >
+        </activity>
+        <activity
+            android:name=".DogFilter"
+            android:label="@string/title_activity_dog_filter" >
+        </activity>
+        <activity
+            android:name=".Splash"
+            android:label="@string/title_activity_splash" >
+        </activity>
+        <activity
+            android:name=".DogSelection"
+            android:label="@string/title_activity_dog_selection" >
+        </activity>
+    </application>
+
+</manifest>
