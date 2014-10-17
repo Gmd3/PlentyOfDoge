@@ -1,4 +1,4 @@
-package com.example.a00718912.plentyofdoge;
+package com.example.dtran.plentyofdog;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
