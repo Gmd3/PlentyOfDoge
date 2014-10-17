@@ -1,0 +1,5 @@
+(BG)light grey- #CDBEBE
+7F3F3F - pinkish brown
+650000 - mahogany
+9C8989 - grey
+472626 - dark brown
