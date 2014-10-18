@@ -2,9 +2,9 @@
 
     <!-- Base application theme. -->
     <style name="DogTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <item name="android:padding">1sp</item>
+        <!--<item name="android:padding">1sp</item>
         <item name="android:background">#CDBEBE</item>
-        <item name="android:textSize">10sp</item>
+        <item name="android:textSize">10sp</item>-->
     </style>
 
 </resources>
