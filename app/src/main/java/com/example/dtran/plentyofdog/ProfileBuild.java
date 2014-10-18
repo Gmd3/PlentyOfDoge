@@ -64,17 +64,26 @@ public class ProfileBuild extends Activity {
         EditText ageGrab = (EditText)findViewById(R.id.ageInput);
         EditText hometownGrab = (EditText)findViewById(R.id.hometownInput);
         EditText descGrab = (EditText)findViewById(R.id.shortDesc);
+        EditText genderGrab = (EditText)findViewById(R.id.genderInput);
+        EditText emailGrab = (EditText)findViewById(R.id.emailInput);
+        EditText phoneGrab = (EditText)findViewById(R.id.phoneInput);
         Spinner yoeGrab = (Spinner)findViewById(R.id.yoeInput);
 
         String hometown = hometownGrab.getText().toString();
         String desc = descGrab.getText().toString();
         String age = ageGrab.getText().toString();
+        String gender = genderGrab.getText().toString();
+        String email = emailGrab.getText().toString();
+        String phone = phoneGrab.getText().toString();
         String xp = yoeGrab.getSelectedItem().toString();
 
         intent.putExtra("age", age);
         intent.putExtra("hometown", hometown);
         intent.putExtra("desc", desc);
         intent.putExtra("xp", xp);
+        intent.putExtra("gender", gender);
+        intent.putExtra("email", email);
+        intent.putExtra("phone", phone);
 
         startActivity(intent);
     }

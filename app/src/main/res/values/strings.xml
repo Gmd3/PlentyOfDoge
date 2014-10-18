@@ -20,6 +20,9 @@
     <string name="Age">Age</string>
     <string name="Hometown">Hometown</string>
     <string name="YOE">Experience</string>
+    <string name="Gender">Gender</string>
+    <string name="Email">Email</string>
+    <string name="Phone">Phone #</string>
     <string name="description">Short description of yourself</string>
     <string name="title_activity_dog_filter">DogFilter</string>
     <string-array name="xp_lvl">
