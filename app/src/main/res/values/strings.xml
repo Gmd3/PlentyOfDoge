@@ -11,6 +11,7 @@
     <string name="next">Next</string>
     <string name="title_activity_profile_build">ProfileBuild</string>
     <string name="FirstTime">Since this is your first time, lets build yourself a profile</string>
+    <string name="version">1.0</string>
 
     <!-- Screen 2 profile builder -->
     <string name="LetsBuildYourProfile">Lets build your profile!</string>
