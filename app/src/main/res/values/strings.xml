@@ -17,9 +17,15 @@
     <string name="LetsBuildYourProfile">Lets build your profile!</string>
     <string name="Age">Age</string>
     <string name="Hometown">Hometown</string>
-    <string name="YOE">Years Of Experience</string>
+    <string name="YOE">Experience</string>
     <string name="description">Short description of yourself</string>
     <string name="title_activity_dog_filter">DogFilter</string>
+    <string-array name="xp_lvl">
+        <item>Puppey</item>
+        <item>Dog</item>
+        <item>Doge</item>
+        <item>Super Doge</item>
+    </string-array>
 
     <!-- Screen 3 Pick your favourites -->
     <string name="AnyParticularDog">Any particular Dog you\'d prefer to display?</string>
