@@ -17,8 +17,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/LetsBuildYourProfile"
             android:textSize="40dip"
+            android:text="@string/LetsBuildYourProfile"
             android:id="@+id/lblWelcomeTo" />
     </LinearLayout>
 
@@ -90,7 +90,7 @@
             android:layout_weight=".7"
             android:gravity="center"
             android:entries="@array/xp_lvl"
-            android:id="@+id/yoeInput" />
+            android:id="@+id/yoeInput"/>
     </LinearLayout>
 
     <LinearLayout
