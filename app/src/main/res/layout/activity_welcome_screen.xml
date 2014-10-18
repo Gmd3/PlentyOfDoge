@@ -30,7 +30,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight=".5"
+                android:layout_weight=".9"
                 android:gravity="center_horizontal"
                 android:textSize="30dip"
                 android:text="@string/PlentyOfDog"
@@ -47,7 +47,8 @@
                         android:id="@+id/imageView1"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/long_dog"/>
+                        android:src="@drawable/long_dog"
+                        android:layout_weight=".7" />
                     <ImageView
                         android:id="@+id/imageView2"
                         android:layout_width="fill_parent"
@@ -83,17 +84,64 @@
                 android:text="@string/WhatsYourName"
                 android:id="@+id/lblWhatsYourName"
                 android:layout_gravity="center_horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/linearLayout2" >
+
+
+            </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dip"
-            android:layout_weight=".1"
-            android:orientation="horizontal">
-            <EditText
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="0.02">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/nameInput"
-                android:layout_gravity="center_horizontal" />
+                android:orientation="horizontal"
+                android:layout_weight="0.02"
+                android:id="@+id/linearLayout">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/first_name"
+                    android:id="@+id/lblFirstName" />
+                <EditText
+                    android:layout_width="225dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/firstNameInput"
+                    android:layout_gravity="center_horizontal|right" />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="0.02"
+                android:id="@+id/linearLayout3">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/last_name"
+                    android:id="@+id/lblLastName" />
+                <EditText
+                    android:layout_width="225dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lasttNameInput"
+                    android:layout_gravity="center_horizontal|right" />
+
+            </LinearLayout>
+
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"

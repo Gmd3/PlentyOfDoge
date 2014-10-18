@@ -38,11 +38,14 @@ public class WelcomeScreen extends Activity {
     }
     public void buildProfile(View v){
         Intent intent = new Intent(this, ProfileBuild.class);
-        EditText nameGrab = (EditText)findViewById(R.id.nameInput);
+        EditText fnameGrab = (EditText)findViewById(R.id.firstNameInput);
+        EditText lnameGrab = (EditText)findViewById(R.id.lasttNameInput);
 
-        String name = nameGrab.getText().toString();
+        String fname = fnameGrab.getText().toString();
+        String lname = lnameGrab.getText().toString();
 
-        intent.putExtra("WelcomeStrings", name);
+        intent.putExtra("WelcomeStrings", fname);
+        intent.putExtra("WelcomeStrings", lname);
         startActivity(intent);
     }
 }

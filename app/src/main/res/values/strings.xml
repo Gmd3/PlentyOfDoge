@@ -10,6 +10,8 @@
     <string name="WhatsYourName">Let\'s start with your name</string>
     <string name="next">Next</string>
     <string name="title_activity_profile_build">ProfileBuild</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
     <string name="FirstTime">Since this is your first time, lets build yourself a profile</string>
     <string name="version">Version 1.0</string>
 
