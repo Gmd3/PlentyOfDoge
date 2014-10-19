@@ -33,8 +33,11 @@
     </string-array>
 
     <!-- Screen 3 Pick your favourites -->
-    <string name="AnyParticularDog">Any particular Dog you\'d prefer to display?</string>
-    <string name="displayAll">Display all</string>
+    <string name="AnyParticularDog">Preferences</string>
+    <string name="NoPreference">No preference</string>
+    <string name="size">Size</string>
+    <string name="temperament">Temperament</string>
+    <string name="hair">Hair Type</string>
     <string name="smallDog">Small</string>
     <string name="mediumDog">Medium</string>
     <string name="largeDog">Large</string>

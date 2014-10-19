@@ -10,11 +10,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight=".2"
+        android:layout_weight=".1"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/AnyParticularDog"
             android:id="@+id/lblWelcomeTo"/>
@@ -26,12 +28,15 @@
         android:layout_weight=".05"
         android:orientation="horizontal">
 
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/displayAll"
-            android:id="@+id/button" />
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/size"
+            android:id="@+id/lblSize"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -40,6 +45,13 @@
         android:layout_weight=".05"
         android:orientation="horizontal"
         android:id="@+id/linearLayout">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/NoPreference"
+            android:id="@+id/button" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -65,9 +77,33 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".05"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/hair"
+            android:id="@+id/lblHair"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:id="@+id/linearLayout2" >
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/NoPreference"
+            android:id="@+id/noPrefHair" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -87,10 +123,34 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".05"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/temperament"
+            android:id="@+id/lblTemperament"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.01"
         android:orientation="horizontal"
         android:id="@+id/linearLayout4" >
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/NoPreference"
+            android:id="@+id/noPrefTemperament" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -111,10 +171,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
+        android:layout_weight=".03"
+        android:orientation="horizontal">
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
         android:layout_weight=".05"
+        android:gravity="center"
         android:orientation="horizontal">
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/next"
             android:id="@+id/btnNext"
