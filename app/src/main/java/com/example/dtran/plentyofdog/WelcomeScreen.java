@@ -14,6 +14,7 @@ public class WelcomeScreen extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_welcome_screen);
     }
 
@@ -44,8 +45,9 @@ public class WelcomeScreen extends Activity {
         String fname = fnameGrab.getText().toString();
         String lname = lnameGrab.getText().toString();
 
-        intent.putExtra("WelcomeStrings", fname);
-        intent.putExtra("WelcomeStrings", lname);
+
+        intent.putExtra("WelcomeStringsFName", fname);
+        intent.putExtra("WelcomeStringsLName", lname);
         startActivity(intent);
     }
 }

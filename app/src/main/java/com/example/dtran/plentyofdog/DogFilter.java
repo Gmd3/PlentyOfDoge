@@ -39,7 +39,6 @@ public class DogFilter extends Activity {
         Intent intent = new Intent(this, DogSelection.class);
 
 
-
         startActivity(intent);
     }
 }
