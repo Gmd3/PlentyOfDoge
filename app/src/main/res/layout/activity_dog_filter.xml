@@ -207,6 +207,7 @@
         android:layout_height="0dip"
         android:layout_weight=".1"
         android:orientation="horizontal">
+<<<<<<< HEAD
 
         <ImageView
             android:id="@+id/dogdisp"
@@ -214,6 +215,8 @@
             android:layout_height="wrap_content"
             android:src="@drawable/shaggy"
             android:layout_weight=".7" />
+=======
+>>>>>>> origin/master
 
 
     </LinearLayout>
