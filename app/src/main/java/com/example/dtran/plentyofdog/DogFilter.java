@@ -42,4 +42,8 @@ public class DogFilter extends Activity {
 
         startActivity(intent);
     }
+
+    public void SizeNoPref(View view){
+
+    }
 }

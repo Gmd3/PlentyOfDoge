@@ -53,28 +53,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/NoPreference"
-            android:id="@+id/button" />
+            android:id="@+id/button"
+            android:onClick="SizeNoPref"/>
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/smallDog"
-            android:id="@+id/button2" />
+            android:id="@+id/button2"
+            android:onClick="SizeSmall"/>
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/mediumDog"
-            android:id="@+id/button3" />
+            android:id="@+id/button3"
+            android:onClick="SizeMed"/>
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/largeDog"
-            android:id="@+id/button4" />
+            android:id="@+id/button4"
+            android:onClick="SizeLarge"/>
     </LinearLayout>
 
     <LinearLayout
@@ -90,7 +94,8 @@
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/hair"
-            android:id="@+id/lblHair"/>
+            android:id="@+id/lblHair"
+            />
 
     </LinearLayout>
 
@@ -105,21 +110,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/NoPreference"
-            android:id="@+id/noPrefHair" />
+            android:id="@+id/noPrefHair"
+            android:onClick="HairNoPref"/>
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/shortHaired"
-            android:id="@+id/button7" />
+            android:id="@+id/button7"
+            android:onClick="HairShort"
+            />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/longHaired"
-            android:id="@+id/button8" />
+            android:id="@+id/button8"
+            android:onClick="HairLong"/>
 
     </LinearLayout>
 
@@ -152,21 +161,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/NoPreference"
-            android:id="@+id/noPrefTemperament" />
+            android:id="@+id/noPrefTemperament"
+            android:onClick="tempermentNoPreference"/>
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/mellow"
-            android:id="@+id/button13" />
+            android:id="@+id/button13"
+            android:onClick="tempermentMellow"/>
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hyper"
-            android:id="@+id/button14" />
+            android:id="@+id/button14"
+            android:onClick="TempermentHyper"/>
 
     </LinearLayout>
 
@@ -182,7 +194,6 @@
         android:layout_weight=".05"
         android:gravity="right"
         android:orientation="horizontal">
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -196,12 +207,14 @@
         android:layout_height="0dip"
         android:layout_weight=".1"
         android:orientation="horizontal">
+
         <ImageView
-            android:id="@+id/imageView1"
+            android:id="@+id/dogdisp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/smallbluedog"
+            android:src="@drawable/shaggy"
             android:layout_weight=".7" />
+
 
     </LinearLayout>
 </LinearLayout>
