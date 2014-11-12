@@ -28,7 +28,7 @@ public class ProfileBuild extends Activity {
     private SQLiteDatabase database;
     private ListView listView;
     private ArrayList friends;
-    public DatabaseHelper db;
+    public OwnerHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class ProfileBuild extends Activity {
         setContentView(R.layout.activity_profile_build);
 
         Log.d("DB ", "----------------------CREATING DB------------------------------");
-         db = new DatabaseHelper(this);
+         db = new OwnerHelper(this);
         db.getWritableDatabase();
         Log.d("DB ", "----------------------FINISH CREATING DB------------------------------");
         Spinner xp = (Spinner)findViewById(R.id.yoeInput);
@@ -111,7 +111,7 @@ public class ProfileBuild extends Activity {
         SimpleDateFormat s = new SimpleDateFormat("ddMMyyyy");
         String date = s.format(new Date());
 
-        db.addOwner(new Owner(firstname,lastname,xp, Integer.parseInt(age) ,gender,email, Integer.parseInt(phone), "Vancouver", date, ""));
+        db.addOwner(new Owner(firstname,lastname,xp, Integer.parseInt(age) ,gender,email, Integer.parseInt(phone), hometown, date, ""));
 
         Log.d("DB", "Inserted Owner");
 

@@ -1,22 +1,64 @@
 package com.example.dtran.plentyofdog;
 
-import android.provider.BaseColumns;
-
 /**
  * Created by dtran on 2014-10-17.
  */
 public final class DogOwner {
 
-    public DogOwner() {
+    public DogOwner(int id,int dogID, int ownerID, String dateCreated, String lastEditted, String status) {
+        this.id = id;
+        this.ownerID = ownerID;
+        this.dateCreated = dateCreated;
+        this.lastEditted = lastEditted;
+        this.status = status;
+        this.dogID = dogID;
+    }
+    int id;
+
+    public int getOwnerID() {
+        return ownerID;
     }
 
-    /* Inner class that defines the table contents */
-    public static abstract class DogOwnerEntry implements BaseColumns {
-        public static final String TABLE_NAME = "owner";
-        public static final String COLUMN_DOGID = "dogid";
-        public static final String COLUMN_OWNERID = "ownerid";
-        public static final String COLUMN_STATUS = "status";
-        public static final String COLUMN_DATE_CREATED = "datacreated";
-        public static final String COLUMN_LAST_EDITTED = "lasteddited";
+    public void setOwnerID(int ownerID) {
+        this.ownerID = ownerID;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(String dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
+    public String getLastEditted() {
+        return lastEditted;
+    }
+
+    public void setLastEditted(String lastEditted) {
+        this.lastEditted = lastEditted;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    int ownerID;
+    String dateCreated;
+    String lastEditted;
+    String status;
+    int dogID;
+
 }

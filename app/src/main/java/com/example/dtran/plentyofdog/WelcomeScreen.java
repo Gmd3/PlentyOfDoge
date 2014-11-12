@@ -10,11 +10,11 @@ import android.widget.EditText;
 
 
 public class WelcomeScreen extends Activity {
-
+    DatabaseHelper db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        db = new DatabaseHelper(this);
         setContentView(R.layout.activity_welcome_screen);
     }
 

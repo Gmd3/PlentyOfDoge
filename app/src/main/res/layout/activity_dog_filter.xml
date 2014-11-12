@@ -202,23 +202,23 @@
             android:layout_gravity="right"
             android:onClick="proceedToDogSelection" />
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight=".1"
-        android:orientation="horizontal">
-<<<<<<< HEAD
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dip"-->
+        <!--android:layout_weight=".1"-->
+        <!--android:orientation="horizontal">-->
+<!--&lt;!&ndash;<<<<<<< HEAD&ndash;&gt;-->
 
-        <ImageView
-            android:id="@+id/dogdisp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/shaggy"
-            android:layout_weight=".7" />
-=======
->>>>>>> origin/master
+        <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+            <!--&lt;!&ndash;android:id="@+id/dogdisp"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:src="@drawable/shaggy"&ndash;&gt;-->
+            <!--&lt;!&ndash;android:layout_weight=".7" />&ndash;&gt;-->
+<!--&lt;!&ndash;=======&ndash;&gt;-->
+<!--&lt;!&ndash;>>>>>>> origin/master&ndash;&gt;-->
 
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 </LinearLayout>
 
