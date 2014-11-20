@@ -14,17 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:padding="10dp"
-        >
-
-        <Button
-            android:id="@+id/btnSignUp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_margin="4dp"
-            android:text="Sign Up"
-            style=""
-            />
+        android:id="@+id/linearLayout5">
         <Button
             android:id="@+id/btnSingIn"
             android:layout_width="match_parent"
@@ -33,7 +23,51 @@
             android:layout_margin="4dp"
             android:text="Sign In"
             style=""
-            />
+            android:onClick="loginClick" />
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_margin="4dp"
+            android:text="Sign Up"
+            style=""
+            android:onClick="signUpClick" />
+
     </LinearLayout>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/usernameInput"
+        android:layout_above="@+id/passwordInput"
+        android:layout_alignParentEnd="true"
+        android:width="250dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/passwordInput"
+        android:layout_above="@+id/linearLayout5"
+        android:layout_alignParentEnd="true"
+        android:width="250dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/Email"
+        android:id="@+id/lblemail"
+        android:layout_above="@+id/passwordInput"
+        android:layout_toStartOf="@+id/usernameInput" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/password"
+        android:id="@+id/lblpassword"
+        android:layout_alignBottom="@+id/passwordInput"
+        android:layout_alignEnd="@+id/lblemail" />
 
 </RelativeLayout>

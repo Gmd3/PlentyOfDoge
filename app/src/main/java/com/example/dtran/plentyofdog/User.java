@@ -31,21 +31,21 @@ public class User {
     }
 
     public int getUserId() {
-        return userId;
+        return ownerId;
     }
 
     public void setUserId(int userId) {
-        this.userId = userId;
+        this.ownerId = userId;
     }
 
     String username;
     String password;
-    int userId;
+    int ownerId;
     public User(){
 
     }
-    public User(String username, String password, int userID){
-        this.userId = userID;
+    public User(String username, String password, int OwnerId){
+        this.ownerId = OwnerId;
         this.username = username;
         this.password = password;
 

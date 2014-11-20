@@ -12,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -29,6 +28,7 @@ public class ProfileBuild extends Activity {
     private ListView listView;
     private ArrayList friends;
     public OwnerHelper db;
+    public UserHelper userdb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,8 @@ public class ProfileBuild extends Activity {
         Log.d("DB ", "----------------------CREATING DB------------------------------");
         db = new OwnerHelper(this);
         db.getWritableDatabase();
+        userdb = new UserHelper(this);
+        userdb.getWritableDatabase();
         Log.d("DB ", "----------------------FINISH CREATING DB------------------------------");
         Spinner xp = (Spinner)findViewById(R.id.yoeInput);
         xp.setOnItemSelectedListener(new ExperienceListener());
@@ -77,7 +79,7 @@ public class ProfileBuild extends Activity {
     }
 
     public void dogPicker(View v){
-
+        int errors = 0;
         Intent WelcomeScreenintent = getIntent();
 
         Intent intent = new Intent(this, home_screen.class);
@@ -88,6 +90,8 @@ public class ProfileBuild extends Activity {
         EditText genderGrab = (EditText)findViewById(R.id.genderInput);
         EditText emailGrab = (EditText)findViewById(R.id.emailInput);
         EditText phoneGrab = (EditText)findViewById(R.id.phoneInput);
+        EditText passwordGrab = (EditText)findViewById(R.id.lblpasswordinput);
+        EditText confirmGrab = (EditText)findViewById(R.id.lblpasswordinput2);
         Spinner yoeGrab = (Spinner)findViewById(R.id.yoeInput);
 
         String hometown = hometownGrab.getText().toString();
@@ -99,32 +103,61 @@ public class ProfileBuild extends Activity {
         String xp = yoeGrab.getSelectedItem().toString();
         String firstname = WelcomeScreenintent.getStringExtra("WelcomeStringsFName");
         String lastname  = WelcomeScreenintent.getStringExtra("WelcomeStringsLName");
+        String password =passwordGrab.getText().toString();
+        String confirm = confirmGrab.getText().toString();
 
-        Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
-        intent.putExtra("age", age);
-        intent.putExtra("hometown", hometown);
-        intent.putExtra("desc", desc);
-        intent.putExtra("xp", xp);
-        intent.putExtra("gender", gender);
-        intent.putExtra("email", email);
-        intent.putExtra("phone", phone);
-        SimpleDateFormat s = new SimpleDateFormat("ddMMyyyy");
-        String date = s.format(new Date());
+        if(hometown.equals(""))
+            errors++;
+        if(desc.equals(""))
+            errors++;
+        if(age.equals(""))
+            errors++;
+        if(gender.equals(""))
+            errors++;
+        if(email.equals(""))
+            errors++;
+        if(phone.equals(""))
+            errors++;
+        if(xp.equals(""))
+            errors++;
+        if(firstname.equals(""))
+            errors++;
+        if(lastname.equals(""))
+            errors++;
+        if(password.equals(confirm))
+            errors++;
 
-        db.addOwner(new Owner(firstname,lastname,xp, Integer.parseInt(age) ,gender,email, phone, hometown, date, ""));
+        if(errors < 1) {
+            Calendar c = Calendar.getInstance();
+            SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+            intent.putExtra("age", age);
+            intent.putExtra("hometown", hometown);
+            intent.putExtra("desc", desc);
+            intent.putExtra("xp", xp);
+            intent.putExtra("gender", gender);
+            intent.putExtra("email", email);
+            intent.putExtra("phone", phone);
+            SimpleDateFormat s = new SimpleDateFormat("ddMMyyyy");
+            String date = s.format(new Date());
+            Owner newOwner = new Owner(firstname, lastname, xp, Integer.parseInt(age), gender, email, phone, hometown, date, "");
+            db.addOwner(newOwner);
+            userdb.addUser(new User(email, password, newOwner.id));
+            Log.d("DB", "Inserted Owner");
 
-        Log.d("DB", "Inserted Owner");
+            List<Owner> owners = db.getAllOwner();
 
-        List<Owner> owners = db.getAllOwner();
+            for (Owner o : owners) {
+                String log = "ID: " + o.id + "\n";
+                Log.d("LOG id : ", log);
+            }
 
-        for(Owner o : owners){
-            String log = "ID: " + o.id + "\n";
-            Log.d("LOG id : ", log);
+            Log.d("Leaving ", "Activity");
+
+            startActivity(intent);
+
         }
-
-        Log.d("Leaving ", "Activity");
-        startActivity(intent);
+        finish();
+        startActivity(getIntent());
     }
 
 }

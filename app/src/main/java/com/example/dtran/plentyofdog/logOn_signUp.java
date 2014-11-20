@@ -1,13 +1,16 @@
 package com.example.dtran.plentyofdog;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 
 public class logOn_signUp extends Activity {
-
+    public UserHelper userdb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,5 +35,38 @@ public class logOn_signUp extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    public void signUpClick(View v){
+        Intent intent = new Intent(this, WelcomeScreen.class);
+        EditText fnameGrab = (EditText)findViewById(R.id.firstNameInput);
+        EditText lnameGrab = (EditText)findViewById(R.id.lasttNameInput);
+
+
+        String fname = fnameGrab.getText().toString();
+        String lname = lnameGrab.getText().toString();
+
+
+        intent.putExtra("WelcomeStringsFName", fname);
+        intent.putExtra("WelcomeStringsLName", lname);
+        startActivity(intent);
+    }
+    public void loginClick(View v){
+        Intent intent = new Intent(this, home_screen.class);
+        EditText usernameGrab = (EditText)findViewById(R.id.usernameInput);
+        EditText passwordGrab = (EditText)findViewById(R.id.passwordInput);
+
+        userdb.getReadableDatabase();
+        String username = usernameGrab.getText().toString();
+        String password = passwordGrab.getText().toString();
+
+        if(userdb.userExist(username)){
+            if(password.equals(userdb.getUser(username).password)){
+                startActivity(intent);
+            }
+        }
+
+    finish();
+        startActivity(getIntent());
+
     }
 }

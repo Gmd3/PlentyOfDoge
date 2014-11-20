@@ -40,7 +40,7 @@ public class UserHelper extends SQLiteOpenHelper
         ContentValues values = new ContentValues();
         values.put("Username", user.username);
         values.put("Password", user.password);
-        values.put("UserID", user.userId);
+        values.put("OwnerID", user.ownerId);
 
 
         db.insert("User", null, values);
@@ -60,6 +60,21 @@ public class UserHelper extends SQLiteOpenHelper
         cursor.close();
         return user;
     }
+    public User getUser(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM User WHERE Username = " + email, null);
+        if(cursor != null)
+            cursor.moveToFirst();
+        User user = new User(
+                cursor.getString(0)
+                ,cursor.getString(1)
+                ,cursor.getInt(2)
+        );
+        cursor.close();
+        return user;
+    }
+
     public List<User> getAllUser(){
         List<User> userList = new ArrayList<User>();
         String selectQuery = "SELECT * FROM User";
@@ -93,10 +108,21 @@ public class UserHelper extends SQLiteOpenHelper
         ContentValues values = new ContentValues();
         values.put("Username", user.username);
         values.put("Password", user.password);
-        values.put("UserID", user.userId);
+        values.put("OwnerID", user.ownerId);
 
 
         return db.update("User", values, "_id = ?", new String[]{String.valueOf(user.id)});
+    }
+    public boolean userExist(String username){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM User WHERE Username = " + username;
+        Cursor cs = db.rawQuery(selectQuery,null);
+
+        if(cs.getCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
     public void deleteUser(User user){
         SQLiteDatabase db = this.getWritableDatabase();

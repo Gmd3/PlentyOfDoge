@@ -12,6 +12,8 @@
     <string name="title_activity_profile_build">ProfileBuild</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
+    <string name="password">Password</string>
+    <string name="password2">Confirm Password</string>
     <string name="FirstTime">Since this is your first time, lets build yourself a profile</string>
     <string name="version">Version 1.0</string>
 
@@ -25,6 +27,7 @@
     <string name="Phone">Phone #</string>
     <string name="description">Short description of yourself</string>
     <string name="title_activity_dog_filter">DogFilter</string>
+
 
     <string-array name="xp_lvl">
         <item>Puppey</item>
