@@ -32,6 +32,18 @@
             android:name=".DogSelection"
             android:label="@string/title_activity_dog_selection" >
         </activity>
+        <activity
+            android:name=".home_screen"
+            android:label="@string/title_activity_home_screen" >
+        </activity>
+        <activity
+            android:name=".dog_builder"
+            android:label="@string/title_activity_dog_builder" >
+        </activity>
+        <activity
+            android:name=".logOn_signUp"
+            android:label="@string/title_activity_log_on_sign_up" >
+        </activity>
     </application>
 
 </manifest>

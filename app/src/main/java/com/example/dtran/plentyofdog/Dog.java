@@ -7,14 +7,14 @@ public class Dog {
     String name;
     int age;
     String size;
+    String training;
+    String activitylevel;
+    String description;
+    String area;
+    String datecreated;
+    String lasteditted;
+    int id;
 
-    public int getKidsafe() {
-        return kidsafe;
-    }
-
-    public void setKidsafe(int kidsafe) {
-        this.kidsafe = kidsafe;
-    }
 
     public String getName() {
         return name;
@@ -64,21 +64,6 @@ public class Dog {
         this.description = description;
     }
 
-    public int getCatsafe() {
-        return catsafe;
-    }
-
-    public void setCatsafe(int catsafe) {
-        this.catsafe = catsafe;
-    }
-
-    public int getDogparksafe() {
-        return dogparksafe;
-    }
-
-    public void setDogparksafe(int dogparksafe) {
-        this.dogparksafe = dogparksafe;
-    }
 
     public String getArea() {
         return area;
@@ -104,31 +89,16 @@ public class Dog {
         this.lasteditted = lasteditted;
     }
 
-    String training;
-    String activitylevel;
-    String description;
-    int kidsafe;
-    int catsafe;
-    int dogparksafe;
-    String area;
-    String datecreated;
-    String lasteditted;
-    int id;
+
 public Dog(    String training,
         String activitylevel,
         String description,
-        int kidsafe,
-        int catsafe,
-        int dogparksafe,
         String area,
         String datecreated,
         String lasteditted){
     this.training = training;
     this.activitylevel = activitylevel;
     this.description = description;
-    this.kidsafe = kidsafe;
-    this.catsafe = catsafe;
-    this.dogparksafe = dogparksafe;
     this.area = area;
     this.datecreated = datecreated;
     this.lasteditted = "";

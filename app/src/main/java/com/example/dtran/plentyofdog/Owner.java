@@ -50,7 +50,7 @@ public class Owner {
         this.email = email;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -72,7 +72,7 @@ public class Owner {
     int age;
     String gender;
     String email;
-    int phone;
+    String phone;
     String area;
     String dateCreated;
     String lastEdited;
@@ -84,7 +84,7 @@ public class Owner {
             int age,
             String gender,
             String email,
-            int phone,
+            String phone,
             String area,
             String dateCreated,
             String lastEdited){
@@ -105,7 +105,7 @@ public class Owner {
                   int age,
                   String gender,
                   String email,
-                  int phone,
+                  String phone,
                   String area,
                   String dateCreated,
                   String lastEdited){

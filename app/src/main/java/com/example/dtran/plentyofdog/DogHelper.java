@@ -25,7 +25,7 @@ public class DogHelper extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.d("DB", "DB CREATING");
-        String CREATE_DOG_TABLE = "CREATE TABLE Dog ( _id INTEGER PRIMARY KEY, Name VARCHAR NOT NULL, Age INTEGER NOT NULL, Size VARCHAR NOT NULL, Training VARCHAR NOT NULL, ActivityLevel VARCHAR NOT NULL, Description VARCHAR NOT NULL NOT NULL, KidSafe BOOLEAN NOT NULL, DogParkSafe BOOLEAN NOT NULL, CatSafe BOOLEAN NOT NULL, Area VARCHAR NOT NULL, DateCreated DATE NOT NULL, LastEditted DATE)";
+        String CREATE_DOG_TABLE = "CREATE TABLE Dog ( _id INTEGER PRIMARY KEY, Name VARCHAR NOT NULL, Age INTEGER NOT NULL, Size VARCHAR NOT NULL, Training VARCHAR NOT NULL, ActivityLevel VARCHAR NOT NULL, Description VARCHAR NOT NULL NOT NULL, Area VARCHAR NOT NULL, DateCreated DATE NOT NULL, LastEditted DATE)";
         db.execSQL(CREATE_DOG_TABLE);
         Log.d("DB", "DB CREATED");
     }
@@ -42,9 +42,6 @@ public class DogHelper extends SQLiteOpenHelper
         values.put("Age", dog.age);
         values.put("Size", dog.training);
         values.put("Age", dog.activitylevel);
-        values.put("Gender", dog.kidsafe);
-        values.put("Email", dog.catsafe);
-        values.put("Phone", dog.dogparksafe);
         values.put("Area", dog.area);
         values.put("DateCreated", dog.datecreated);
         values.put("LastEdited", dog.lasteditted);
@@ -63,9 +60,6 @@ public class DogHelper extends SQLiteOpenHelper
                 cursor.getString(0)
                 ,cursor.getString(1)
                 ,cursor.getString(2)
-                ,cursor.getInt(3)
-                ,cursor.getInt(4)
-                ,cursor.getInt(5)
                 ,cursor.getString(6)
                 ,cursor.getString(7)
                 ,cursor.getString(8)
@@ -86,9 +80,6 @@ public class DogHelper extends SQLiteOpenHelper
                         cursor.getString(0)
                         ,cursor.getString(1)
                         ,cursor.getString(2)
-                        ,cursor.getInt(3)
-                        ,cursor.getInt(4)
-                        ,cursor.getInt(5)
                         ,cursor.getString(6)
                         ,cursor.getString(7)
                         ,cursor.getString(8));
@@ -113,9 +104,6 @@ public class DogHelper extends SQLiteOpenHelper
         values.put("Age", dog.age);
         values.put("Size", dog.training);
         values.put("Age", dog.activitylevel);
-        values.put("Gender", dog.kidsafe);
-        values.put("Email", dog.catsafe);
-        values.put("Phone", dog.dogparksafe);
         values.put("Area", dog.area);
         values.put("DateCreated", dog.datecreated);
         values.put("LastEdited", dog.lasteditted);

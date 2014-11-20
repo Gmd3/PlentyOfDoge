@@ -66,7 +66,7 @@ import java.util.List;
                     ,cursor.getInt(4)
                     ,cursor.getString(5)
                     ,cursor.getString(6)
-                    ,cursor.getInt(7)
+                    ,cursor.getString(7)
                     ,cursor.getString(8)
                     ,cursor.getString(9)
                     ,cursor.getString(10)
@@ -91,7 +91,7 @@ import java.util.List;
                     owner.setAge(cursor.getInt(4));
                     owner.setGender(cursor.getString(5));
                     owner.setEmail(cursor.getString(6));
-                    owner.setPhone(cursor.getInt(7));
+                    owner.setPhone(cursor.getString(7));
                     owner.setArea(cursor.getString(8));
                     owner.setDateCreated(cursor.getString(9));
                     owner.setLastEdited(cursor.getString(10));
