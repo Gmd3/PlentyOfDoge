@@ -15,7 +15,7 @@ import java.util.List;
  */
     public class OwnerHelper extends SQLiteOpenHelper
     {
-        private static final int DATABASE_VERSION = 1;
+        private static final int DATABASE_VERSION = 2;
         private static final String DATABASE_NAME = "plentyofdog";
 
         public OwnerHelper(Context context) {
@@ -24,10 +24,10 @@ import java.util.List;
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            Log.d("DB", "DB CREATING");
+            Log.d("DB", "OWNER CREATING");
             String CREATE_OWNER_TABLE = "CREATE TABLE Owner (_id INTEGER PRIMARY KEY, FirstName VARCHAR NOT NULL, LastName VARCHAR NOT NULL, Experience VARCHAR NOT NULL, Age INTEGER NOT NULL, Gender VARCHAR NOT NULL, Email VARCHAR NOT NULL, Phone INTEGER, Area VARCHAR, DateCreated DATETIME, LastEdited DATETIME);";
             db.execSQL(CREATE_OWNER_TABLE);
-            Log.d("DB", "DB CREATED");
+            Log.d("DB", "OWNER CREATED");
         }
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

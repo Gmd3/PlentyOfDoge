@@ -15,8 +15,9 @@ import java.util.List;
  */
 public class UserHelper extends SQLiteOpenHelper
 {
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NAME = "plentyofdog";
+    SQLiteDatabase db;
 
     public UserHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -24,10 +25,11 @@ public class UserHelper extends SQLiteOpenHelper
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.d("DB", "DB CREATING");
+        Log.d("DB", "USER CREATING");
         String CREATE_USER_TABLE = "CREATE TABLE User( _id INTEGER PRIMARY KEY, Username VARCHAR NOT NULL, Password VARCHAR NOT NULL, OwnerID INTEGER NOT NULL)";
         db.execSQL(CREATE_USER_TABLE);
-        Log.d("DB", "DB CREATED");
+        this.db = db;
+        Log.d("DB", "USER CREATED");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -35,7 +37,7 @@ public class UserHelper extends SQLiteOpenHelper
         onCreate(db);
     }
     public void addUser(User user){
-        SQLiteDatabase db = this.getWritableDatabase();
+        db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put("Username", user.username);
@@ -43,33 +45,35 @@ public class UserHelper extends SQLiteOpenHelper
         values.put("OwnerID", user.ownerId);
 
 
+
         db.insert("User", null, values);
+        Log.d("DB:", "------------------USER ADDED");
         db.close();
     }
     public User getUser(int id){
-        SQLiteDatabase db = this.getReadableDatabase();
+        db = this.getReadableDatabase();
 
         Cursor cursor = db.rawQuery("SELECT * FROM User WHERE _id = " + id, null);
         if(cursor != null)
             cursor.moveToFirst();
         User user = new User(
-                cursor.getString(0)
-                ,cursor.getString(1)
-                ,cursor.getInt(2)
+                cursor.getString(1)
+                ,cursor.getString(2)
+                ,cursor.getInt(3)
         );
         cursor.close();
         return user;
     }
     public User getUser(String email){
-        SQLiteDatabase db = this.getReadableDatabase();
+        db = this.getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM User WHERE Username = " + email, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM User WHERE Username = '" + email + "'",  null);
         if(cursor != null)
             cursor.moveToFirst();
         User user = new User(
-                cursor.getString(0)
-                ,cursor.getString(1)
-                ,cursor.getInt(2)
+                cursor.getString(1)
+                ,cursor.getString(2)
+                ,cursor.getInt(3)
         );
         cursor.close();
         return user;
@@ -79,15 +83,15 @@ public class UserHelper extends SQLiteOpenHelper
         List<User> userList = new ArrayList<User>();
         String selectQuery = "SELECT * FROM User";
 
-        SQLiteDatabase db = this.getWritableDatabase();
+        db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery,null);
 
         if(cursor.moveToFirst()){
             do {
                 User user = new User(
-                        cursor.getString(0)
-                        ,cursor.getString(1)
-                        ,cursor.getInt(2));
+                        cursor.getString(1)
+                        ,cursor.getString(2)
+                        ,cursor.getInt(3));
 
                 userList.add(user);
             }while(cursor.moveToNext());
@@ -98,13 +102,13 @@ public class UserHelper extends SQLiteOpenHelper
     public int getUserCount(){
         String selectQuery = "SELECT * FROM User";
 
-        SQLiteDatabase db = this.getReadableDatabase();
+        db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery,null);
-        cursor.close();
+
         return cursor.getCount();
     }
     public int updateUser(User user){
-        SQLiteDatabase db = this.getWritableDatabase();
+        db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("Username", user.username);
         values.put("Password", user.password);
@@ -115,13 +119,13 @@ public class UserHelper extends SQLiteOpenHelper
     }
     public boolean userExist(String username){
         SQLiteDatabase db = this.getReadableDatabase();
-        String selectQuery = "SELECT * FROM User WHERE Username = " + username;
+        String selectQuery = "SELECT * FROM User WHERE Username = '" + username + "'";
         Cursor cs = db.rawQuery(selectQuery,null);
 
-        if(cs.getCount() > 0) {
-            return true;
-        } else {
+        if(cs.getCount() == 0) {
             return false;
+        } else {
+            return true;
         }
     }
     public void deleteUser(User user){

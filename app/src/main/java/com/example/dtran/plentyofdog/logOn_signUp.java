@@ -2,7 +2,9 @@ package com.example.dtran.plentyofdog;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,10 +13,19 @@ import android.widget.EditText;
 
 public class logOn_signUp extends Activity {
     public UserHelper userdb;
+    public DatabaseHelper db;
+    public SQLiteDatabase sqlitedb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_on_sign_up);
+        db = new DatabaseHelper(this);
+        db.getWritableDatabase();
+        userdb = new UserHelper(this);
+        userdb.getWritableDatabase();
+
+        Log.d("@@@@@@@@@@@@@  ----  DB", "" + userdb.getUserCount());
+
     }
 
 
@@ -38,16 +49,16 @@ public class logOn_signUp extends Activity {
     }
     public void signUpClick(View v){
         Intent intent = new Intent(this, WelcomeScreen.class);
-        EditText fnameGrab = (EditText)findViewById(R.id.firstNameInput);
-        EditText lnameGrab = (EditText)findViewById(R.id.lasttNameInput);
-
-
-        String fname = fnameGrab.getText().toString();
-        String lname = lnameGrab.getText().toString();
-
-
-        intent.putExtra("WelcomeStringsFName", fname);
-        intent.putExtra("WelcomeStringsLName", lname);
+//        EditText fnameGrab = (EditText)findViewById(R.id.firstNameInput);
+//        EditText lnameGrab = (EditText)findViewById(R.id.lasttNameInput);
+//
+//
+//        String fname = fnameGrab.getText().toString();
+//        String lname = lnameGrab.getText().toString();
+//
+//
+//        intent.putExtra("WelcomeStringsFName", fname);
+//        intent.putExtra("WelcomeStringsLName", lname);
         startActivity(intent);
     }
     public void loginClick(View v){
@@ -58,14 +69,17 @@ public class logOn_signUp extends Activity {
         userdb.getReadableDatabase();
         String username = usernameGrab.getText().toString();
         String password = passwordGrab.getText().toString();
-
         if(userdb.userExist(username)){
+            Log.d("userdb.getUser(username)", " " + userdb.getUser(username).username);
             if(password.equals(userdb.getUser(username).password)){
+
+                Log.d("LOGIN" , " PASSED");
                 startActivity(intent);
             }
         }
 
-    finish();
+        Log.d("LOGIN" , " FAILED");
+        finish();
         startActivity(getIntent());
 
     }

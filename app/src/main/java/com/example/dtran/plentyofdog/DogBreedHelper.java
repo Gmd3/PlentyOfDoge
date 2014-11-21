@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class DogBreedHelper extends SQLiteOpenHelper
 {
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NAME = "plentyofdog";
 
     public DogBreedHelper(Context context) {
@@ -24,10 +24,10 @@ public class DogBreedHelper extends SQLiteOpenHelper
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.d("DB", "DB CREATING");
+        Log.d("DB", "DOGBREED CREATING");
         String CREATE_DOG_BREED = "CREATE TABLE DogBreed( _id INTEGER PRIMARY KEY, BreedName VARCHAR NOT NULL, HairType VARCHAR NOT NULL, Temperment VARCHAR NOT NULL, Shedding VARCHAR NOT NULL, Size VARCHAR NOT NULL)";
         db.execSQL(CREATE_DOG_BREED);
-        Log.d("DB", "DB CREATED");
+        Log.d("DB", "DOGBREED CREATED");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
