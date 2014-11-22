@@ -16,12 +16,8 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-<<<<<<< HEAD
         Log.d("DB", "DB CREATING");
-
-=======
         Log.d("DB", "DB CREATING ALL DATABASES");
->>>>>>> origin/master
         //create the tables
         String CREATE_DOG_BREED = "CREATE TABLE DogBreed( _id INTEGER PRIMARY KEY, BreedName VARCHAR NOT NULL, HairType VARCHAR NOT NULL, Temperment VARCHAR NOT NULL, Shedding VARCHAR NOT NULL, Size VARCHAR NOT NULL)";
         db.execSQL(CREATE_DOG_BREED);
