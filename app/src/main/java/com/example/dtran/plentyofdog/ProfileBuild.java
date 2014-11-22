@@ -124,10 +124,10 @@ public class ProfileBuild extends Activity {
             errors++;
         if(lastname.equals(""))
             errors++;
-        if(password.equals(confirm))
+        if(!password.equals(confirm))
             errors++;
 
-        if(errors < 1) {
+        if(errors == 0) {
             Calendar c = Calendar.getInstance();
             SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
             intent.putExtra("age", age);
@@ -154,10 +154,8 @@ public class ProfileBuild extends Activity {
             Log.d("Leaving ", "Activity");
 
             startActivity(intent);
-
+            Log.d("OYROHRWOTHORTOHRTOHRTH", "EGAERARGEARGAERGAERGAERGAE");
         }
-        finish();
-        startActivity(getIntent());
     }
 
 }

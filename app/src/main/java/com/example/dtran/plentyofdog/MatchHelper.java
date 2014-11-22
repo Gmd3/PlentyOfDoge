@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class MatchHelper extends SQLiteOpenHelper
 {
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NAME = "plentyofdog";
 
     public MatchHelper(Context context) {
@@ -24,10 +24,10 @@ public class MatchHelper extends SQLiteOpenHelper
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.d("DB", "DB CREATING");
+        Log.d("DB", "MATCH CREATING");
         String CREATE_MATCH_TABLE = "CREATE TABLE Match( _id INTEGER PRIMARY KEY, UserID INTEGER NOT NULL, DogID INTEGER NOT NULL, Matched BOOLEAN NOT NULL, DateMatched DATE NOT NULL)";
         db.execSQL(CREATE_MATCH_TABLE);
-        Log.d("DB", "DB CREATED");
+        Log.d("DB", "MATCH CREATED");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
