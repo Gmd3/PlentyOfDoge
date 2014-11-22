@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class logOn_signUp extends Activity {
@@ -49,16 +50,6 @@ public class logOn_signUp extends Activity {
     }
     public void signUpClick(View v){
         Intent intent = new Intent(this, WelcomeScreen.class);
-//        EditText fnameGrab = (EditText)findViewById(R.id.firstNameInput);
-//        EditText lnameGrab = (EditText)findViewById(R.id.lasttNameInput);
-//
-//
-//        String fname = fnameGrab.getText().toString();
-//        String lname = lnameGrab.getText().toString();
-//
-//
-//        intent.putExtra("WelcomeStringsFName", fname);
-//        intent.putExtra("WelcomeStringsLName", lname);
         startActivity(intent);
     }
     public void loginClick(View v){
@@ -74,13 +65,15 @@ public class logOn_signUp extends Activity {
             if(password.equals(userdb.getUser(username).password)){
 
                 Log.d("LOGIN" , " PASSED");
+                intent.putExtra("username", userdb.getUser(username).ownerId);
                 startActivity(intent);
             }
         }
 
-        Log.d("LOGIN" , " FAILED");
-        finish();
-        startActivity(getIntent());
+        passwordGrab.setText("");
+        Toast.makeText(getApplicationContext(),"Password or Username is incorrect",Toast.LENGTH_SHORT).show();
+        Log.d("LOGIN", " FAILED");
+
 
     }
 }

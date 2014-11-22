@@ -15,7 +15,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/Email"
         android:id="@+id/lblemail"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="40dp"
+        android:textColor="#ff57adff" />
 
     <EditText
         android:layout_width="fill_parent"
@@ -23,7 +24,7 @@
         android:id="@+id/usernameInput"
         android:width="250dp"
         android:layout_below="@+id/lblemail"
-        />
+        android:textColor="#ff57adff" />
 
     <EditText
         android:layout_width="fill_parent"
@@ -31,14 +32,16 @@
         android:id="@+id/passwordInput"
         android:width="250dp"
         android:layout_below="@+id/lblpassword"
-        android:password="true" />
+        android:password="true"
+        android:textColor="#ff57adff" />
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/password"
         android:id="@+id/lblpassword"
-        android:layout_below="@+id/usernameInput"/>
+        android:layout_below="@+id/usernameInput"
+        android:textColor="#ff57adff" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -55,7 +58,10 @@
             android:layout_margin="4dp"
             android:text="Sign In"
             style=""
-            android:onClick="loginClick" />
+            android:onClick="loginClick"
+            android:textColor="#ff57adff"
+            android:background="#fffff3a3"
+            android:textSize="30sp" />
         <Button
             android:id="@+id/btnSignUp"
             android:layout_width="match_parent"
@@ -64,7 +70,10 @@
             android:layout_margin="4dp"
             android:text="Sign Up"
             style=""
-            android:onClick="signUpClick"/>
+            android:onClick="signUpClick"
+            android:textColor="#ff57adff"
+            android:background="#fffff3a3"
+            android:textSize="30sp" />
 
     </LinearLayout>
 
