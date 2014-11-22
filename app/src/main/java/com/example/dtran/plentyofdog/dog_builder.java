@@ -46,42 +46,52 @@ public class dog_builder extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void dogPicker(View v){
+    public void submit(View v){
 
-        Intent WelcomeScreenintent = getIntent();
+        Intent UserIntent = getIntent();
 
         Intent intent = new Intent(this, home_screen.class);
 
+        EditText nameGrab = (EditText)findViewById(R.id.nameInput);
         EditText ageGrab = (EditText)findViewById(R.id.ageInput);
-        EditText hometownGrab = (EditText)findViewById(R.id.hometownInput);
-        EditText descGrab = (EditText)findViewById(R.id.shortDesc);
         EditText genderGrab = (EditText)findViewById(R.id.genderInput);
+        EditText trainingGrab = (EditText)findViewById(R.id.trainingInput);
+        EditText sizeGrab = (EditText)findViewById(R.id.sizeInput);
         EditText emailGrab = (EditText)findViewById(R.id.emailInput);
-        EditText phoneGrab = (EditText)findViewById(R.id.phoneInput);
-        Spinner yoeGrab = (Spinner)findViewById(R.id.yoeInput);
+        EditText activityGrab = (EditText)findViewById(R.id.activityInput);
+        Spinner breedGrab = (Spinner)findViewById(R.id.breedInput);
+        EditText descGrab = (EditText)findViewById(R.id.dogDesc);
 
-        String hometown = hometownGrab.getText().toString();
-        String desc = descGrab.getText().toString();
-        String age = ageGrab.getText().toString();
+        int userID = UserIntent.getIntExtra("userID", 1);
+        String name = nameGrab.getText().toString();
+        String breed = breedGrab.getSelectedItem().toString();
+        String ageString = ageGrab.getText().toString();
         String gender = genderGrab.getText().toString();
-        String email = emailGrab.getText().toString();
-        String phone = phoneGrab.getText().toString();
-        String xp = yoeGrab.getSelectedItem().toString();
-        String firstname = WelcomeScreenintent.getStringExtra("WelcomeStringsFName");
-        String lastname  = WelcomeScreenintent.getStringExtra("WelcomeStringsLName");
+        String size = sizeGrab.getText().toString();
+        String training = trainingGrab.getText().toString();
+        String activity = activityGrab.getText().toString();
+        String desc = descGrab.getText().toString();
 
-        Calendar c = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+        Integer age = Integer.valueOf(ageString);
+
+        /*
+        intent.putExtra("userID", userID);
+        intent.putExtra("name", name);
+        intent.putExtra("breed", breed);
         intent.putExtra("age", age);
-        intent.putExtra("hometown", hometown);
-        intent.putExtra("desc", desc);
-        intent.putExtra("xp", xp);
         intent.putExtra("gender", gender);
-        intent.putExtra("email", email);
-        intent.putExtra("phone", phone);
-        SimpleDateFormat s = new SimpleDateFormat("ddMMyyyy");
-        String date = s.format(new Date());
+        intent.putExtra("size", size);
+        intent.putExtra("training", training);
+        intent.putExtra("gender", gender);
+        intent.putExtra("activity", activity);
+        intent.putExtra("desc", desc);
+        */
 
+        Dog newDog = new Dog(name, breed, age, gender, size, training, activity, desc, "asd", "today", "");
+
+        DogHelper db = new DogHelper(getApplicationContext());
+
+        db.addDog(newDog);
 
         startActivity(intent);
     }

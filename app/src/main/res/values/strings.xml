@@ -28,7 +28,6 @@
     <string name="description">Short description of yourself</string>
     <string name="title_activity_dog_filter">DogFilter</string>
 
-
     <string-array name="xp_lvl">
         <item>Puppey</item>
         <item>Dog</item>
@@ -90,5 +89,7 @@
     </string-array>
 
     <string name="title_activity_log_on_sign_up">logOn_signUp</string>
+    <string name="title_activity_image_uploader">ImageUploader</string>
+    <string name="title_activity_my_dogs">MyDogs</string>
 
 </resources>

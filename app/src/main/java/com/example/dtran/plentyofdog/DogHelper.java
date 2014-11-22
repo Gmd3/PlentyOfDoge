@@ -25,7 +25,7 @@ public class DogHelper extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.d("DB", "DB CREATING");
-        String CREATE_DOG_TABLE = "CREATE TABLE Dog ( _id INTEGER PRIMARY KEY, Name VARCHAR NOT NULL, Age INTEGER NOT NULL, Size VARCHAR NOT NULL, Training VARCHAR NOT NULL, ActivityLevel VARCHAR NOT NULL, Description VARCHAR NOT NULL NOT NULL, Area VARCHAR NOT NULL, DateCreated DATE NOT NULL, LastEditted DATE)";
+        String CREATE_DOG_TABLE = "CREATE TABLE Dog ( _id INTEGER PRIMARY KEY, Name VARCHAR NOT NULL, Breed VARCHAR NOT NULL, Age INTEGER NOT NULL, Gender VARCHAR NOT NULL, Size VARCHAR NOT NULL, Training VARCHAR NOT NULL, ActivityLevel VARCHAR NOT NULL, Description VARCHAR NOT NULL NOT NULL, Area VARCHAR NOT NULL, DateCreated DATE NOT NULL, LastEditted DATE)";
         db.execSQL(CREATE_DOG_TABLE);
         Log.d("DB", "DB CREATED");
     }
@@ -39,13 +39,16 @@ public class DogHelper extends SQLiteOpenHelper
 
         ContentValues values = new ContentValues();
         values.put("Name", dog.name);
+        values.put("Breed", dog.breed);
         values.put("Age", dog.age);
-        values.put("Size", dog.training);
-        values.put("Age", dog.activitylevel);
+        values.put("Gender", dog.gender);
+        values.put("Size", dog.size);
+        values.put("Training", dog.training);
+        values.put("ActivityLevel", dog.activitylevel);
+        values.put("Description", dog.description);
         values.put("Area", dog.area);
         values.put("DateCreated", dog.datecreated);
         values.put("LastEdited", dog.lasteditted);
-        values.put("Description", dog.description);
 
         db.insert("Dog", null, values);
         db.close();
@@ -59,10 +62,15 @@ public class DogHelper extends SQLiteOpenHelper
         Dog dog = new Dog(
                 cursor.getString(0)
                 ,cursor.getString(1)
-                ,cursor.getString(2)
+                ,cursor.getInt(2)
+                ,cursor.getString(3)
+                ,cursor.getString(4)
+                ,cursor.getString(5)
                 ,cursor.getString(6)
                 ,cursor.getString(7)
                 ,cursor.getString(8)
+                ,cursor.getString(9)
+                ,cursor.getString(10)
         );
         cursor.close();
         return dog;
@@ -77,12 +85,18 @@ public class DogHelper extends SQLiteOpenHelper
         if(cursor.moveToFirst()){
             do {
                 Dog dog = new Dog(
-                        cursor.getString(0)
-                        ,cursor.getString(1)
-                        ,cursor.getString(2)
-                        ,cursor.getString(6)
-                        ,cursor.getString(7)
-                        ,cursor.getString(8));
+                    cursor.getString(0)
+                    ,cursor.getString(1)
+                    ,cursor.getInt(2)
+                    ,cursor.getString(3)
+                    ,cursor.getString(4)
+                    ,cursor.getString(5)
+                    ,cursor.getString(6)
+                    ,cursor.getString(7)
+                    ,cursor.getString(8)
+                    ,cursor.getString(9)
+                    ,cursor.getString(10)
+                );
                 dogList.add(dog);
             }while(cursor.moveToNext());
         }
@@ -101,13 +115,17 @@ public class DogHelper extends SQLiteOpenHelper
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("Name", dog.name);
+        values.put("Breed", dog.breed);
         values.put("Age", dog.age);
-        values.put("Size", dog.training);
-        values.put("Age", dog.activitylevel);
+        values.put("Gender", dog.gender);
+        values.put("Size", dog.size);
+        values.put("Training", dog.training);
+        values.put("ActivityLevel", dog.activitylevel);
+        values.put("Description", dog.description);
         values.put("Area", dog.area);
         values.put("DateCreated", dog.datecreated);
         values.put("LastEdited", dog.lasteditted);
-        values.put("Description", dog.description);
+
 
         return db.update("Dog", values, "_id = ?", new String[]{String.valueOf(dog.id)});
     }

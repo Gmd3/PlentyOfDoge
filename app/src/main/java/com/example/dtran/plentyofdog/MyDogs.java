@@ -8,21 +8,19 @@ import android.view.MenuItem;
 import android.view.View;
 
 
-public class home_screen extends Activity {
-    Intent userIntent;
+public class MyDogs extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_screen);
-        userIntent = getIntent();
+        setContentView(R.layout.activity_my_dogs);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home_screen, menu);
+        getMenuInflater().inflate(R.menu.my_dogs, menu);
         return true;
     }
 
@@ -38,13 +36,13 @@ public class home_screen extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void dogBuild(View view){
+    public void newDog(View view){
         Intent dogIntent = new Intent(this, dog_builder.class);
         startActivity(dogIntent);
     }
 
-    public void myDogs(View view){
-        Intent home = new Intent(this, MyDogs.class);
+    public void backHome(View view){
+        Intent home = new Intent(this, home_screen.class);
         startActivity(home);
     }
 }

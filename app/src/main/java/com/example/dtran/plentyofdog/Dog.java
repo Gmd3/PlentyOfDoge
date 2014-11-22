@@ -4,8 +4,24 @@ package com.example.dtran.plentyofdog;
  * Created by dtran on 14-11-11.
  */
 public class Dog {
+    public static final String COLUMN_NAME_DOG_ID = "id";
+    public static final String COLUMN_NAME = "name";
+    public static final String COLUMN_LASTNAME = "breed";
+    public static final String COLUMN_AGE = "age";
+    public static final String COLUMN_GENDER = "gender";
+    public static final String COLUMN_SIZE = "size";
+    public static final String COLUMN_TRAINING = "training";
+    public static final String COLUMN_ACTIVITYLEVEL = "activitylevel";
+    public static final String COLUMN_DESCRIPTION = "description";
+    public static final String COLUMN_AREA = "area";
+    public static final String COLUMN_DATE_CREATED = "datecreated";
+    public static final String COLUMN_LAST_EDITTED = "lasteddited";
+
+    int id;
     String name;
+    String breed;
     int age;
+    String gender;
     String size;
     String training;
     String activitylevel;
@@ -13,89 +29,25 @@ public class Dog {
     String area;
     String datecreated;
     String lasteditted;
-    int id;
 
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public String getTraining() {
-        return training;
-    }
-
-    public void setTraining(String training) {
-        this.training = training;
-    }
-
-    public String getActivitylevel() {
-        return activitylevel;
-    }
-
-    public void setActivitylevel(String activitylevel) {
-        this.activitylevel = activitylevel;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-
-    public String getArea() {
-        return area;
-    }
-
-    public void setArea(String area) {
-        this.area = area;
-    }
-
-    public String getDatecreated() {
-        return datecreated;
-    }
-
-    public void setDatecreated(String datecreated) {
-        this.datecreated = datecreated;
-    }
-
-    public String getLasteditted() {
-        return lasteditted;
-    }
-
-    public void setLasteditted(String lasteditted) {
-        this.lasteditted = lasteditted;
-    }
-
-
-public Dog(    String training,
+public Dog(
+        String name,
+        String breed,
+        int age,
+        String gender,
+        String size,
+        String training,
         String activitylevel,
         String description,
         String area,
         String datecreated,
         String lasteditted){
+    this.name = name;
+    this.breed = breed;
+    this.age = age;
+    this.gender = gender;
+    this.size = size;
     this.training = training;
     this.activitylevel = activitylevel;
     this.description = description;

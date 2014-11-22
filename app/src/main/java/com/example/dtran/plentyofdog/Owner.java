@@ -65,6 +65,7 @@ public class Owner {
     public void setLastEdited(String lastEdited) {
         this.lastEdited = lastEdited;
     }
+
     int id;
     String firstName;
     String lastName;

@@ -11,14 +11,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight=".18"
+        android:layout_weight=".1"
         android:orientation="horizontal">
         <TextView
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="40dip"
+            android:textSize="30dip"
             android:text="@string/dog_showcase"
             android:id="@+id/lblWelcomeTo" />
     </LinearLayout>
@@ -108,14 +108,62 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/training"
             android:gravity="center"
-            android:id="@+id/lblEmail" />
+            android:id="@+id/lblTraining" />
 
         <EditText
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight=".7"
             android:gravity="center"
-            android:id="@+id/emailInput"
+            android:id="@+id/trainingInput"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".05"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".3"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/size"
+            android:gravity="center"
+            android:id="@+id/lblSize" />
+
+        <EditText
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".7"
+            android:gravity="center"
+            android:id="@+id/sizeInput"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".05"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".3"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/activityLevel"
+            android:gravity="center"
+            android:id="@+id/lblActivity" />
+
+        <EditText
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".7"
+            android:gravity="center"
+            android:id="@+id/activityInput"
             />
     </LinearLayout>
 
@@ -134,7 +182,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/dog_breed"
             android:gravity="center"
-            android:id="@+id/lblYOE" />
+            android:id="@+id/lblBreed" />
 
         <Spinner
             android:layout_width="0dip"
@@ -142,7 +190,7 @@
             android:layout_weight=".7"
             android:gravity="center"
             android:entries="@array/breeds"
-            android:id="@+id/yoeInput"/>
+            android:id="@+id/breedInput"/>
     </LinearLayout>
 
     <LinearLayout
@@ -164,7 +212,7 @@
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
             android:ems="10"
-            android:id="@+id/shortDesc"
+            android:id="@+id/dogDesc"
             android:gravity="center"
             android:layout_gravity="center_horizontal" />
 
@@ -182,7 +230,7 @@
             android:text="Done"
             android:id="@+id/btnNext"
             android:layout_gravity="right"
-            android:onClick="done"/>
+            android:onClick="submit"/>
     </LinearLayout>
 
 </LinearLayout>

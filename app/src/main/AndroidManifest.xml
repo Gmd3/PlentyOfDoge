@@ -30,6 +30,11 @@
         <activity
             android:name=".home_screen"
             android:label="@string/title_activity_home_screen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".dog_builder"
@@ -38,11 +43,14 @@
         <activity
             android:name=".logOn_signUp"
             android:label="@string/title_activity_log_on_sign_up" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ImageUploader"
+            android:label="@string/title_activity_image_uploader" >
+        </activity>
+        <activity
+            android:name=".MyDogs"
+            android:label="@string/title_activity_my_dogs" >
         </activity>
     </application>
 

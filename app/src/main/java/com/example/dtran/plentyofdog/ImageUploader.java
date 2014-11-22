@@ -1,28 +1,24 @@
 package com.example.dtran.plentyofdog;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 
-public class home_screen extends Activity {
-    Intent userIntent;
+public class ImageUploader extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_screen);
-        userIntent = getIntent();
+        setContentView(R.layout.activity_image_uploader);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home_screen, menu);
+        getMenuInflater().inflate(R.menu.image_uploader, menu);
         return true;
     }
 
@@ -36,15 +32,5 @@ public class home_screen extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    public void dogBuild(View view){
-        Intent dogIntent = new Intent(this, dog_builder.class);
-        startActivity(dogIntent);
-    }
-
-    public void myDogs(View view){
-        Intent home = new Intent(this, MyDogs.class);
-        startActivity(home);
     }
 }
