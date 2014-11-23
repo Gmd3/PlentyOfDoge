@@ -6,8 +6,8 @@
 
     <ImageView
         android:id="@+id/img"
-        android:layout_width="50dip"
-        android:layout_height="50dip"
+        android:layout_width="100dip"
+        android:layout_height="200dip"
         android:layout_alignParentBottom="true"
         android:layout_alignParentTop="true"
         android:layout_marginRight="6dip"
@@ -16,7 +16,7 @@
     <TextView
         android:id="@+id/dog_simple_name"
         android:layout_width="fill_parent"
-        android:layout_height="25dip"
+        android:layout_height="100dip"
 
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
@@ -30,7 +30,7 @@
         android:id="@+id/status"
         android:layout_width="fill_parent"
         android:layout_below="@id/status"
-        android:layout_height="25dip"
+        android:layout_height="100dip"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@id/img"

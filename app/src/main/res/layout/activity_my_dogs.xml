@@ -17,7 +17,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Add new dog"
-            android:id="@+id/btnNo"
+            android:id="@+id/btnNewDog"
             android:onClick="newDog" />
 
     </LinearLayout>
