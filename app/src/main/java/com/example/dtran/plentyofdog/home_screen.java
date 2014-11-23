@@ -41,6 +41,7 @@ public class home_screen extends Activity {
 
     public void dogBuild(View view){
         Intent dogIntent = new Intent(this, dog_builder.class);
+        dogIntent.putExtra("username", userIntent.getStringExtra("username"));
         startActivity(dogIntent);
     }
     public void setPreference(View view){
@@ -51,6 +52,7 @@ public class home_screen extends Activity {
 
     public void myDogs(View view){
         Intent home = new Intent(this, MyDogs.class);
+        home.putExtra("username", userIntent.getStringExtra("username"));
         startActivity(home);
     }
 }
