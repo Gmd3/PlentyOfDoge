@@ -20,7 +20,8 @@
             android:gravity="center"
             android:textSize="30dip"
             android:text="@string/dog_showcase"
-            android:id="@+id/lblWelcomeTo" />
+            android:id="@+id/lblWelcomeTo"
+            android:textColor="#ff57adff" />
     </LinearLayout>
 
     <LinearLayout
@@ -36,14 +37,16 @@
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/dog_name"
-            android:id="@+id/lblName" />
+            android:id="@+id/lblName"
+            android:textColor="#ff57adff" />
 
         <EditText
             android:layout_width="0dip"
             android:layout_height="match_parent"
-            android:layout_weight=".7"
+            android:layout_weight="0.65"
             android:gravity="center"
-            android:id="@+id/nameInput" />
+            android:id="@+id/nameInput"
+            android:textColor="#ff57adff" />
     </LinearLayout>
 
     <LinearLayout
@@ -59,15 +62,17 @@
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/Age"
-            android:id="@+id/lblAge" />
+            android:id="@+id/lblAge"
+            android:textColor="#ff57adff" />
 
         <EditText
             android:layout_width="0dip"
             android:layout_height="match_parent"
-            android:layout_weight=".7"
+            android:layout_weight="0.65"
             android:gravity="center"
             android:inputType="number"
-            android:id="@+id/ageInput" />
+            android:id="@+id/ageInput"
+            android:textColor="#ff57adff" />
     </LinearLayout>
 
 
@@ -84,15 +89,16 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/Gender"
             android:gravity="center"
-            android:id="@+id/lblGender" />
+            android:id="@+id/lblGender"
+            android:textColor="#ff57adff" />
 
         <EditText
             android:layout_width="0dip"
             android:layout_height="match_parent"
-            android:layout_weight=".7"
+            android:layout_weight="0.65"
             android:gravity="center"
             android:id="@+id/genderInput"
-            />
+            android:textColor="#ff57adff" />
     </LinearLayout>
 
     <LinearLayout
@@ -108,15 +114,16 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/training"
             android:gravity="center"
-            android:id="@+id/lblTraining" />
+            android:id="@+id/lblTraining"
+            android:textColor="#ff57adff" />
 
         <EditText
             android:layout_width="0dip"
             android:layout_height="match_parent"
-            android:layout_weight=".7"
+            android:layout_weight="0.65"
             android:gravity="center"
             android:id="@+id/trainingInput"
-            />
+            android:textColor="#ff57adff" />
     </LinearLayout>
 
     <LinearLayout
@@ -132,15 +139,16 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/size"
             android:gravity="center"
-            android:id="@+id/lblSize" />
+            android:id="@+id/lblSize"
+            android:textColor="#ff57adff" />
 
-        <EditText
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight=".7"
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
             android:gravity="center"
-            android:id="@+id/sizeInput"
-            />
+            android:entries="@array/sizes"
+            android:id="@+id/spinner1" />
     </LinearLayout>
 
     <LinearLayout
@@ -154,17 +162,19 @@
             android:layout_height="match_parent"
             android:layout_weight=".3"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/activityLevel"
+            android:text="@string/temperament"
             android:gravity="center"
-            android:id="@+id/lblActivity" />
+            android:id="@+id/lblActivity"
+            android:textColor="#ff57adff" />
 
-        <EditText
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight=".7"
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
             android:gravity="center"
-            android:id="@+id/activityInput"
-            />
+            android:entries="@array/temperaments"
+            android:id="@+id/spinner2" />
+
     </LinearLayout>
 
 
@@ -182,12 +192,13 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/dog_breed"
             android:gravity="center"
-            android:id="@+id/lblBreed" />
+            android:id="@+id/lblBreed"
+            android:textColor="#ff57adff" />
 
         <Spinner
             android:layout_width="0dip"
             android:layout_height="match_parent"
-            android:layout_weight=".7"
+            android:layout_weight=".6"
             android:gravity="center"
             android:entries="@array/breeds"
             android:id="@+id/breedInput"/>
@@ -205,7 +216,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/dog_description"
-            android:id="@+id/textView3" />
+            android:id="@+id/textView3"
+            android:textColor="#ff57adff" />
 
         <EditText
             android:layout_width="match_parent"
@@ -214,7 +226,8 @@
             android:ems="10"
             android:id="@+id/dogDesc"
             android:gravity="center"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:textColor="#ff57adff" />
 
     </LinearLayout>
 
@@ -230,7 +243,10 @@
             android:text="Done"
             android:id="@+id/btnNext"
             android:layout_gravity="right"
-            android:onClick="submit"/>
+            android:onClick="submit"
+            android:textColor="#ff57adff"
+            android:background="#fffff3a3"
+            android:textSize="25dp" />
     </LinearLayout>
 
 </LinearLayout>

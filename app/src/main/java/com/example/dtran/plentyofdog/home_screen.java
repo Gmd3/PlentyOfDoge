@@ -16,6 +16,7 @@ public class home_screen extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
         userIntent = getIntent();
+
     }
 
 
@@ -41,6 +42,11 @@ public class home_screen extends Activity {
     public void dogBuild(View view){
         Intent dogIntent = new Intent(this, dog_builder.class);
         startActivity(dogIntent);
+    }
+    public void setPreference(View view){
+        Intent intent = new Intent(this, DogFilter.class);
+        intent.putExtra("username", userIntent.getStringExtra("username"));
+        startActivity(intent);
     }
 
     public void myDogs(View view){

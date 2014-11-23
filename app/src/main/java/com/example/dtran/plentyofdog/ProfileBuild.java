@@ -82,7 +82,7 @@ public class ProfileBuild extends Activity {
         int errors = 0;
         Intent WelcomeScreenintent = getIntent();
 
-        Intent intent = new Intent(this, home_screen.class);
+        Intent intent = new Intent(this, DogFilter.class);
 
         EditText ageGrab = (EditText)findViewById(R.id.ageInput);
         EditText hometownGrab = (EditText)findViewById(R.id.hometownInput);
@@ -150,11 +150,11 @@ public class ProfileBuild extends Activity {
                 String log = "ID: " + o.id + "\n";
                 Log.d("LOG id : ", log);
             }
+            intent.putExtra("username", email);
 
             Log.d("Leaving ", "Activity");
 
             startActivity(intent);
-            Log.d("OYROHRWOTHORTOHRTOHRTH", "EGAERARGEARGAERGAERGAERGAE");
         }
     }
 

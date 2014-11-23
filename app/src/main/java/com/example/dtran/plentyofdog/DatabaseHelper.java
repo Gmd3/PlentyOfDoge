@@ -21,7 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         //create the tables
         String CREATE_DOG_BREED = "CREATE TABLE DogBreed( _id INTEGER PRIMARY KEY, BreedName VARCHAR NOT NULL, HairType VARCHAR NOT NULL, Temperment VARCHAR NOT NULL, Shedding VARCHAR NOT NULL, Size VARCHAR NOT NULL)";
         db.execSQL(CREATE_DOG_BREED);
-        String CREATE_DOG_TABLE = "CREATE TABLE Dog ( _id INTEGER PRIMARY KEY, Name VARCHAR NOT NULL, Breed VARCHAR NOT NULL, Age INTEGER NOT NULL, Gender VARCHAR NOT NULL, Size VARCHAR NOT NULL, Training VARCHAR NOT NULL, ActivityLevel VARCHAR NOT NULL, Description VARCHAR NOT NULL NOT NULL, Area VARCHAR NOT NULL, DateCreated DATE NOT NULL, LastEditted DATE)";
+        String CREATE_DOG_TABLE = "CREATE TABLE Dog ( _id INTEGER PRIMARY KEY, Name VARCHAR NOT NULL, Breed VARCHAR NOT NULL, Age INTEGER NOT NULL, Gender VARCHAR NOT NULL, Size VARCHAR NOT NULL, Training VARCHAR NOT NULL, Temperament VARCHAR NOT NULL, Description VARCHAR NOT NULL NOT NULL, Area VARCHAR NOT NULL, DateCreated DATE NOT NULL, LastEditted DATE)";
         db.execSQL(CREATE_DOG_TABLE);
         String CREATE_DOG_OWNER = "CREATE TABLE DogOwner( _id INTEGER PRIMARY KEY, DogID INTEGER NOT NULL, OwnerID INTEGER NOT NULL, DateCreated DATE NOT NULL, LastEditted DATE, Status VARCHAR NOT NULL)";
         db.execSQL(CREATE_DOG_OWNER);
@@ -33,6 +33,8 @@ public class DatabaseHelper extends SQLiteOpenHelper
         db.execSQL(CREATE_PET_NOTE);
         String CREATE_USER_TABLE = "CREATE TABLE User( _id INTEGER PRIMARY KEY, Username VARCHAR NOT NULL, Password VARCHAR NOT NULL, OwnerID INTEGER NOT NULL)";
         db.execSQL(CREATE_USER_TABLE);
+        String CREATE_PREFERENCE = "CREATE TABLE Preference( _id INTEGER PRIMARY KEY, Size VARCHAR, HairType VARCHAR, Temperament VARCHAR, UserID INTEGER";
+        db.execSQL(CREATE_PREFERENCE);
 
         Log.d("DB", "DB CREATED");
     }

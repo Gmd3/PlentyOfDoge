@@ -18,9 +18,10 @@
             android:layout_height="94dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="20dip"
+            android:textSize="25dip"
             android:text="@string/LetsBuildYourProfile"
-            android:id="@+id/lblWelcomeTo" />
+            android:id="@+id/lblWelcomeTo"
+            android:textColor="#ff57adff" />
     </LinearLayout>
 
     <LinearLayout
@@ -37,7 +38,8 @@
             android:text="@string/Email"
             android:gravity="center"
             android:id="@+id/lblEmail"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:textColor="#ff57adff" />
 
         <EditText
             android:layout_width="0dip"
@@ -45,7 +47,7 @@
             android:layout_weight=".7"
             android:gravity="center"
             android:id="@+id/emailInput"
-            />
+            android:textColor="#ff57adff" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -61,7 +63,8 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/password"
             android:id="@+id/lblpassword"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:textColor="#ff57adff" />
 
         <EditText
             android:layout_width="0dip"
@@ -69,7 +72,8 @@
             android:layout_weight=".7"
             android:gravity="center"
             android:inputType="textPassword"
-            android:id="@+id/lblpasswordinput" />
+            android:id="@+id/lblpasswordinput"
+            android:textColor="#ff57adff" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -85,7 +89,8 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/password2"
             android:id="@+id/lblpassword2"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:textColor="#ff57adff" />
 
         <EditText
             android:layout_width="0dip"
@@ -93,7 +98,8 @@
             android:layout_weight=".7"
             android:gravity="center"
             android:inputType="textPassword"
-            android:id="@+id/lblpasswordinput2" />
+            android:id="@+id/lblpasswordinput2"
+            android:textColor="#ff57adff" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -109,7 +115,8 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/Age"
             android:id="@+id/lblAge"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:textColor="#ff57adff" />
 
         <EditText
             android:layout_width="0dip"
@@ -117,7 +124,8 @@
             android:layout_weight=".7"
             android:gravity="center"
             android:inputType="number"
-            android:id="@+id/ageInput" />
+            android:id="@+id/ageInput"
+            android:textColor="#ff57adff" />
     </LinearLayout>
 
     <LinearLayout
@@ -134,7 +142,8 @@
             android:text="@string/Hometown"
             android:gravity="center"
             android:id="@+id/lblHometown"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:textColor="#ff57adff" />
 
         <EditText
             android:layout_width="0dip"
@@ -142,7 +151,7 @@
             android:layout_weight=".7"
             android:gravity="center"
             android:id="@+id/hometownInput"
-            />
+            android:textColor="#ff57adff" />
     </LinearLayout>
 
     <LinearLayout
@@ -159,7 +168,8 @@
             android:text="@string/Gender"
             android:gravity="center"
             android:id="@+id/lblGender"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:textColor="#ff57adff" />
 
         <EditText
             android:layout_width="0dip"
@@ -167,7 +177,7 @@
             android:layout_weight=".7"
             android:gravity="center"
             android:id="@+id/genderInput"
-            />
+            android:textColor="#ff57adff" />
     </LinearLayout>
 
 
@@ -185,7 +195,8 @@
             android:text="@string/Phone"
             android:gravity="center"
             android:id="@+id/lblPhone"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:textColor="#ff57adff" />
 
         <EditText
             android:layout_width="0dip"
@@ -194,7 +205,7 @@
             android:gravity="center"
             android:inputType="phone"
             android:id="@+id/phoneInput"
-            />
+            android:textColor="#ff57adff" />
     </LinearLayout>
 
     <LinearLayout
@@ -211,7 +222,8 @@
             android:text="@string/YOE"
             android:gravity="center"
             android:id="@+id/lblYOE"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:textColor="#ff57adff" />
 
         <Spinner
             android:layout_width="0dip"
@@ -235,7 +247,8 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/description"
             android:id="@+id/textView3"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:textColor="#ff57adff" />
 
         <EditText
             android:layout_width="match_parent"
@@ -244,7 +257,8 @@
             android:ems="10"
             android:id="@+id/shortDesc"
             android:gravity="center"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:textColor="#ff57adff" />
 
     </LinearLayout>
 
@@ -260,7 +274,9 @@
             android:text="@string/next"
             android:id="@+id/btnNext"
             android:layout_gravity="right"
-            android:onClick="dogPicker"/>
+            android:onClick="dogPicker"
+            android:textColor="#ff57adff"
+            android:background="#fffff3a3" />
     </LinearLayout>
 
 </LinearLayout>

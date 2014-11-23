@@ -3,17 +3,11 @@ package com.example.dtran.plentyofdog;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 
 public class dog_builder extends Activity {
@@ -56,9 +50,9 @@ public class dog_builder extends Activity {
         EditText ageGrab = (EditText)findViewById(R.id.ageInput);
         EditText genderGrab = (EditText)findViewById(R.id.genderInput);
         EditText trainingGrab = (EditText)findViewById(R.id.trainingInput);
-        EditText sizeGrab = (EditText)findViewById(R.id.sizeInput);
+        EditText sizeGrab = (EditText)findViewById(R.id.spinner1);
         EditText emailGrab = (EditText)findViewById(R.id.emailInput);
-        EditText activityGrab = (EditText)findViewById(R.id.activityInput);
+        EditText activityGrab = (EditText)findViewById(R.id.spinner2);
         Spinner breedGrab = (Spinner)findViewById(R.id.breedInput);
         EditText descGrab = (EditText)findViewById(R.id.dogDesc);
 

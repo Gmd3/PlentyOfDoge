@@ -49,6 +49,8 @@
     <string name="mellow">Mellow</string>
     <string name="hyper">Hyper</string>
     <string name="title_activity_splash">Splash</string>
+    <string name="save">Save</string>
+
 
     <!-- Home Screen -->
     <string name="home">Home Screen</string>
@@ -61,6 +63,7 @@
     <!-- Set Dog Preferences -->
     <string name="shortTip">Short tip ...</string>
     <string name="title_activity_dog_selection">DogSelection</string>
+    <string name="skip">Skip</string>
 
     <!-- Dog Browser -->
     <string name="settings">Settings</string>
@@ -87,6 +90,25 @@
         <item>Dog</item>
         <item>Shuper Doge</item>
     </string-array>
+    <string-array name="temperaments">
+        <item>No Preference</item>
+        <item>Mellow</item>
+        <item>Hyper</item>
+    </string-array>
+    <string-array name="sizes">
+        <item>No Preference</item>
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
+    <string-array name="hairtypes">
+        <item>No Preference</item>
+        <item>Short-haired</item>
+        <item>Long-haired</item>
+    </string-array>
+
+
+
 
     <string name="title_activity_log_on_sign_up">logOn_signUp</string>
     <string name="title_activity_image_uploader">ImageUploader</string>

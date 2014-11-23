@@ -24,6 +24,9 @@ public class logOn_signUp extends Activity {
         db.getWritableDatabase();
         userdb = new UserHelper(this);
         userdb.getWritableDatabase();
+        DatabaseHelper AllDB = new DatabaseHelper(this);
+        AllDB.getWritableDatabase();
+
 
         Log.d("@@@@@@@@@@@@@  ----  DB", "" + userdb.getUserCount());
 
@@ -60,20 +63,22 @@ public class logOn_signUp extends Activity {
         userdb.getReadableDatabase();
         String username = usernameGrab.getText().toString();
         String password = passwordGrab.getText().toString();
-        if(userdb.userExist(username)){
+        if(userdb.userExist(username) && password.equals(userdb.getUser(username).password)){
             Log.d("userdb.getUser(username)", " " + userdb.getUser(username).username);
-            if(password.equals(userdb.getUser(username).password)){
+
 
                 Log.d("LOGIN" , " PASSED");
                 intent.putExtra("username", userdb.getUser(username).ownerId);
                 startActivity(intent);
-            }
+                finish();
+
+        } else {
+
+
+            passwordGrab.setText("");
+            Toast.makeText(getApplicationContext(), "Password or Username is incorrect", Toast.LENGTH_SHORT).show();
+            Log.d("LOGIN", " FAILED");
         }
-
-        passwordGrab.setText("");
-        Toast.makeText(getApplicationContext(),"Password or Username is incorrect",Toast.LENGTH_SHORT).show();
-        Log.d("LOGIN", " FAILED");
-
 
     }
 }

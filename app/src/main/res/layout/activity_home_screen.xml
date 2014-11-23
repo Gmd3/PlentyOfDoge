@@ -15,46 +15,68 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:id="@+id/textView" />
+        android:id="@+id/textView"
+        android:textColor="#ff57adff"/>
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/edit_profile"
         android:id="@+id/button1"
-        android:layout_below="@+id/textView"/>
+        android:layout_below="@+id/textView"
+        android:textColor="#ff57adff"
+        android:background="#fffff3a3"
+        android:textSize="30sp"
+        android:layout_marginTop="5dp" />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/set_preferences"
-        android:id="@+id/button2"
-        android:layout_below="@+id/button1" />
+        android:id="@+id/small"
+        android:layout_below="@+id/button1"
+        android:textColor="#ff57adff"
+        android:background="#fffff3a3"
+        android:textSize="30sp"
+        android:onClick="setPreference"
+        android:layout_marginTop="5dp" />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/start_browsing"
-        android:id="@+id/button3"
-        android:layout_below="@+id/button2"
-        android:onClick="dogBrowse"/>
+        android:id="@+id/medium"
+        android:layout_below="@+id/small"
+        android:onClick="dogBrowse"
+        android:textColor="#ff57adff"
+        android:background="#fffff3a3"
+        android:textSize="30sp"
+        android:layout_marginTop="5dp" />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/my_dogs"
-        android:id="@+id/button4"
-        android:layout_below="@+id/button3"
+        android:id="@+id/large"
+        android:layout_below="@+id/medium"
         android:layout_centerHorizontal="true"
-        android:onClick="myDogs"/>
+        android:onClick="myDogs"
+        android:textColor="#ff57adff"
+        android:background="#fffff3a3"
+        android:textSize="30sp"
+        android:layout_marginTop="5dp" />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/check_matches"
         android:id="@+id/button5"
-        android:layout_below="@+id/button4"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/large"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff57adff"
+        android:background="#fffff3a3"
+        android:textSize="30sp"
+        android:layout_marginTop="5dp" />
 
 
 </RelativeLayout>

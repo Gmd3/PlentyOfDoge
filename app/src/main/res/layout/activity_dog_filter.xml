@@ -21,6 +21,7 @@
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/AnyParticularDog"
+            android:textColor="#ff57adff"
             android:id="@+id/lblWelcomeTo"/>
     </LinearLayout>
 
@@ -37,6 +38,8 @@
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/size"
+
+            android:textColor="#ff57adff"
             android:id="@+id/lblSize"/>
 
     </LinearLayout>
@@ -52,33 +55,49 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight=".25"
             android:text="@string/NoPreference"
-            android:id="@+id/button"
-            android:onClick="SizeNoPref"/>
+            android:id="@+id/noSizePreference"
+            android:onClick="onSizeClick"
+            android:textColor="#ff57adff"
+            android:background="#fffff3a3"
+            android:layout_marginRight="5dp" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight=".25"
             android:text="@string/smallDog"
-            android:id="@+id/button2"
-            android:onClick="SizeSmall"/>
+            android:id="@+id/small"
+            android:onClick="onSizeClick"
+            android:textColor="#ff57adff"
+            android:background="#fffff3a3"
+            android:layout_marginRight="5dp" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight=".25"
             android:text="@string/mediumDog"
-            android:id="@+id/button3"
-            android:onClick="SizeMed"/>
+            android:id="@+id/medium"
+            android:onClick="onSizeClick"
+            android:textColor="#ff57adff"
+            android:background="#fffff3a3"
+            android:layout_marginRight="5dp" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight=".25"
             android:text="@string/largeDog"
-            android:id="@+id/button4"
-            android:onClick="SizeLarge"/>
+            android:id="@+id/large"
+            android:onClick="onSizeClick"
+            android:textColor="#ff57adff"
+            android:background="#fffff3a3"
+            android:layout_marginRight="5dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -94,6 +113,8 @@
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/hair"
+
+            android:textColor="#ff57adff"
             android:id="@+id/lblHair"
             />
 
@@ -109,26 +130,37 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight=".33"
             android:text="@string/NoPreference"
-            android:id="@+id/noPrefHair"
-            android:onClick="HairNoPref"/>
+            android:id="@+id/noHairTypePreference"
+            android:onClick="onHairTypeClick"
+            android:textColor="#ff57adff"
+            android:background="#fffff3a3"
+            android:layout_marginRight="5dp" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight=".33"
             android:text="@string/shortHaired"
-            android:id="@+id/button7"
-            android:onClick="HairShort"
-            />
+            android:id="@+id/shortHaired"
+            android:onClick="onHairTypeClick"
+            android:textColor="#ff57adff"
+            android:background="#fffff3a3"
+            android:layout_marginRight="5dp" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight=".33"
             android:text="@string/longHaired"
-            android:id="@+id/button8"
-            android:onClick="HairLong"/>
+            android:id="@+id/longHaired"
+            android:onClick="onHairTypeClick"
+            android:textColor="#ff57adff"
+            android:background="#fffff3a3"
+            android:layout_marginRight="5dp" />
 
     </LinearLayout>
 
@@ -145,6 +177,8 @@
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/temperament"
+
+            android:textColor="#ff57adff"
             android:id="@+id/lblTemperament"/>
 
     </LinearLayout>
@@ -160,25 +194,37 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight=".33"
             android:text="@string/NoPreference"
-            android:id="@+id/noPrefTemperament"
-            android:onClick="tempermentNoPreference"/>
+            android:id="@+id/noTempermentPreference"
+            android:onClick="onTemperamentClick"
+            android:textColor="#ff57adff"
+            android:background="#fffff3a3"
+            android:layout_marginRight="5dp" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight=".33"
             android:text="@string/mellow"
-            android:id="@+id/button13"
-            android:onClick="tempermentMellow"/>
+            android:id="@+id/mellow"
+            android:onClick="onTemperamentClick"
+            android:textColor="#ff57adff"
+            android:background="#fffff3a3"
+            android:layout_marginRight="5dp" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight=".33"
             android:text="@string/hyper"
-            android:id="@+id/button14"
-            android:onClick="TempermentHyper"/>
+            android:id="@+id/hyper"
+            android:onClick="onTemperamentClick"
+            android:textColor="#ff57adff"
+            android:background="#fffff3a3"
+            android:layout_marginRight="5dp" />
 
     </LinearLayout>
 
@@ -194,13 +240,26 @@
         android:layout_weight=".05"
         android:gravity="right"
         android:orientation="horizontal">
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/next"
+            android:text="@string/skip"
+            android:id="@+id/button6"
+            android:onClick="skip"
+            android:textColor="#fffff3a3"
+            android:background="#ff57adff"
+            android:layout_marginRight="15dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
             android:id="@+id/btnNext"
             android:layout_gravity="right"
-            android:onClick="proceedToDogSelection" />
+            android:onClick="save"
+            android:textColor="#fffff3a3"
+            android:background="#ff57adff" />
     </LinearLayout>
     <!--<LinearLayout-->
         <!--android:layout_width="match_parent"-->
