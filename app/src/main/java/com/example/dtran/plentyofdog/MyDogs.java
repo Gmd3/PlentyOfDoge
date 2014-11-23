@@ -2,18 +2,44 @@ package com.example.dtran.plentyofdog;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
 
 
 public class MyDogs extends Activity {
+
+    ListView list;
+    SimpleDogList adapter;
+    String[] web = {
+            "Google Plus",
+            "Twitter",
+            "Windows",
+            "Bing",
+            "Itunes",
+            "Wordpress",
+            "Drupal"
+    } ;
+    Integer[] imageId = {
+            R.drawable.ic_launcher,
+            R.drawable.ic_launcher,
+            R.drawable.ic_launcher,
+            R.drawable.husky,
+            R.drawable.ic_launcher,
+            R.drawable.ic_launcher,
+            R.drawable.ic_launcher
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_dogs);
+        new LoadMyDogs().execute("");
     }
 
 
@@ -21,6 +47,9 @@ public class MyDogs extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.my_dogs, menu);
+
+
+
         return true;
     }
 
@@ -36,6 +65,8 @@ public class MyDogs extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
+
+
     public void newDog(View view){
         Intent dogIntent = new Intent(this, dog_builder.class);
         startActivity(dogIntent);
@@ -44,5 +75,46 @@ public class MyDogs extends Activity {
     public void backHome(View view){
         Intent home = new Intent(this, home_screen.class);
         startActivity(home);
+    }
+
+    private class LoadMyDogs extends AsyncTask<String, String, String> {
+
+        private String resp;
+
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                adapter = new SimpleDogList(MyDogs.this, web, imageId);
+                list=(ListView)findViewById(R.id.list);
+                list.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view,
+                                            int position, long id) {
+                        Toast.makeText(MyDogs.this, "You Clicked at " +web[+ position], Toast.LENGTH_SHORT).show();
+                    }
+                });
+                resp = "All dogs loaded!";
+            } catch (Exception e) {
+                e.printStackTrace();
+                resp = e.getMessage();
+            }
+            return resp;
+        }
+
+
+        @Override
+        protected void onPostExecute(String result) {
+        }
+
+        @Override
+        protected void onPreExecute() {
+        }
+
+
+        @Override
+        protected void onProgressUpdate(String... text) {
+        }
     }
 }
