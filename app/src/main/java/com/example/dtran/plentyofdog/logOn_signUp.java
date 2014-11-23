@@ -24,8 +24,6 @@ public class logOn_signUp extends Activity {
         db.getWritableDatabase();
         userdb = new UserHelper(this);
         userdb.getWritableDatabase();
-        DatabaseHelper AllDB = new DatabaseHelper(this);
-        AllDB.getWritableDatabase();
 
 
         Log.d("@@@@@@@@@@@@@  ----  DB", "" + userdb.getUserCount());
@@ -68,7 +66,7 @@ public class logOn_signUp extends Activity {
 
 
                 Log.d("LOGIN" , " PASSED");
-                intent.putExtra("username", userdb.getUser(username).ownerId);
+                intent.putExtra("username", username);
                 startActivity(intent);
                 finish();
 

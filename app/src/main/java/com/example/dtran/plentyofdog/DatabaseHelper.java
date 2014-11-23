@@ -7,7 +7,7 @@ import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper
 {
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
     private static final String DATABASE_NAME = "plentyofdog";
 
     public DatabaseHelper(Context context) {
@@ -33,14 +33,20 @@ public class DatabaseHelper extends SQLiteOpenHelper
         db.execSQL(CREATE_PET_NOTE);
         String CREATE_USER_TABLE = "CREATE TABLE User( _id INTEGER PRIMARY KEY, Username VARCHAR NOT NULL, Password VARCHAR NOT NULL, OwnerID INTEGER NOT NULL)";
         db.execSQL(CREATE_USER_TABLE);
-        String CREATE_PREFERENCE = "CREATE TABLE Preference( _id INTEGER PRIMARY KEY, Size VARCHAR, HairType VARCHAR, Temperament VARCHAR, UserID INTEGER";
+        String CREATE_PREFERENCE = "CREATE TABLE Preference( _id INTEGER PRIMARY KEY, Size VARCHAR, HairType VARCHAR, Temperament VARCHAR, Username VARCHAR NOT NULL)";
         db.execSQL(CREATE_PREFERENCE);
 
         Log.d("DB", "DB CREATED");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS Owner");
+        db.execSQL("DROP TABLE IF EXISTS DogBreed");
+        db.execSQL("DROP TABLE IF EXISTS Dog");
+        db.execSQL("DROP TABLE IF EXISTS DogOwner");
+        db.execSQL("DROP TABLE IF EXISTS Match");
+        db.execSQL("DROP TABLE IF EXISTS PetNote");
+        db.execSQL("DROP TABLE IF EXISTS User");
+        db.execSQL("DROP TABLE IF EXISTS Preference");
         onCreate(db);
     }
 }

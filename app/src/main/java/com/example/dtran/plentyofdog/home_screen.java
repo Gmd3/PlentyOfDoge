@@ -3,6 +3,7 @@ package com.example.dtran.plentyofdog;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,7 @@ public class home_screen extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
         userIntent = getIntent();
+        Log.d("intent Dogfilter", " " + userIntent.getStringExtra("username"));
 
     }
 

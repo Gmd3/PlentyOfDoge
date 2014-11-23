@@ -3,6 +3,7 @@ package com.example.dtran.plentyofdog;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +19,7 @@ public class DogFilter extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dog_filter);
         userIntent = getIntent();
+        Log.d("intent Dogfilter", " " + userIntent.getStringExtra("username"));
         db = new PreferenceHelper(this);
         db.getWritableDatabase();
         preference = new Preference();
@@ -45,7 +47,7 @@ public class DogFilter extends Activity {
         return super.onOptionsItemSelected(item);
     }
     public void save(View v){
-        Intent intent = new Intent(this, DogSelection.class);
+        Intent intent = new Intent(this, home_screen.class);
         //check for the parameters in preferences
 
         if(preference.hairtype == null)
@@ -54,8 +56,15 @@ public class DogFilter extends Activity {
             preference.size = "noSize";
         if(preference.temperament== null)
             preference.temperament = "noTemperament";
+        preference.username = userIntent.getStringExtra("username");
 
-        db.addPreference(preference);
+
+        if(!db.preferenceExist(userIntent.getStringExtra("username")))
+            db.addPreference(preference);
+        else {
+            db.updatePreference(preference);
+        }
+        Log.d("count: ", "" + db.countPreference());
         intent.putExtra("username", userIntent.getStringExtra("username"));
         startActivity(intent);
     }
