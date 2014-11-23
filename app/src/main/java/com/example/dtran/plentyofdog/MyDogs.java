@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -28,11 +29,11 @@ public class MyDogs extends Activity {
     Integer[] imageId = {
             R.drawable.ic_launcher,
             R.drawable.ic_launcher,
+            R.drawable.basset,
             R.drawable.ic_launcher,
-            R.drawable.husky,
+            R.drawable.long_dog,
             R.drawable.ic_launcher,
-            R.drawable.ic_launcher,
-            R.drawable.ic_launcher
+            R.drawable.golden
     };
 
     @Override
@@ -69,6 +70,7 @@ public class MyDogs extends Activity {
 
     public void newDog(View view){
         Intent dogIntent = new Intent(this, dog_builder.class);
+
         startActivity(dogIntent);
     }
 
@@ -83,19 +85,24 @@ public class MyDogs extends Activity {
 
         @Override
         protected String doInBackground(String... params) {
+
             try {
-                adapter = new SimpleDogList(MyDogs.this, web, imageId);
-                list=(ListView)findViewById(R.id.list);
-                list.setAdapter(adapter);
-                adapter.notifyDataSetChanged();
-                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view,
-                                            int position, long id) {
-                        Toast.makeText(MyDogs.this, "You Clicked at " +web[+ position], Toast.LENGTH_SHORT).show();
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        adapter = new SimpleDogList(MyDogs.this, web, imageId);
+                        list = (ListView) findViewById(R.id.list);
+                        list.setAdapter(adapter);
+                        adapter.notifyDataSetChanged();
+                        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view,
+                                                    int position, long id) {
+                                Toast.makeText(MyDogs.this, "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        resp = "All dogs loaded!";
                     }
                 });
-                resp = "All dogs loaded!";
             } catch (Exception e) {
                 e.printStackTrace();
                 resp = e.getMessage();
