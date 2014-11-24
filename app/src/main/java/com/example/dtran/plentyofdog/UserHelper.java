@@ -115,8 +115,8 @@ public class UserHelper extends SQLiteOpenHelper
         values.put("Password", user.password);
         values.put("OwnerID", user.ownerId);
 
-
-        return db.update("User", values, "_id = ?", new String[]{String.valueOf(user.id)});
+        Log.d("User Update", " DONE");
+        return db.update("User", values, "OwnerID = ?", new String[]{String.valueOf(user.ownerId)});
     }
     public boolean userExist(String username){
         SQLiteDatabase db = this.getReadableDatabase();

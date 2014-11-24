@@ -47,7 +47,8 @@
             android:layout_weight=".7"
             android:gravity="center"
             android:id="@+id/emailInput"
-            android:textColor="#ff57adff" />
+            android:textColor="#ff57adff"
+            android:maxLines="1" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -73,7 +74,8 @@
             android:gravity="center"
             android:inputType="textPassword"
             android:id="@+id/lblpasswordinput"
-            android:textColor="#ff57adff" />
+            android:textColor="#ff57adff"
+            android:maxLines="1" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -99,7 +101,8 @@
             android:gravity="center"
             android:inputType="textPassword"
             android:id="@+id/lblpasswordinput2"
-            android:textColor="#ff57adff" />
+            android:textColor="#ff57adff"
+            android:maxLines="1" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -125,7 +128,8 @@
             android:gravity="center"
             android:inputType="number"
             android:id="@+id/ageInput"
-            android:textColor="#ff57adff" />
+            android:textColor="#ff57adff"
+            android:maxLines="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -151,7 +155,8 @@
             android:layout_weight=".7"
             android:gravity="center"
             android:id="@+id/hometownInput"
-            android:textColor="#ff57adff" />
+            android:textColor="#ff57adff"
+            android:maxLines="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -177,7 +182,8 @@
             android:layout_weight=".7"
             android:gravity="center"
             android:id="@+id/genderInput"
-            android:textColor="#ff57adff" />
+            android:textColor="#ff57adff"
+            android:maxLines="1" />
     </LinearLayout>
 
 
@@ -205,7 +211,8 @@
             android:gravity="center"
             android:inputType="phone"
             android:id="@+id/phoneInput"
-            android:textColor="#ff57adff" />
+            android:textColor="#ff57adff"
+            android:maxLines="1" />
     </LinearLayout>
 
     <LinearLayout
@@ -258,14 +265,15 @@
             android:id="@+id/shortDesc"
             android:gravity="center"
             android:layout_gravity="center_horizontal"
-            android:textColor="#ff57adff" />
+            android:textColor="#ff57adff"
+            android:maxLines="1" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight=".05"
+        android:layout_weight="0.09"
         android:gravity="right"
         android:orientation="horizontal">
         <Button
