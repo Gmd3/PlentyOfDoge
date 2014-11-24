@@ -51,6 +51,11 @@ public class home_screen extends Activity {
         intent.putExtra("username", userIntent.getStringExtra("username"));
         startActivity(intent);
     }
+    public void changeProfile(View view){
+        Intent intent = new Intent(this, ProfileChange.class);
+        intent.putExtra("username", userIntent.getStringExtra("username"));
+        startActivity(intent);
+    }
 
     public void myDogs(View view){
         Intent home = new Intent(this, MyDogs.class);

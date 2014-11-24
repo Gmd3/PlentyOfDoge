@@ -16,7 +16,7 @@ import android.util.Log;
  */
 public class PreferenceHelper extends SQLiteOpenHelper
 {
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 6;
     private static final String DATABASE_NAME = "plentyofdog";
 
     public PreferenceHelper(Context context) {
@@ -60,10 +60,10 @@ public class PreferenceHelper extends SQLiteOpenHelper
             return true;
         }
     }
-    public Preference getPreference(int userID){
+    public Preference getPreference(String username){
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM Preference WHERE Username = " + userID, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM Preference WHERE Username = '" + username+"'", null);
         if(cursor != null)
             cursor.moveToFirst();
         Preference preference = new Preference(
@@ -74,6 +74,10 @@ public class PreferenceHelper extends SQLiteOpenHelper
 
         );
         cursor.close();
+        Log.d("asdfOfficial Size : ", "" + preference.size);
+        Log.d("asdfOfficial HairType : ", "" + preference.hairtype);
+        Log.d("asdfOfficial Temperament : ", "" + preference.temperament);
+        Log.d("asdfOfficial Username : ", "" + preference.username);
         return preference;
     }
     public int countPreference(){
@@ -87,13 +91,14 @@ public class PreferenceHelper extends SQLiteOpenHelper
         return count;
     }
     public int updatePreference(Preference preference){
+
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("Username", preference.username);
         values.put("Size", preference.size);
         values.put("HairType", preference.hairtype);
         values.put("Temperament", preference.temperament);
-
+        Log.d("DB UPDATING", "Preference " + preference.username);
         return db.update("Preference", values, "Username = ?", new String[]{String.valueOf(preference.username)});
     }
     public void deletePreference(Preference preference){

@@ -19,9 +19,10 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:textSize="40dip"
+                android:textSize="50dp"
                 android:text="@string/welcomeTo"
-                android:id="@+id/lblWelcomeTo" />
+                android:id="@+id/lblWelcomeTo"
+                android:textColor="#ff57adff" />
         </LinearLayout>
 
         <LinearLayout
@@ -34,9 +35,9 @@
                 android:layout_height="match_parent"
                 android:layout_weight=".9"
                 android:gravity="center_horizontal"
-                android:textSize="30dip"
+                android:textSize="50dp"
                 android:text="@string/PlentyOfDog"
-                />
+                android:textColor="#ff57adff" />
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -77,7 +78,8 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="@string/FirstTime"
                 android:id="@+id/lblFirstTime"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:textColor="#ff57adff" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -85,7 +87,8 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text="@string/WhatsYourName"
                 android:id="@+id/lblWhatsYourName"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:textColor="#ff57adff" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -114,12 +117,14 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/first_name"
-                    android:id="@+id/lblFirstName" />
+                    android:id="@+id/lblFirstName"
+                    android:textColor="#ff57adff" />
                 <EditText
                     android:layout_width="225dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/firstNameInput"
-                    android:layout_gravity="center_horizontal|right" />
+                    android:layout_gravity="center_horizontal|right"
+                    android:textColor="#ff57adff" />
 
 
 
@@ -135,12 +140,14 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/last_name"
-                    android:id="@+id/lblLastName" />
+                    android:id="@+id/lblLastName"
+                    android:textColor="#ff57adff" />
                 <EditText
                     android:layout_width="225dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/lasttNameInput"
-                    android:layout_gravity="center_horizontal|right" />
+                    android:layout_gravity="center_horizontal|right"
+                    android:textColor="#ff57adff" />
 
             </LinearLayout>
 
@@ -157,7 +164,9 @@
                 android:text="@string/next"
                 android:id="@+id/btnNext"
                 android:layout_gravity="right"
-                android:onClick="buildProfile"/>
+                android:onClick="buildProfile"
+                android:background="#ff57adff"
+                android:textColor="#fffff3a3" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"

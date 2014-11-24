@@ -14,6 +14,7 @@ public class DogFilter extends Activity {
     Preference preference;
     PreferenceHelper db;
     Intent userIntent;
+    String username;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,9 +25,83 @@ public class DogFilter extends Activity {
         db.getWritableDatabase();
         preference = new Preference();
 
+        username = userIntent.getStringExtra("username");
+        if(db.preferenceExist(username)) {
+
+            Preference prevPref = db.getPreference(username);
+            Log.d("Official Size : ", "" + prevPref.size);
+            Log.d("Official HairType : ", "" + prevPref.hairtype);
+            Log.d("Official Temperament : ", "" + prevPref.temperament);
+            Log.d("Official username : ", "" + prevPref.username);
+            setPref(prevPref);
+
+        }
+
 
     }
+    private void setPref(Preference pref){
+        Button noSize = (Button)findViewById(R.id.noSizePreference);
+        Button small = (Button)findViewById(R.id.small);
+        Button medium = (Button)findViewById(R.id.medium);
+        Button large = (Button)findViewById(R.id.large);
 
+        Button noTemperament = (Button)findViewById(R.id.noTempermentPreference);
+        Button mellow = (Button)findViewById(R.id.mellow);
+        Button hyper = (Button)findViewById(R.id.hyper);
+
+        Button noHair = (Button)findViewById(R.id.noHairTypePreference);
+        Button shorthaired = (Button)findViewById(R.id.shortHaired);
+        Button longhaired = (Button)findViewById(R.id.longHaired);
+
+        Log.d("pref.hairtype.equals(noHair", ""+pref.hairtype);
+        if(pref.hairtype.equals("noHair")) {
+            noHair.setBackgroundColor(0xff57adff);
+            noHair.setTextColor(0xfffff3a3);
+            preference.hairtype = "noHair";
+        } else if(pref.hairtype.equals("shortHaired")) {
+            shorthaired.setBackgroundColor(0xff57adff);
+            shorthaired.setTextColor(0xfffff3a3);
+            preference.hairtype = "shortHaired";
+        } else if(pref.hairtype.equals("longHaired")) {
+            longhaired.setBackgroundColor(0xff57adff);
+            longhaired.setTextColor(0xfffff3a3);
+            preference.hairtype = "longHaired";
+        }
+
+        if(pref.size.equals("small")) {
+            small.setBackgroundColor(0xff57adff);
+            small.setTextColor(0xfffff3a3);
+            preference.size = "small";
+        } else if(pref.size.equals("medium")) {
+            medium.setBackgroundColor(0xff57adff);
+            medium.setTextColor(0xfffff3a3);
+            preference.size = "medium";
+        } else if(pref.size.equals("large")) {
+            large.setBackgroundColor(0xff57adff);
+            large.setTextColor(0xfffff3a3);
+            preference.size = "large";
+        } else if(pref.size.equals("noSize")) {
+            noSize.setBackgroundColor(0xff57adff);
+            noSize.setTextColor(0xfffff3a3);
+            preference.size = "noSize";
+        }
+
+        if(pref.temperament.equals("noTemperament")) {
+            noTemperament.setBackgroundColor(0xff57adff);
+            noTemperament.setTextColor(0xfffff3a3);
+            preference.temperament = "noTemperament";
+        } else if(pref.temperament.equals("mellow")) {
+            mellow.setBackgroundColor(0xff57adff);
+            mellow.setTextColor(0xfffff3a3);
+            preference.temperament = "mellow";
+        } else if(pref.temperament.equals("hyper")) {
+            hyper.setBackgroundColor(0xff57adff);
+            hyper.setTextColor(0xfffff3a3);
+            preference.temperament = "hyper";
+        }
+
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -56,6 +131,11 @@ public class DogFilter extends Activity {
             preference.size = "noSize";
         if(preference.temperament== null)
             preference.temperament = "noTemperament";
+
+        Log.d("Official Size : ", "" + preference.size);
+        Log.d("Official HairType : ", "" + preference.hairtype);
+        Log.d("Official Temperament : ", "" + preference.temperament);
+        Log.d("Official Username : ", "" + userIntent.getStringExtra("username"));
         preference.username = userIntent.getStringExtra("username");
 
 
@@ -151,7 +231,6 @@ public class DogFilter extends Activity {
                 //do something
                 preference.hairtype = "noHair";
 
-
                 shorthaired.setBackgroundColor(0xfffff3a3);
                 shorthaired.setTextColor(0xff57adff);
                 longhaired.setBackgroundColor(0xfffff3a3);
@@ -240,7 +319,7 @@ public class DogFilter extends Activity {
     }
     public void skip(View view){
         Intent intent = new Intent(this, home_screen.class);
-
+        intent.putExtra("username", userIntent.getStringExtra("username"));
 
         startActivity(intent);
     }
