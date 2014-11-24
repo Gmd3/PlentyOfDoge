@@ -59,6 +59,7 @@ public class logOn_signUp extends Activity {
         userdb.getReadableDatabase();
         String username = usernameGrab.getText().toString();
         String password = passwordGrab.getText().toString();
+        Log.d("Password DEBUG" , " " + userdb.getUser(username).password );
         if(userdb.userExist(username) && password.equals(userdb.getUser(username).password)){
             Log.d("userdb.getUser(username)", " " + userdb.getUser(username).username);
 

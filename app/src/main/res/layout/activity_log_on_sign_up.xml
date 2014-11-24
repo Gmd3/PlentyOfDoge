@@ -24,7 +24,8 @@
         android:id="@+id/usernameInput"
         android:width="250dp"
         android:layout_below="@+id/lblemail"
-        android:textColor="#ff57adff" />
+        android:textColor="#ff57adff"
+        android:maxLines="1" />
 
     <EditText
         android:layout_width="fill_parent"
@@ -33,7 +34,8 @@
         android:width="250dp"
         android:layout_below="@+id/lblpassword"
         android:password="true"
-        android:textColor="#ff57adff" />
+        android:textColor="#ff57adff"
+        android:maxLines="1" />
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

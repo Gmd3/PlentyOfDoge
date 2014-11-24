@@ -79,6 +79,7 @@ public class ProfileChange extends Activity {
         startActivity(intent);
     }
     public void update(View view){
+        int errors = 0;
         Intent intent = new Intent(this, home_screen.class);
         EditText age = (EditText)findViewById(R.id.ageInput);
         EditText email = (EditText)findViewById(R.id.emailInput);
@@ -88,19 +89,50 @@ public class ProfileChange extends Activity {
         EditText area = (EditText)findViewById(R.id.hometownInput);
         SimpleDateFormat s = new SimpleDateFormat("ddMMyyyy");
         String date = s.format(new Date());
-        Owner ownerTemp = new Owner(
-                owner.firstName,
-                owner.lastName,
-                experience.getSelectedItem().toString(),
-                Integer.parseInt(age.getText().toString())
-                ,gender.getText().toString(),
-                email.getText().toString(),
-                phone.getText().toString()
-                ,area.getText().toString(),
-                owner.dateCreated ,
-                date);
-        Log.d("DB UPDATE SUCCESS ? : ", "" + ownerdb.updateOwner(ownerTemp));
-        intent.putExtra("username",email.getText().toString());
-        startActivity(intent);
+
+        //password section
+        EditText passwordgrab = (EditText)findViewById(R.id.lblpasswordinput);
+        EditText confirmgrab = (EditText)findViewById(R.id.lblpasswordinput2);
+        String password = passwordgrab.getText().toString();
+        String confirm = confirmgrab.getText().toString();
+        if((!password.equals("") && !confirm.equals(""))) {
+            if (!password.equals(confirm)) {
+                errors++;
+            }
+            else {
+                Log.d("PASSWORDS ARE THE ", "SAME");
+                UserHelper db = new UserHelper(this);
+                User userTempEmail = db.getUser(email.getText().toString());
+
+                User user = new User(email.getText().toString(),
+                        password, userTempEmail.ownerId);
+                db.updateUser(user);
+            }
+        }
+        if(!password.equals("") && confirm.equals(""))
+            errors++;
+        if(!confirm.equals("") && password.equals(""))
+            errors++;
+
+        if(errors == 0) {
+            Owner ownerTemp = new Owner(
+                    owner.firstName,
+                    owner.lastName,
+                    experience.getSelectedItem().toString(),
+                    Integer.parseInt(age.getText().toString())
+                    , gender.getText().toString(),
+                    email.getText().toString(),
+                    phone.getText().toString()
+                    , area.getText().toString(),
+                    owner.dateCreated,
+                    date);
+            Log.d("DB UPDATE SUCCESS ? : ", "" + ownerdb.updateOwner(ownerTemp));
+            intent.putExtra("username",email.getText().toString());
+            startActivity(intent);
+        } else {
+            passwordgrab.setText("");
+            confirmgrab.setText("");
+        }
+
     }
 }

@@ -5,7 +5,8 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:paddingLeft="10dp"
 android:paddingRight="10dp"
-tools:context="com.example.dtran.plentyofdog.ProfileChange">
+tools:context="com.example.dtran.plentyofdog.ProfileChange"
+    >
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -45,7 +46,8 @@ tools:context="com.example.dtran.plentyofdog.ProfileChange">
         android:layout_weight=".7"
         android:gravity="center"
         android:id="@+id/emailInput"
-        android:textColor="#ff57adff" />
+        android:textColor="#ff57adff"
+        android:maxLines="1" />
 </LinearLayout>
 <LinearLayout
     android:layout_width="match_parent"
@@ -71,7 +73,8 @@ tools:context="com.example.dtran.plentyofdog.ProfileChange">
         android:gravity="center"
         android:inputType="textPassword"
         android:id="@+id/lblpasswordinput"
-        android:textColor="#ff57adff" />
+        android:textColor="#ff57adff"
+        android:maxLines="1" />
 </LinearLayout>
 <LinearLayout
     android:layout_width="match_parent"
@@ -97,7 +100,8 @@ tools:context="com.example.dtran.plentyofdog.ProfileChange">
         android:gravity="center"
         android:inputType="textPassword"
         android:id="@+id/lblpasswordinput2"
-        android:textColor="#ff57adff" />
+        android:textColor="#ff57adff"
+        android:maxLines="1" />
 </LinearLayout>
 <LinearLayout
     android:layout_width="match_parent"
@@ -123,7 +127,8 @@ tools:context="com.example.dtran.plentyofdog.ProfileChange">
         android:gravity="center"
         android:inputType="number"
         android:id="@+id/ageInput"
-        android:textColor="#ff57adff" />
+        android:textColor="#ff57adff"
+        android:maxLines="1" />
 </LinearLayout>
 
 <LinearLayout
@@ -149,7 +154,8 @@ tools:context="com.example.dtran.plentyofdog.ProfileChange">
         android:layout_weight=".7"
         android:gravity="center"
         android:id="@+id/hometownInput"
-        android:textColor="#ff57adff" />
+        android:textColor="#ff57adff"
+        android:maxLines="1" />
 </LinearLayout>
 
 <LinearLayout
@@ -175,7 +181,8 @@ tools:context="com.example.dtran.plentyofdog.ProfileChange">
         android:layout_weight=".7"
         android:gravity="center"
         android:id="@+id/genderInput"
-        android:textColor="#ff57adff" />
+        android:textColor="#ff57adff"
+        android:maxLines="1" />
 </LinearLayout>
 
 
@@ -203,7 +210,8 @@ tools:context="com.example.dtran.plentyofdog.ProfileChange">
         android:gravity="center"
         android:inputType="phone"
         android:id="@+id/phoneInput"
-        android:textColor="#ff57adff" />
+        android:textColor="#ff57adff"
+        android:maxLines="1" />
 </LinearLayout>
 
 <LinearLayout
@@ -232,38 +240,10 @@ tools:context="com.example.dtran.plentyofdog.ProfileChange">
         android:id="@+id/yoeInput"/>
 </LinearLayout>
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_weight=".05"
-    android:orientation="vertical"
-    android:id="@+id/linearLayout4" >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/description"
-        android:id="@+id/textView3"
-        android:textSize="15dp"
-        android:textColor="#ff57adff" />
-
-    <!--<EditText-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:inputType="textMultiLine"-->
-        <!--android:ems="10"-->
-        <!--android:id="@+id/shortDesc"-->
-        <!--android:gravity="center"-->
-        <!--android:layout_gravity="center_horizontal"-->
-        <!--android:textColor="#ff57adff" />-->
-
-</LinearLayout>
-
-<LinearLayout
+    <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="0dip"
-    android:layout_weight=".05"
+    android:layout_weight="0.09"
     android:gravity="right"
     android:orientation="horizontal">
 
@@ -276,7 +256,8 @@ tools:context="com.example.dtran.plentyofdog.ProfileChange">
         android:textColor="#ff57adff"
         android:background="#fffff3a3"
         android:textSize="35sp"
-        android:layout_marginRight="20dp" />
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="15dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -287,7 +268,8 @@ tools:context="com.example.dtran.plentyofdog.ProfileChange">
         android:onClick="update"
         android:textColor="#ff57adff"
         android:background="#fffff3a3"
-        android:textSize="35sp" />
+        android:textSize="35sp"
+        android:layout_marginBottom="15dp" />
 </LinearLayout>
 
 </LinearLayout>
