@@ -51,10 +51,9 @@
     <string name="title_activity_splash">Splash</string>
     <string name="save">Save</string>
 
-
     <!-- Home Screen -->
     <string name="home">Home Screen</string>
-    <string name="edit_profile">Edit Profile?</string>
+    <string name="edit_profile">Edit Profile</string>
     <string name="set_preferences">Set preferences</string>
     <string name="start_browsing">Start Browsing!</string>
     <string name="check_matches">Check Matches!</string>
@@ -106,12 +105,13 @@
         <item>Short-haired</item>
         <item>Long-haired</item>
     </string-array>
-
-
-
-
+    <string name="back">Back</string>
+    <string name="update">Update</string>
     <string name="title_activity_log_on_sign_up">logOn_signUp</string>
     <string name="title_activity_image_uploader">ImageUploader</string>
     <string name="title_activity_my_dogs">MyDogs</string>
+
+    <string name="title_activity_profile_change">title_activity_profile_change</string>
+    <string name="ChangeYourProfileHere">Change your profile here</string>
 
 </resources>

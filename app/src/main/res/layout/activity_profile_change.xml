@@ -1,0 +1,294 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingLeft="10dp"
+android:paddingRight="10dp"
+tools:context="com.example.dtran.plentyofdog.ProfileChange">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="0dip"
+        android:layout_height="94dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textSize="25dip"
+        android:text="@string/ChangeYourProfileHere"
+        android:id="@+id/lblWelcomeTo"
+        android:textColor="#ff57adff" />
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dip"
+    android:layout_weight=".05"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".3"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/Email"
+        android:gravity="center"
+        android:id="@+id/lblEmail"
+        android:textSize="15dp"
+        android:textColor="#ff57adff" />
+
+    <EditText
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".7"
+        android:gravity="center"
+        android:id="@+id/emailInput"
+        android:textColor="#ff57adff" />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dip"
+    android:layout_weight=".05"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".3"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/password"
+        android:id="@+id/lblpassword"
+        android:textSize="15dp"
+        android:textColor="#ff57adff" />
+
+    <EditText
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".7"
+        android:gravity="center"
+        android:inputType="textPassword"
+        android:id="@+id/lblpasswordinput"
+        android:textColor="#ff57adff" />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dip"
+    android:layout_weight=".05"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".3"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/password2"
+        android:id="@+id/lblpassword2"
+        android:textSize="15dp"
+        android:textColor="#ff57adff" />
+
+    <EditText
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".7"
+        android:gravity="center"
+        android:inputType="textPassword"
+        android:id="@+id/lblpasswordinput2"
+        android:textColor="#ff57adff" />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dip"
+    android:layout_weight=".05"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".3"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/Age"
+        android:id="@+id/lblAge"
+        android:textSize="15dp"
+        android:textColor="#ff57adff" />
+
+    <EditText
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".7"
+        android:gravity="center"
+        android:inputType="number"
+        android:id="@+id/ageInput"
+        android:textColor="#ff57adff" />
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dip"
+    android:layout_weight=".05"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".3"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/Hometown"
+        android:gravity="center"
+        android:id="@+id/lblHometown"
+        android:textSize="15dp"
+        android:textColor="#ff57adff" />
+
+    <EditText
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".7"
+        android:gravity="center"
+        android:id="@+id/hometownInput"
+        android:textColor="#ff57adff" />
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dip"
+    android:layout_weight=".05"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".3"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/Gender"
+        android:gravity="center"
+        android:id="@+id/lblGender"
+        android:textSize="15dp"
+        android:textColor="#ff57adff" />
+
+    <EditText
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".7"
+        android:gravity="center"
+        android:id="@+id/genderInput"
+        android:textColor="#ff57adff" />
+</LinearLayout>
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dip"
+    android:layout_weight=".05"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".3"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/Phone"
+        android:gravity="center"
+        android:id="@+id/lblPhone"
+        android:textSize="15dp"
+        android:textColor="#ff57adff" />
+
+    <EditText
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".7"
+        android:gravity="center"
+        android:inputType="phone"
+        android:id="@+id/phoneInput"
+        android:textColor="#ff57adff" />
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dip"
+    android:layout_weight=".07"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".3"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/YOE"
+        android:gravity="center"
+        android:id="@+id/lblYOE"
+        android:textSize="15dp"
+        android:textColor="#ff57adff" />
+
+    <Spinner
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".7"
+        android:gravity="center"
+        android:entries="@array/xp_lvl"
+        android:id="@+id/yoeInput"/>
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight=".05"
+    android:orientation="vertical"
+    android:id="@+id/linearLayout4" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/description"
+        android:id="@+id/textView3"
+        android:textSize="15dp"
+        android:textColor="#ff57adff" />
+
+    <!--<EditText-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:inputType="textMultiLine"-->
+        <!--android:ems="10"-->
+        <!--android:id="@+id/shortDesc"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:textColor="#ff57adff" />-->
+
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dip"
+    android:layout_weight=".05"
+    android:gravity="right"
+    android:orientation="horizontal">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back"
+        android:id="@+id/button"
+        android:onClick="back"
+        android:textColor="#ff57adff"
+        android:background="#fffff3a3"
+        android:textSize="35sp"
+        android:layout_marginRight="20dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/update"
+        android:id="@+id/btnNext"
+        android:layout_gravity="right"
+        android:onClick="update"
+        android:textColor="#ff57adff"
+        android:background="#fffff3a3"
+        android:textSize="35sp" />
+</LinearLayout>
+
+</LinearLayout>
+

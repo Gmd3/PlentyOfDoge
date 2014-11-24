@@ -15,7 +15,7 @@ import java.util.List;
  */
     public class OwnerHelper extends SQLiteOpenHelper
     {
-        private static final int DATABASE_VERSION = 4;
+        private static final int DATABASE_VERSION = 6;
         private static final String DATABASE_NAME = "plentyofdog";
 
         public OwnerHelper(Context context) {
@@ -59,8 +59,28 @@ import java.util.List;
             if(cursor != null)
                 cursor.moveToFirst();
             Owner owner = new Owner(
-                    cursor.getInt(0)
-                    ,cursor.getString(1)
+                    cursor.getString(1)
+                    ,cursor.getString(2)
+                    ,cursor.getString(3)
+                    ,cursor.getInt(4)
+                    ,cursor.getString(5)
+                    ,cursor.getString(6)
+                    ,cursor.getString(7)
+                    ,cursor.getString(8)
+                    ,cursor.getString(9)
+                    ,cursor.getString(10)
+            );
+            cursor.close();
+            return owner;
+        }
+        public Owner getOwner(String username){
+            SQLiteDatabase db = this.getReadableDatabase();
+
+            Cursor cursor = db.rawQuery("SELECT * FROM Owner WHERE Email = '" + username + "'", null);
+            if(cursor != null)
+                cursor.moveToFirst();
+            Owner owner = new Owner(
+                    cursor.getString(1)
                     ,cursor.getString(2)
                     ,cursor.getString(3)
                     ,cursor.getInt(4)
@@ -106,10 +126,22 @@ import java.util.List;
 
             SQLiteDatabase db = this.getReadableDatabase();
             Cursor cursor = db.rawQuery(selectQuery,null);
+            int count = cursor.getCount();
             cursor.close();
-            return cursor.getCount();
+            return count;
         }
-        public int updateOwner(Owner owner){
+        public boolean userExist(String email){
+            SQLiteDatabase db = this.getReadableDatabase();
+            String selectQuery = "SELECT * FROM Owner WHERE Email = '" + email + "'";
+            Cursor cs = db.rawQuery(selectQuery,null);
+
+            if(cs.getCount() == 0) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        public boolean updateOwner(Owner owner){
             SQLiteDatabase db = this.getWritableDatabase();
             ContentValues values = new ContentValues();
             values.put("FirstName", owner.firstName);
@@ -122,8 +154,11 @@ import java.util.List;
             values.put("Area", owner.area);
             values.put("DateCreated", owner.dateCreated);
             values.put("LastEdited", owner.lastEdited);
+            Log.d("DB", "Updated");
 
-            return db.update("Owner", values, "_id = ?", new String[]{String.valueOf(owner.id)});
+
+            Log.d("Gender" , "" + owner.gender);
+            return db.update("Owner", values, "Email = ?", new String[]{String.valueOf(owner.email)}) > 0;
         }
         public void deleteOwner(Owner owner){
             SQLiteDatabase db = this.getWritableDatabase();

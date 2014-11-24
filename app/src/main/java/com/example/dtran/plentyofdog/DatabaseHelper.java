@@ -7,7 +7,7 @@ import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper
 {
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 6;
     private static final String DATABASE_NAME = "plentyofdog";
 
     public DatabaseHelper(Context context) {
@@ -16,7 +16,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        /*
+
         Log.d("DB", "DB CREATING");
         Log.d("DB", "DB CREATING ALL DATABASES");
         //create the tables
@@ -38,7 +38,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         db.execSQL(CREATE_PREFERENCE);
 
         Log.d("DB", "DB CREATED");
-        */
+
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

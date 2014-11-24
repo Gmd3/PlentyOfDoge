@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class MatchHelper extends SQLiteOpenHelper
 {
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 6;
     private static final String DATABASE_NAME = "plentyofdog";
 
     public MatchHelper(Context context) {

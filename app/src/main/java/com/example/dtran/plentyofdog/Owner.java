@@ -77,29 +77,6 @@ public class Owner {
     String area;
     String dateCreated;
     String lastEdited;
-    public Owner(
-            int id,
-            String firstName,
-            String lastName,
-            String experience,
-            int age,
-            String gender,
-            String email,
-            String phone,
-            String area,
-            String dateCreated,
-            String lastEdited){
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.experience = experience;
-        this.age = age;
-        this.gender = gender;
-        this.email = email;
-        this.phone = phone;
-        this.area = area;
-        this.dateCreated = dateCreated;
-        this.lastEdited = lastEdited;
-    }
     public Owner( String firstName,
                   String lastName,
                   String experience,

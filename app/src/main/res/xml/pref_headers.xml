@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!--&lt;!&ndash; These settings headers are only used on tablets. &ndash;&gt;-->
+
+    <!--<header-->
+        <!--android:fragment="com.example.dtran.plentyofdog.activity_profile_change$GeneralPreferenceFragment"-->
+        <!--android:title="@string/pref_header_general" />-->
+    <!--<header-->
+        <!--android:fragment="com.example.dtran.plentyofdog.activity_profile_change$NotificationPreferenceFragment"-->
+        <!--android:title="@string/pref_header_notifications" />-->
+    <!--<header-->
+        <!--android:fragment="com.example.dtran.plentyofdog.activity_profile_change$DataSyncPreferenceFragment"-->
+        <!--android:title="@string/pref_header_data_sync" />-->
+
+    <!--&lt;!&ndash; These settings headers are only used on tablets. &ndash;&gt;-->
+
+    <!--<header-->
+        <!--android:fragment="com.example.dtran.plentyofdog.Profile_Changer$GeneralPreferenceFragment"-->
+        <!--android:title="@string/pref_header_general" />-->
+    <!--<header-->
+        <!--android:fragment="com.example.dtran.plentyofdog.Profile_Changer$NotificationPreferenceFragment"-->
+        <!--android:title="@string/pref_header_notifications" />-->
+    <!--<header-->
+        <!--android:fragment="com.example.dtran.plentyofdog.Profile_Changer$DataSyncPreferenceFragment"-->
+        <!--android:title="@string/pref_header_data_sync" />-->
+
+</preference-headers>

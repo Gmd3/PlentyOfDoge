@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class UserHelper extends SQLiteOpenHelper
 {
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 6;
     private static final String DATABASE_NAME = "plentyofdog";
     SQLiteDatabase db;
 
@@ -104,8 +104,9 @@ public class UserHelper extends SQLiteOpenHelper
 
         db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery,null);
-
-        return cursor.getCount();
+        int count = cursor.getCount();
+        cursor.close();
+        return count;
     }
     public int updateUser(User user){
         db = this.getWritableDatabase();

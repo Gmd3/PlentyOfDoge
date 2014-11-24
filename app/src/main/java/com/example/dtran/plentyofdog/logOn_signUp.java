@@ -25,9 +25,7 @@ public class logOn_signUp extends Activity {
         userdb = new UserHelper(this);
         userdb.getWritableDatabase();
 
-
         Log.d("@@@@@@@@@@@@@  ----  DB", "" + userdb.getUserCount());
-
     }
 
 
