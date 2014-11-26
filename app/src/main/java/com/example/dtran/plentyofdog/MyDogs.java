@@ -12,34 +12,29 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MyDogs extends Activity {
 
     ListView list;
     SimpleDogList adapter;
     String[] web = {
-            "Google Plus",
-            "Twitter",
-            "Windows",
-            "Bing",
-            "Itunes",
-            "Wordpress",
-            "Drupal"
+            "Google Plus","asd"
     } ;
     Integer[] imageId = {
-            R.drawable.ic_launcher,
-            R.drawable.ic_launcher,
-            R.drawable.basset,
-            R.drawable.ic_launcher,
-            R.drawable.long_dog,
-            R.drawable.ic_launcher,
-            R.drawable.golden
+            R.drawable.ic_launcher,  R.drawable.ic_launcher
     };
+
+    List<Dog> myDogs;
+    DogHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_dogs);
+
         new LoadMyDogs().execute("");
     }
 
@@ -89,7 +84,9 @@ public class MyDogs extends Activity {
             try {
                 runOnUiThread(new Runnable() {
                     public void run() {
-                        adapter = new SimpleDogList(MyDogs.this, web, imageId);
+                        db = new DogHelper(getApplicationContext());
+                        myDogs = db.getAllDog();
+                        adapter = new SimpleDogList(MyDogs.this, web, imageId, myDogs);
                         list = (ListView) findViewById(R.id.list);
                         list.setAdapter(adapter);
                         adapter.notifyDataSetChanged();

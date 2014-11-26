@@ -246,7 +246,8 @@
             android:onClick="submit"
             android:textColor="#ff57adff"
             android:background="#fffff3a3"
-            android:textSize="25dp" />
+            android:textSize="25dp"
+            />
     </LinearLayout>
 
 </LinearLayout>

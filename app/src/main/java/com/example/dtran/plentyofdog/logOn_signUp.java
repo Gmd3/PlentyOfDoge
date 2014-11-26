@@ -21,6 +21,7 @@ public class logOn_signUp extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_on_sign_up);
         db = new DatabaseHelper(this);
+
         db.getWritableDatabase();
         userdb = new UserHelper(this);
         userdb.getWritableDatabase();

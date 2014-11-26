@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class DogHelper extends SQLiteOpenHelper
 {
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 7;
     private static final String DATABASE_NAME = "plentyofdog";
 
     public DogHelper(Context context) {
@@ -25,7 +25,8 @@ public class DogHelper extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.d("DB", "DB CREATING");
-        String CREATE_DOG_TABLE = "CREATE TABLE Dog ( _id INTEGER PRIMARY KEY, Name VARCHAR NOT NULL, Breed VARCHAR NOT NULL, Age INTEGER NOT NULL, Gender VARCHAR NOT NULL, Size VARCHAR NOT NULL, Training VARCHAR NOT NULL, ActivityLevel VARCHAR NOT NULL, Description VARCHAR NOT NULL NOT NULL, Area VARCHAR NOT NULL, DateCreated DATE NOT NULL, LastEditted DATE)";
+        db.execSQL("DROP TABLE IF EXISTS Dog");
+        String CREATE_DOG_TABLE = "CREATE TABLE Dog ( _id INTEGER PRIMARY KEY, Name VARCHAR NOT NULL, Breed VARCHAR NOT NULL, Age INTEGER NOT NULL, Gender VARCHAR NOT NULL, Size VARCHAR NOT NULL, Training VARCHAR NOT NULL, ActivityLevel VARCHAR NOT NULL, Description VARCHAR NOT NULL NOT NULL, Area VARCHAR NOT NULL, DateCreated DATE NOT NULL, LastEdited DATE)";
         db.execSQL(CREATE_DOG_TABLE);
         Log.d("DB", "DB CREATED");
     }
@@ -70,7 +71,6 @@ public class DogHelper extends SQLiteOpenHelper
                 ,cursor.getString(7)
                 ,cursor.getString(8)
                 ,cursor.getString(9)
-                ,cursor.getString(10)
         );
         cursor.close();
         return dog;
@@ -95,7 +95,6 @@ public class DogHelper extends SQLiteOpenHelper
                     ,cursor.getString(7)
                     ,cursor.getString(8)
                     ,cursor.getString(9)
-                    ,cursor.getString(10)
                 );
                 dogList.add(dog);
             }while(cursor.moveToNext());

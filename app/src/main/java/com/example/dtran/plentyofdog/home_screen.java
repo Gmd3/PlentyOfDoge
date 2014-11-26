@@ -62,4 +62,10 @@ public class home_screen extends Activity {
         home.putExtra("username", userIntent.getStringExtra("username"));
         startActivity(home);
     }
+
+    public void test(View view){
+        Intent home = new Intent(this, dog_builder.class);
+        home.putExtra("username", userIntent.getStringExtra("username"));
+        startActivity(home);
+    }
 }

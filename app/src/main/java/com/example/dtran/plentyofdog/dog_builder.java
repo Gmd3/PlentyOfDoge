@@ -50,9 +50,9 @@ public class dog_builder extends Activity {
         EditText ageGrab = (EditText)findViewById(R.id.ageInput);
         EditText genderGrab = (EditText)findViewById(R.id.genderInput);
         EditText trainingGrab = (EditText)findViewById(R.id.trainingInput);
-        EditText sizeGrab = (EditText)findViewById(R.id.spinner1);
+        Spinner sizeGrab = (Spinner)findViewById(R.id.spinner1);
         EditText emailGrab = (EditText)findViewById(R.id.emailInput);
-        EditText activityGrab = (EditText)findViewById(R.id.spinner2);
+        Spinner activityGrab = (Spinner)findViewById(R.id.spinner2);
         Spinner breedGrab = (Spinner)findViewById(R.id.breedInput);
         EditText descGrab = (EditText)findViewById(R.id.dogDesc);
 
@@ -61,9 +61,9 @@ public class dog_builder extends Activity {
         String breed = breedGrab.getSelectedItem().toString();
         String ageString = ageGrab.getText().toString();
         String gender = genderGrab.getText().toString();
-        String size = sizeGrab.getText().toString();
+        String size = sizeGrab.getSelectedItem().toString();
         String training = trainingGrab.getText().toString();
-        String activity = activityGrab.getText().toString();
+        String activity = activityGrab.getSelectedItem().toString();
         String desc = descGrab.getText().toString();
 
         Integer age = Integer.valueOf(ageString);
@@ -81,7 +81,7 @@ public class dog_builder extends Activity {
         intent.putExtra("desc", desc);
         */
 
-        Dog newDog = new Dog(name, breed, age, gender, size, training, activity, desc, "asd", "today", "");
+        Dog newDog = new Dog(name, breed, age, gender, size, training, activity, desc, "asd", "today");
 
         DogHelper db = new DogHelper(getApplicationContext());
 

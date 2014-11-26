@@ -7,7 +7,7 @@ import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper
 {
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 7;
     private static final String DATABASE_NAME = "plentyofdog";
 
     public DatabaseHelper(Context context) {
@@ -17,12 +17,12 @@ public class DatabaseHelper extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase db) {
 
+
         Log.d("DB", "DB CREATING");
         Log.d("DB", "DB CREATING ALL DATABASES");
         //create the tables
-        String CREATE_DOG_BREED = "CREATE TABLE DogBreed( _id INTEGER PRIMARY KEY, BreedName VARCHAR NOT NULL, HairType VARCHAR NOT NULL, Temperment VARCHAR NOT NULL, Shedding VARCHAR NOT NULL, Size VARCHAR NOT NULL)";
 
-        String CREATE_DOG_TABLE = "CREATE TABLE Dog ( _id INTEGER PRIMARY KEY, Name VARCHAR NOT NULL, Breed VARCHAR NOT NULL, Age INTEGER NOT NULL, Gender VARCHAR NOT NULL, Size VARCHAR NOT NULL, Training VARCHAR NOT NULL, Temperament VARCHAR NOT NULL, Description VARCHAR NOT NULL NOT NULL, Area VARCHAR NOT NULL, DateCreated DATE NOT NULL, LastEditted DATE)";
+        String CREATE_DOG_TABLE = "CREATE TABLE Dog ( _id INTEGER PRIMARY KEY, Name VARCHAR NOT NULL, Breed VARCHAR NOT NULL, Age INTEGER NOT NULL, Gender VARCHAR NOT NULL, Size VARCHAR NOT NULL, Training VARCHAR NOT NULL, ActivityLevel VARCHAR NOT NULL, Description VARCHAR NOT NULL NOT NULL, Area VARCHAR NOT NULL, DateCreated DATE NOT NULL, LastEdited DATE)";
         db.execSQL(CREATE_DOG_TABLE);
         String CREATE_DOG_OWNER = "CREATE TABLE DogOwner( _id INTEGER PRIMARY KEY, DogID INTEGER NOT NULL, OwnerID INTEGER NOT NULL, DateCreated DATE NOT NULL, LastEditted DATE, Status VARCHAR NOT NULL)";
         db.execSQL(CREATE_DOG_OWNER);
@@ -42,6 +42,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS Owner");
         db.execSQL("DROP TABLE IF EXISTS DogBreed");
         db.execSQL("DROP TABLE IF EXISTS Dog");
         db.execSQL("DROP TABLE IF EXISTS DogOwner");

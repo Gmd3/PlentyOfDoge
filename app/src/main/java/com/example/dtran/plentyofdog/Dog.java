@@ -41,8 +41,7 @@ public Dog(
         String activitylevel,
         String description,
         String area,
-        String datecreated,
-        String lasteditted){
+        String datecreated){
     this.name = name;
     this.breed = breed;
     this.age = age;
@@ -53,7 +52,7 @@ public Dog(
     this.description = description;
     this.area = area;
     this.datecreated = datecreated;
-    this.lasteditted = "";
+    this.lasteditted = " ";
 }
 
 }

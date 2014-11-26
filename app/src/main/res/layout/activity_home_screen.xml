@@ -75,7 +75,8 @@
         android:textColor="#ff57adff"
         android:background="#fffff3a3"
         android:textSize="30sp"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="5dp"
+        android:onClick="test"/>
 
 
 </RelativeLayout>
