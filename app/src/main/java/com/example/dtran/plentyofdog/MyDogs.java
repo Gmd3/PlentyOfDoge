@@ -24,7 +24,7 @@ public class MyDogs extends Activity {
             "Google Plus","asd"
     } ;
     Integer[] imageId = {
-            R.drawable.ic_launcher,  R.drawable.ic_launcher
+            R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher
     };
 
     List<Dog> myDogs;
@@ -86,18 +86,20 @@ public class MyDogs extends Activity {
                     public void run() {
                         db = new DogHelper(getApplicationContext());
                         myDogs = db.getAllDog();
-                        adapter = new SimpleDogList(MyDogs.this, web, imageId, myDogs);
-                        list = (ListView) findViewById(R.id.list);
-                        list.setAdapter(adapter);
-                        adapter.notifyDataSetChanged();
-                        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> parent, View view,
-                                                    int position, long id) {
-                                Toast.makeText(MyDogs.this, "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                        resp = "All dogs loaded!";
+                        if (myDogs != null){
+                            adapter = new SimpleDogList(MyDogs.this, imageId, myDogs);
+                            list = (ListView) findViewById(R.id.list);
+                            list.setAdapter(adapter);
+                            adapter.notifyDataSetChanged();
+                            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> parent, View view,
+                                                        int position, long id) {
+                                    Toast.makeText(MyDogs.this, "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            resp = "All dogs loaded!";
+                        } else resp = "No dogs found!";
                     }
                 });
             } catch (Exception e) {

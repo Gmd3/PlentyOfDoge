@@ -27,9 +27,8 @@
         android:text="Name"/>
 
     <TextView
-        android:id="@+id/status"
+        android:id="@+id/breed"
         android:layout_width="fill_parent"
-        android:layout_below="@id/status"
         android:layout_height="100dip"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
@@ -37,7 +36,7 @@
         android:ellipsize="marquee"
         android:singleLine="true"
         android:textSize="12sp"
-        android:text="Status"/>
+        android:text="Breed"/>
 
 
 

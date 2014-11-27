@@ -31,28 +31,54 @@ public class Dog {
     String lasteditted;
 
 
-public Dog(
-        String name,
-        String breed,
-        int age,
-        String gender,
-        String size,
-        String training,
-        String activitylevel,
-        String description,
-        String area,
-        String datecreated){
-    this.name = name;
-    this.breed = breed;
-    this.age = age;
-    this.gender = gender;
-    this.size = size;
-    this.training = training;
-    this.activitylevel = activitylevel;
-    this.description = description;
-    this.area = area;
-    this.datecreated = datecreated;
-    this.lasteditted = " ";
-}
+    public Dog(
+            int id,
+            String name,
+            String breed,
+            int age,
+            String gender,
+            String size,
+            String training,
+            String activitylevel,
+            String description,
+            String area,
+            String datecreated){
+        this.id = id;
+        this.name = name;
+        this.breed = breed;
+        this.age = age;
+        this.gender = gender;
+        this.size = size;
+        this.training = training;
+        this.activitylevel = activitylevel;
+        this.description = description;
+        this.area = area;
+        this.datecreated = datecreated;
+        this.lasteditted = " ";
+    }
+
+    public Dog(
+            String name,
+            String breed,
+            int age,
+            String gender,
+            String size,
+            String training,
+            String activitylevel,
+            String description,
+            String area,
+            String datecreated){
+        this.name = name;
+        this.breed = breed;
+        this.age = age;
+        this.gender = gender;
+        this.size = size;
+        this.training = training;
+        this.activitylevel = activitylevel;
+        this.description = description;
+        this.area = area;
+        this.datecreated = datecreated;
+        this.lasteditted = " ";
+    }
 
 }
