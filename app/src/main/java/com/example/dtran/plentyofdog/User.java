@@ -41,9 +41,11 @@ public class User {
     String username;
     String password;
     int ownerId;
+
     public User(){
 
     }
+
     public User(String username, String password, int OwnerId){
         this.ownerId = OwnerId;
         this.username = username;

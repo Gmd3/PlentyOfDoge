@@ -133,5 +133,30 @@ public class DogHelper extends SQLiteOpenHelper
     public void deleteDog(Dog dog){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete("Dog", "_id = ?", new String[]{String.valueOf(dog.id)});
+
+    }
+
+    public Dog getLastDog(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String selectQuery = "SELECT * FROM Dog";
+        Cursor cursor = db.rawQuery(selectQuery,null);
+        Dog dog;
+        cursor.moveToLast();
+        dog = new Dog(
+                cursor.getInt(0)
+                ,cursor.getString(1)
+                ,cursor.getString(2)
+                ,cursor.getInt(3)
+                ,cursor.getString(4)
+                ,cursor.getString(5)
+                ,cursor.getString(6)
+                ,cursor.getString(7)
+                ,cursor.getString(8)
+                ,cursor.getString(9)
+                ,cursor.getString(10)
+        );
+
+        cursor.close();
+        return dog;
     }
 }

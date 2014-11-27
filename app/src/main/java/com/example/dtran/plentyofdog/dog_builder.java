@@ -6,18 +6,33 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 
 public class dog_builder extends Activity {
 
     private DogHelper db;
+    private DogOwnerHelper db2;
+    private UserHelper db3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent typeIntent = getIntent();
+        boolean isNew = typeIntent.getBooleanExtra("new", false);
+
+        db = new DogHelper(getApplicationContext());
+        db2 = new DogOwnerHelper(getApplicationContext());
+        db3 = new UserHelper(getApplicationContext());
         setContentView(R.layout.activity_dog_builder);
+        if (!isNew){
+            Button b = (Button)findViewById(R.id.btnNext);
+            b.setText("Submit Changes");
+        }
     }
 
 
@@ -56,7 +71,8 @@ public class dog_builder extends Activity {
         Spinner breedGrab = (Spinner)findViewById(R.id.breedInput);
         EditText descGrab = (EditText)findViewById(R.id.dogDesc);
 
-        int userID = UserIntent.getIntExtra("userID", 1);
+        String userName = UserIntent.getStringExtra("username");
+        int ownerID = db3.getOwnerID(userName);
         String name = nameGrab.getText().toString();
         String breed = breedGrab.getSelectedItem().toString();
         String ageString = ageGrab.getText().toString();
@@ -65,27 +81,18 @@ public class dog_builder extends Activity {
         String training = trainingGrab.getText().toString();
         String activity = activityGrab.getSelectedItem().toString();
         String desc = descGrab.getText().toString();
-
         Integer age = Integer.valueOf(ageString);
 
-        /*
-        intent.putExtra("userID", userID);
-        intent.putExtra("name", name);
-        intent.putExtra("breed", breed);
-        intent.putExtra("age", age);
-        intent.putExtra("gender", gender);
-        intent.putExtra("size", size);
-        intent.putExtra("training", training);
-        intent.putExtra("gender", gender);
-        intent.putExtra("activity", activity);
-        intent.putExtra("desc", desc);
-        */
-
-        Dog newDog = new Dog(name, breed, age, gender, size, training, activity, desc, "asd", "today");
-
-        DogHelper db = new DogHelper(getApplicationContext());
-
+        Dog newDog = new Dog(name, breed, age, gender, size, training, activity, desc, "ownerArea", "today");
         db.addDog(newDog);
+        Dog d = db.getLastDog();
+        DogOwner newDogOwner = new DogOwner(d.id,
+                ownerID,
+                "today", "today", "Active");
+        db2.addDogOwner(newDogOwner);
+
+        Toast toast = Toast.makeText(getApplicationContext(), newDogOwner.status, Toast.LENGTH_SHORT);
+        toast.show();
 
         startActivity(intent);
     }

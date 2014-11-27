@@ -24,7 +24,7 @@ public class MyDogs extends Activity {
             "Google Plus","asd"
     } ;
     Integer[] imageId = {
-            R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher
+            R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher
     };
 
     List<Dog> myDogs;
@@ -65,7 +65,8 @@ public class MyDogs extends Activity {
 
     public void newDog(View view){
         Intent dogIntent = new Intent(this, dog_builder.class);
-
+        dogIntent.putExtra("username", getIntent().getStringExtra("username"));
+        dogIntent.putExtra("new", true);
         startActivity(dogIntent);
     }
 
@@ -95,7 +96,7 @@ public class MyDogs extends Activity {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view,
                                                         int position, long id) {
-                                    Toast.makeText(MyDogs.this, "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MyDogs.this, "You Clicked at " + myDogs.get(position).activitylevel, Toast.LENGTH_SHORT).show();
                                 }
                             });
                             resp = "All dogs loaded!";

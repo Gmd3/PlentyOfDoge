@@ -133,4 +133,9 @@ public class UserHelper extends SQLiteOpenHelper
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete("User", "_id = ?", new String[]{String.valueOf(user.id)});
     }
+
+    public int getOwnerID(String userName){
+        User user = getUser(userName);
+        return user.ownerId;
+    }
 }
