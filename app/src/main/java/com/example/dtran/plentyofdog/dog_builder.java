@@ -65,6 +65,8 @@ public class dog_builder extends Activity {
         Intent UserIntent = getIntent();
 
         Intent intent = new Intent(this, home_screen.class);
+        intent.putExtra("username", UserIntent.getStringExtra("username"));
+        intent.putExtra("new", false);
 
         EditText nameGrab = (EditText)findViewById(R.id.nameInput);
         EditText ageGrab = (EditText)findViewById(R.id.ageInput);
