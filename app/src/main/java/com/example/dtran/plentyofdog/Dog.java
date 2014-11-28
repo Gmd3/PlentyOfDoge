@@ -29,33 +29,7 @@ public class Dog {
     String area;
     String datecreated;
     String lasteditted;
-
-
-    public Dog(
-            int id,
-            String name,
-            String breed,
-            int age,
-            String gender,
-            String size,
-            String training,
-            String activitylevel,
-            String description,
-            String area,
-            String datecreated){
-        this.id = id;
-        this.name = name;
-        this.breed = breed;
-        this.age = age;
-        this.gender = gender;
-        this.size = size;
-        this.training = training;
-        this.activitylevel = activitylevel;
-        this.description = description;
-        this.area = area;
-        this.datecreated = datecreated;
-        this.lasteditted = " ";
-    }
+    byte[] image;
 
     public Dog(
             String name,
@@ -67,7 +41,8 @@ public class Dog {
             String activitylevel,
             String description,
             String area,
-            String datecreated){
+            String datecreated,
+            byte[] image){
         this.name = name;
         this.breed = breed;
         this.age = age;
@@ -79,6 +54,7 @@ public class Dog {
         this.area = area;
         this.datecreated = datecreated;
         this.lasteditted = " ";
+        this.image = image;
     }
 
 }
