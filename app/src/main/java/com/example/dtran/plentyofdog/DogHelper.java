@@ -26,7 +26,7 @@ public class DogHelper extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db) {
         Log.d("DB", "DB CREATING");
         db.execSQL("DROP TABLE IF EXISTS Dog");
-        String CREATE_DOG_TABLE = "CREATE TABLE Dog ( _id INTEGER PRIMARY KEY, Name VARCHAR NOT NULL, Breed VARCHAR NOT NULL, Age INTEGER NOT NULL, Gender VARCHAR NOT NULL, Size VARCHAR NOT NULL, Training VARCHAR NOT NULL, ActivityLevel VARCHAR NOT NULL, Description VARCHAR NOT NULL NOT NULL, Area VARCHAR NOT NULL, DateCreated DATE NOT NULL, LastEdited DATE)";
+        String CREATE_DOG_TABLE = "CREATE TABLE Dog ( _id INTEGER PRIMARY KEY, Name VARCHAR NOT NULL, Breed VARCHAR NOT NULL, Age INTEGER NOT NULL, Gender VARCHAR NOT NULL, Size VARCHAR NOT NULL, Training VARCHAR NOT NULL, ActivityLevel VARCHAR NOT NULL, Description VARCHAR NOT NULL NOT NULL, Area VARCHAR NOT NULL, DateCreated DATE NOT NULL, LastEdited DATE, image BLOB)";
         db.execSQL(CREATE_DOG_TABLE);
         Log.d("DB", "DB CREATED");
     }
@@ -61,17 +61,39 @@ public class DogHelper extends SQLiteOpenHelper
         if(cursor != null)
             cursor.moveToFirst();
         Dog dog = new Dog(
-                cursor.getInt(0)
+                cursor.getString(0)
                 ,cursor.getString(1)
-                ,cursor.getString(2)
-                ,cursor.getInt(3)
+                ,cursor.getInt(2)
+                ,cursor.getString(3)
                 ,cursor.getString(4)
                 ,cursor.getString(5)
                 ,cursor.getString(6)
                 ,cursor.getString(7)
                 ,cursor.getString(8)
                 ,cursor.getString(9)
-                ,cursor.getString(10)
+                ,cursor.getBlob(10)
+        );
+        cursor.close();
+        return dog;
+    }
+    public Dog getRandomDog(){
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM Dog ORDER BY RANDOM() LIMIT 1", null);
+        if(cursor != null)
+            cursor.moveToFirst();
+        Dog dog = new Dog(
+                cursor.getString(0)
+                ,cursor.getString(1)
+                ,cursor.getInt(2)
+                ,cursor.getString(3)
+                ,cursor.getString(4)
+                ,cursor.getString(5)
+                ,cursor.getString(6)
+                ,cursor.getString(7)
+                ,cursor.getString(8)
+                ,cursor.getString(9)
+                ,cursor.getBlob(10)
         );
         cursor.close();
         return dog;
@@ -86,17 +108,17 @@ public class DogHelper extends SQLiteOpenHelper
         if(cursor.moveToFirst()){
             do {
                 Dog dog = new Dog(
-                    cursor.getInt(0)
-                    ,cursor.getString(1)
-                    ,cursor.getString(2)
-                    ,cursor.getInt(3)
-                    ,cursor.getString(4)
-                    ,cursor.getString(5)
-                    ,cursor.getString(6)
-                    ,cursor.getString(7)
-                    ,cursor.getString(8)
-                    ,cursor.getString(9)
-                    ,cursor.getString(10)
+                        cursor.getString(0)
+                        ,cursor.getString(1)
+                        ,cursor.getInt(2)
+                        ,cursor.getString(3)
+                        ,cursor.getString(4)
+                        ,cursor.getString(5)
+                        ,cursor.getString(6)
+                        ,cursor.getString(7)
+                        ,cursor.getString(8)
+                        ,cursor.getString(9)
+                        ,cursor.getBlob(10)
                 );
                 dogList.add(dog);
             }while(cursor.moveToNext());

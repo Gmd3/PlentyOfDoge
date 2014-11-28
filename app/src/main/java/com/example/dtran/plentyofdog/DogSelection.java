@@ -1,11 +1,11 @@
 package com.example.dtran.plentyofdog;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 
 public class DogSelection extends Activity {
@@ -35,16 +35,28 @@ public class DogSelection extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+    int getDrawablesCount() {
+        return R.drawable.class.getFields().length;
+    }
+    public void random(){
+        ImageView image = (ImageView)findViewById(R.id.dogImage);
+
+        int n = getDrawablesCount();
+
+        ImageView imgView = new ImageView(this);
+        DogHelper dogdb = new DogHelper(this);
+        Dog dog = dogdb.getRandomDog();
+
+        String variableValue = dog.activitylevel;
+        image.setImageResource(getResources().getIdentifier(variableValue, "drawable", getPackageName()));
+
+    }
     public void yes(View view){
-        Intent intent = new Intent(this, DogSelection.class);
-
-
-        startActivity(intent);
+        //add to list of matches
+        random();
     }
     public void no(View view){
-        Intent intent = new Intent(this, DogSelection.class);
-
-
-        startActivity(intent);
+        //randomly choose another dog to view
+        random();
     }
 }

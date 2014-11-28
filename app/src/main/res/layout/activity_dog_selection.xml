@@ -7,49 +7,44 @@
 
     tools:context=".WelcomeScreen">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight=".1"
-        android:orientation="horizontal">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/settings"
-            android:id="@+id/btnSettings" />
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight=".5"
         android:orientation="horizontal"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:background="#ff71e1ff">
 
 
-
-
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/dogImage" />
     </LinearLayout>
 
    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight=".1"
+
         android:orientation="horizontal"
+
        android:weightSum="1">
        <Button
-           android:layout_width="wrap_content"
+           android:layout_width="fill_parent"
            android:layout_height="wrap_content"
            android:text="@string/NO"
            android:id="@+id/btnNo"
-           android:onClick="no" />
+           android:onClick="no"
+           android:layout_weight=".5"/>
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/YES"
             android:id="@+id/btnYes"
-            android:onClick="yes" />
+            android:onClick="yes"
+            android:layout_weight=".5" />
 
 
        </LinearLayout>

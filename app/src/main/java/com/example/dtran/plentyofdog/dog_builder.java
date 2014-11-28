@@ -3,23 +3,61 @@ package com.example.dtran.plentyofdog;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
+
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 
 public class dog_builder extends Activity {
 
     private DogHelper db;
+    TextView textFile;
+    byte[] image;
 
+    private static final int PICKFILE_RESULT_CODE = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dog_builder);
-    }
+        Button buttonPick = (Button)findViewById(R.id.buttonpick);
+        textFile = (TextView)findViewById(R.id.textfile);
 
+        buttonPick.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View arg0) {
+                // TODO Auto-generated method stub
+
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("file/*");
+                startActivityForResult(intent,PICKFILE_RESULT_CODE);
+
+            }});
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // TODO Auto-generated method stub
+        switch(requestCode){
+            case PICKFILE_RESULT_CODE:
+                if(resultCode==RESULT_OK){
+                    String FilePath = data.getData().getPath();
+                    textFile.setText(FilePath);
+                }
+                break;
+
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -68,20 +106,20 @@ public class dog_builder extends Activity {
 
         Integer age = Integer.valueOf(ageString);
 
-        /*
-        intent.putExtra("userID", userID);
-        intent.putExtra("name", name);
-        intent.putExtra("breed", breed);
-        intent.putExtra("age", age);
-        intent.putExtra("gender", gender);
-        intent.putExtra("size", size);
-        intent.putExtra("training", training);
-        intent.putExtra("gender", gender);
-        intent.putExtra("activity", activity);
-        intent.putExtra("desc", desc);
-        */
+        File filepath = new File(textFile.getText().toString());
+        try {
+            FileInputStream instream = new FileInputStream(filepath);
 
-        Dog newDog = new Dog(name, breed, age, gender, size, training, activity, desc, "asd", "today");
+            BufferedInputStream bif = new BufferedInputStream(instream);
+            image = new byte[bif.available()];
+        } catch(FileNotFoundException e){
+            Log.d("file not file", "ERROR");
+        } catch(IOException io){
+            Log.d("file not found", "ERROR");
+        }
+
+
+        Dog newDog = new Dog(name, breed, age, gender, size, training, activity, desc, "asd", "today", image);
 
         DogHelper db = new DogHelper(getApplicationContext());
 
@@ -89,4 +127,9 @@ public class dog_builder extends Activity {
 
         startActivity(intent);
     }
+    public void upload(View view){
+
+
+    }
+
 }

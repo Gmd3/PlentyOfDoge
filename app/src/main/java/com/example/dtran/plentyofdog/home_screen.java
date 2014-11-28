@@ -62,7 +62,12 @@ public class home_screen extends Activity {
         home.putExtra("username", userIntent.getStringExtra("username"));
         startActivity(home);
     }
+    public void dogBrowse(View view){
+        Intent intent = new Intent(this, DogSelection.class);
 
+        intent.putExtra("username", userIntent.getStringExtra("username"));
+        startActivity(intent);
+    }
     public void test(View view){
         Intent home = new Intent(this, dog_builder.class);
         home.putExtra("username", userIntent.getStringExtra("username"));
