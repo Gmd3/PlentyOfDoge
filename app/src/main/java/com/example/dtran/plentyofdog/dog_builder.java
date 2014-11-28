@@ -11,12 +11,15 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.sql.Blob;
+
 
 public class dog_builder extends Activity {
 
     private DogHelper db;
     private DogOwnerHelper db2;
     private UserHelper db3;
+    private OwnerHelper db4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,8 @@ public class dog_builder extends Activity {
         db = new DogHelper(getApplicationContext());
         db2 = new DogOwnerHelper(getApplicationContext());
         db3 = new UserHelper(getApplicationContext());
+        db4 = new OwnerHelper(getApplicationContext());
+
         setContentView(R.layout.activity_dog_builder);
         if (!isNew){
             Button b = (Button)findViewById(R.id.btnNext);
@@ -66,7 +71,6 @@ public class dog_builder extends Activity {
         EditText genderGrab = (EditText)findViewById(R.id.genderInput);
         EditText trainingGrab = (EditText)findViewById(R.id.trainingInput);
         Spinner sizeGrab = (Spinner)findViewById(R.id.spinner1);
-        EditText emailGrab = (EditText)findViewById(R.id.emailInput);
         Spinner activityGrab = (Spinner)findViewById(R.id.spinner2);
         Spinner breedGrab = (Spinner)findViewById(R.id.breedInput);
         EditText descGrab = (EditText)findViewById(R.id.dogDesc);
@@ -83,7 +87,9 @@ public class dog_builder extends Activity {
         String desc = descGrab.getText().toString();
         Integer age = Integer.valueOf(ageString);
 
-        Dog newDog = new Dog(name, breed, age, gender, size, training, activity, desc, "ownerArea", "today");
+        Owner o = db4.getOwner(ownerID+1);
+
+        Dog newDog = new Dog(name, breed, age, gender, size, training, activity, desc, o.area, "today", new byte[]{});
         db.addDog(newDog);
         Dog d = db.getLastDog();
         DogOwner newDogOwner = new DogOwner(d.id,
@@ -91,7 +97,7 @@ public class dog_builder extends Activity {
                 "today", "today", "Active");
         db2.addDogOwner(newDogOwner);
 
-        Toast toast = Toast.makeText(getApplicationContext(), newDogOwner.status, Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(getApplicationContext(), d.area, Toast.LENGTH_SHORT);
         toast.show();
 
         startActivity(intent);
