@@ -77,6 +77,7 @@ public class Owner {
     String area;
     String dateCreated;
     String lastEdited;
+
     public Owner( String firstName,
                   String lastName,
                   String experience,

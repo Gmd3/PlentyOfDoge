@@ -63,6 +63,8 @@ public class dog_builder extends Activity {
     public void submit(View v){
 
         Intent UserIntent = getIntent();
+        boolean isNew = UserIntent.getBooleanExtra("new", false);
+
 
         Intent intent = new Intent(this, home_screen.class);
         intent.putExtra("username", UserIntent.getStringExtra("username"));
@@ -89,7 +91,7 @@ public class dog_builder extends Activity {
         String desc = descGrab.getText().toString();
         Integer age = Integer.valueOf(ageString);
 
-        Owner o = db4.getOwner(ownerID+1);
+        Owner o = db4.getOwner(ownerID);
 
         Dog newDog = new Dog(name, breed, age, gender, size, training, activity, desc, o.area, "today", new byte[]{});
         db.addDog(newDog);
@@ -99,7 +101,7 @@ public class dog_builder extends Activity {
                 "today", "today", "Active");
         db2.addDogOwner(newDogOwner);
 
-        Toast toast = Toast.makeText(getApplicationContext(), d.area, Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(getApplicationContext(), "owner ID: " + ownerID, Toast.LENGTH_SHORT);
         toast.show();
 
         startActivity(intent);

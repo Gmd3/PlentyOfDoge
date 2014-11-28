@@ -164,4 +164,12 @@ import java.util.List;
             SQLiteDatabase db = this.getWritableDatabase();
             db.delete("Owner", "_id = ?", new String[]{String.valueOf(owner.id)});
         }
+
+        public int getLastOwnerID(){
+            SQLiteDatabase db = this.getWritableDatabase();
+            String selectQuery = "SELECT * FROM Owner";
+            Cursor cursor = db.rawQuery(selectQuery,null);
+            cursor.moveToLast();
+            return cursor.getInt(0);
+        }
     }

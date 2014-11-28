@@ -96,7 +96,7 @@ public class MyDogs extends Activity {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view,
                                                         int position, long id) {
-                                    Toast.makeText(MyDogs.this, "You Clicked at " + myDogs.get(position).activitylevel, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MyDogs.this, "You Clicked at " + myDogs.get(position).area, Toast.LENGTH_SHORT).show();
                                 }
                             });
                             resp = "All dogs loaded!";

@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -141,7 +142,9 @@ public class ProfileBuild extends Activity {
             String date = s.format(new Date());
             Owner newOwner = new Owner(firstname, lastname, xp, Integer.parseInt(age), gender, email, phone, hometown, date, "");
             db.addOwner(newOwner);
-            userdb.addUser(new User(email, password, newOwner.id));
+            userdb.addUser(new User(email, password, db.getLastOwnerID()));
+            Toast toast = Toast.makeText(getApplicationContext(), "owner ID: " + db.getLastOwnerID(), Toast.LENGTH_SHORT);
+            toast.show();
             Log.d("DB", "Inserted Owner");
 
             List<Owner> owners = db.getAllOwner();
