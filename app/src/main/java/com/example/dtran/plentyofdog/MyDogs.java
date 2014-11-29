@@ -95,12 +95,14 @@ public class MyDogs extends Activity {
                         Intent intent = getIntent();
                         int ownerID = db3.getOwnerID(intent.getStringExtra("username"));
                         ArrayList<Integer> DogIDs = db2.getMyDogs(ownerID);
-                        Toast.makeText(MyDogs.this, "My first dog is " + DogIDs.get(0) , Toast.LENGTH_SHORT).show();
 
                         ArrayList<Dog> temp = new ArrayList<Dog>();
+
+
                         for(int i = 0; i < DogIDs.size(); i++){
                             temp.add(db.getDog(DogIDs.get(i)));
                         }
+
                         myDogs = temp;
 
                         if (myDogs != null){
