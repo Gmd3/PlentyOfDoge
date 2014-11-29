@@ -11,8 +11,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.sql.Blob;
-
 
 public class dog_builder extends Activity {
 
@@ -106,4 +104,5 @@ public class dog_builder extends Activity {
 
         startActivity(intent);
     }
+
 }
