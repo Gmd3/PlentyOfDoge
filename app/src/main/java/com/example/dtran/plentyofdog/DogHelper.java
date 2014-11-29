@@ -62,7 +62,7 @@ public class DogHelper extends SQLiteOpenHelper
         values.put("Description", dog.description);
         values.put("Area", dog.area);
         values.put("DateCreated", dog.datecreated);
-        values.put("LastEdited", dog.lasteditted);
+        values.put("LastEdited", dog.lastedited);
         values.put("Image", dog.image);
 
         db.insert("Dog", null, values);
@@ -143,7 +143,7 @@ public class DogHelper extends SQLiteOpenHelper
         values.put("Description", dog.description);
         values.put("Area", dog.area);
         values.put("DateCreated", dog.datecreated);
-        values.put("LastEdited", dog.lasteditted);
+        values.put("LastEdited", dog.lastedited);
         values.put("Image",dog.image);
 
 

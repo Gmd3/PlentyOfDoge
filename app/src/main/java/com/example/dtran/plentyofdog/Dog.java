@@ -17,7 +17,7 @@ public class Dog {
     String description;
     String area;
     String datecreated;
-    String lasteditted;
+    String lastedited;
     String image;
 
     public Dog(
@@ -43,7 +43,7 @@ public class Dog {
         this.description = description;
         this.area = area;
         this.datecreated = datecreated;
-        this.lasteditted = lastedited;
+        this.lastedited = lastedited;
         this.image = image;
 
     }
@@ -73,7 +73,7 @@ public class Dog {
         this.description = description;
         this.area = area;
         this.datecreated = datecreated;
-        this.lasteditted = lastedited;
+        this.lastedited = lastedited;
         this.image = image;
     }
 
