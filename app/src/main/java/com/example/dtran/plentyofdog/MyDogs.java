@@ -28,7 +28,10 @@ public class MyDogs extends Activity {
     };
 
     List<Dog> myDogs;
+    List<DogOwner> dogOwners;
     DogHelper db;
+    DogOwnerHelper db2;
+    UserHelper db3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +89,20 @@ public class MyDogs extends Activity {
                 runOnUiThread(new Runnable() {
                     public void run() {
                         db = new DogHelper(getApplicationContext());
-                        myDogs = db.getAllDog();
+                        db2 = new DogOwnerHelper(getApplicationContext());
+                        db3 = new UserHelper(getApplicationContext());
+
+                        Intent intent = getIntent();
+                        int ownerID = db3.getOwnerID(intent.getStringExtra("username"));
+                        ArrayList<Integer> DogIDs = db2.getMyDogs(ownerID);
+                        Toast.makeText(MyDogs.this, "My first dog is " + DogIDs.get(0) , Toast.LENGTH_SHORT).show();
+
+                        ArrayList<Dog> temp = new ArrayList<Dog>();
+                        for(int i = 0; i < DogIDs.size(); i++){
+                            temp.add(db.getDog(DogIDs.get(i)));
+                        }
+                        myDogs = temp;
+
                         if (myDogs != null){
                             adapter = new SimpleDogList(MyDogs.this, imageId, myDogs);
                             list = (ListView) findViewById(R.id.list);

@@ -61,17 +61,18 @@ public class DogHelper extends SQLiteOpenHelper
         if(cursor != null)
             cursor.moveToFirst();
         Dog dog = new Dog(
-                cursor.getString(0)
+                cursor.getInt(0)
                 ,cursor.getString(1)
-                ,cursor.getInt(2)
-                ,cursor.getString(3)
+                ,cursor.getString(2)
+                ,cursor.getInt(3)
                 ,cursor.getString(4)
                 ,cursor.getString(5)
                 ,cursor.getString(6)
                 ,cursor.getString(7)
                 ,cursor.getString(8)
                 ,cursor.getString(9)
-                ,cursor.getBlob(10)
+                ,cursor.getString(10)
+                ,cursor.getBlob(11)
         );
         cursor.close();
         return dog;
@@ -165,7 +166,8 @@ public class DogHelper extends SQLiteOpenHelper
         Dog dog;
         cursor.moveToLast();
         dog = new Dog(
-                cursor.getString(1)
+                cursor.getInt(0)
+                ,cursor.getString(1)
                 ,cursor.getString(2)
                 ,cursor.getInt(3)
                 ,cursor.getString(4)

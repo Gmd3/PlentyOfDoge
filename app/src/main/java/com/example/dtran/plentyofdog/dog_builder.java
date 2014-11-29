@@ -101,7 +101,7 @@ public class dog_builder extends Activity {
                 "today", "today", "Active");
         db2.addDogOwner(newDogOwner);
 
-        Toast toast = Toast.makeText(getApplicationContext(), "owner ID: " + ownerID, Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(getApplicationContext(), "Dog ID: " + d.id, Toast.LENGTH_SHORT);
         toast.show();
 
         startActivity(intent);
