@@ -1,0 +1,183 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    tools:context=".WelcomeScreen">
+
+
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".9"
+        android:orientation="vertical"
+        android:padding="6dip">
+
+        <TextView
+            android:id="@+id/Name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Name"
+            android:textSize="25sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:padding="6dip">
+
+            <ImageView
+                android:layout_width="150dip"
+                android:layout_height="180dip"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg"/>
+
+            <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <TableRow>
+                    <TextView
+                        android:id="@+id/lblBreed"
+                        android:text="Breed"
+                        android:layout_weight="1"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:id="@+id/Breed"
+                        android:text="MyBreed"
+                        android:layout_weight="9"
+                        android:textSize="15sp"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:id="@+id/lblAge"
+                        android:text="Age"
+                        android:layout_weight="1"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:id="@+id/Age"
+                        android:text="MyAge"
+                        android:layout_weight="9"
+                        android:textSize="15sp"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:id="@+id/lblGender"
+                        android:text="Gender"
+                        android:textSize="15sp"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/Gender"
+                        android:text="MyGender"
+                        android:textSize="15sp"
+                        android:layout_weight="9"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:id="@+id/lblSize"
+                        android:text="Size"
+                        android:textSize="15sp"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/Size"
+                        android:text="mySize"
+                        android:textSize="15sp"
+                        android:layout_weight="9"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:id="@+id/lblTraining"
+                        android:text="Training"
+                        android:textSize="15sp"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/Training"
+                        android:text="myTraining"
+                        android:textSize="15sp"
+                        android:layout_weight="9"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:id="@+id/lblTemperament"
+                        android:text="Activity"
+                        android:layout_weight="1"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:id="@+id/Temperament"
+                        android:text="MyActivity"
+                        android:layout_weight="9"
+                        android:textSize="15sp"/>
+                </TableRow>
+
+                <TableRow>
+                    <TextView
+                        android:id="@+id/lblArea"
+                        android:text="Area"
+                        android:layout_weight="1"
+                        android:textSize="15sp"/>
+
+                    <TextView
+                        android:id="@+id/Area"
+                        android:text="MyArea"
+                        android:layout_weight="9"
+                        android:textSize="15sp"/>
+                </TableRow>
+            </TableLayout>
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/lblDogDesc"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Description"
+            android:textSize="25sp"/>
+        <TextView
+            android:id="@+id/dogDesc"
+            android:layout_width="fill_parent"
+            android:layout_height="265dip"
+            android:gravity="center_horizontal"
+            android:text="MyDescription"
+            android:textSize="25sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".1"
+        android:weightSum="1"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:text="Yes"
+            android:layout_weight=".5"
+            android:id="@+id/btnYes"
+            android:onClick="backHome" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:text="No"
+            android:layout_weight=".5"
+            android:id="@+id/btnNewDog"
+            android:onClick="newDog" />
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

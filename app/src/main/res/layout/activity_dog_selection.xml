@@ -7,89 +7,51 @@
 
     tools:context=".WelcomeScreen">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".02"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="Dog browser!"
+            android:gravity="center"/>
+
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
         android:layout_weight=".5"
         android:orientation="horizontal"
-        android:weightSum="1"
-        android:background="#ff71e1ff">
+        android:weightSum="1">
 
 
-        <ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/dogImage" />
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </ListView>
     </LinearLayout>
 
    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight=".1"
-
-        android:orientation="horizontal"
-
-       android:weightSum="1">
-       <Button
-           android:layout_width="fill_parent"
-           android:layout_height="wrap_content"
-           android:text="@string/NO"
-           android:id="@+id/btnNo"
-           android:onClick="no"
-           android:layout_weight=".5"/>
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/YES"
-            android:id="@+id/btnYes"
-            android:onClick="yes"
-            android:layout_weight=".5" />
-
-
-       </LinearLayout>
-
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="0dip"
-           android:layout_weight=".3"
-           android:orientation="vertical"
-           android:weightSum="1">
-
-       <LinearLayout
-           android:orientation="vertical"
-           android:layout_width="290dp"
-           android:layout_height="match_parent"
-           android:layout_weight="0.85">
-
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:textAppearance="?android:attr/textAppearanceMedium"
-               android:id="@+id/phDogName" />
-
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:textAppearance="?android:attr/textAppearanceMedium"
-               android:id="@+id/phOwner" />
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:textAppearance="?android:attr/textAppearanceMedium"
-               android:id="@+id/phBreed" />
-
-           <TextView
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:textAppearance="?android:attr/textAppearanceMedium"
-               android:id="@+id/phInterest" />
-       </LinearLayout>
-
+    android:layout_width="match_parent"
+    android:layout_height="0dip"
+    android:layout_weight=".02"
+    android:orientation="horizontal"
+   >
        <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:id="@+id/lblDogDesc" />
+           android:layout_width="fill_parent"
+           android:layout_height="fill_parent"
+           android:text="Scroll down for more dogs!"
+           android:gravity="center"/>
+
+
    </LinearLayout>
+
+
 </LinearLayout>
 

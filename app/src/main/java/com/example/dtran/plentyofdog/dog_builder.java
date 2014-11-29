@@ -32,6 +32,7 @@ public class dog_builder extends Activity {
         db4 = new OwnerHelper(getApplicationContext());
 
         setContentView(R.layout.activity_dog_builder);
+
         if (!isNew){
             Button b = (Button)findViewById(R.id.btnNext);
             b.setText("Submit Changes");
