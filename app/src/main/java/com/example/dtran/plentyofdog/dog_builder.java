@@ -91,7 +91,7 @@ public class dog_builder extends Activity {
 
         Owner o = db4.getOwner(ownerID);
 
-        Dog newDog = new Dog(name, breed, age, gender, size, training, activity, desc, o.area, "today", new byte[]{});
+        Dog newDog = new Dog(name, breed, age, gender, size, training, activity, desc, o.area, "today","today", "");
         db.addDog(newDog);
         Dog d = db.getLastDog();
         DogOwner newDogOwner = new DogOwner(d.id,
