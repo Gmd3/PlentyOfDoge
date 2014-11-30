@@ -81,15 +81,20 @@ public class DogSelection extends Activity {
                         for(int i = 0; i < DogIDs.size(); i++){
                             Dog tempDog = db.getDog(DogIDs.get(i));
                             Log.d("tempDog stats: ", "" + tempDog.size + ", "  + tempDog.activitylevel +  ", "  + tempDog.breed);
-
+                            /*
                             if (p.size.equals(tempDog.size) && p.temperament.equals(tempDog.activitylevel) && rightBreed(tempDog.breed, p.hairtype)){
                                 temp.add(tempDog);
+                            }
+                            */
+                            if (rightSize(p.size, tempDog.size) &&
+                                rightTemperment(p.temperament, tempDog.activitylevel) &&
+                                rightBreed(tempDog.breed, p.hairtype)){
+
+                                    temp.add(tempDog);
                             }
                         }
 
                         myDogs = temp;
-
-                        //myDogs = db.getAllDog();
 
                         if (myDogs != null){
                             adapter = new FullDogList(DogSelection.this,  myDogs);
@@ -114,6 +119,25 @@ public class DogSelection extends Activity {
             return resp;
         }
 
+        protected boolean rightSize(String prefSize, String dogSize){
+            if (prefSize.equals("noSize")) {
+                return true;
+            } else if (prefSize.equals(dogSize)){
+                return true;
+            }
+
+            return false;
+        }
+
+        protected boolean rightTemperment(String temperament, String activityLevel){
+            if (temperament.equals("noTemperament")) {
+                return true;
+            }else if (temperament.equals(activityLevel)){
+                return true;
+            }
+
+            return false;
+        }
 
 
         protected boolean rightBreed(String breed, String hairType){
