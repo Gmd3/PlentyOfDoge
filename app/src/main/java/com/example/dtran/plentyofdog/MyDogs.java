@@ -8,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -29,6 +28,7 @@ public class MyDogs extends Activity {
     DogHelper db;
     DogOwnerHelper db2;
     UserHelper db3;
+    Intent dogBuilder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,7 @@ public class MyDogs extends Activity {
     public void newDog(View view){
         Intent dogIntent = new Intent(this, dog_builder.class);
         dogIntent.putExtra("username", getIntent().getStringExtra("username"));
-        dogIntent.putExtra("new", true);
+        dogIntent.putExtra("dogID", "");
         startActivity(dogIntent);
     }
 
@@ -111,7 +111,11 @@ public class MyDogs extends Activity {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view,
                                                         int position, long id) {
-                                    Toast.makeText(MyDogs.this, "You Clicked at " + myDogs.get(position).area, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MyDogs.this, "You Clicked at " + myDogs.get(position).id, Toast.LENGTH_SHORT).show();
+                                    Intent dogIntent = new Intent(MyDogs.this, dog_builder.class);
+                                    dogIntent.putExtra("username", getIntent().getStringExtra("username"));
+                                    dogIntent.putExtra("dogID", myDogs.get(position).id);
+                                    startActivity(dogIntent);
                                 }
                             });
                             resp = "All dogs loaded!";

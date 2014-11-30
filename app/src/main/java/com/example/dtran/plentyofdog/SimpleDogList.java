@@ -1,6 +1,7 @@
 package com.example.dtran.plentyofdog;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,8 +35,12 @@ public class SimpleDogList extends ArrayAdapter<Dog>{
 
         txtName.setText(dogs.get(position).name);
         txtBreed.setText(dogs.get(position).breed);
+<<<<<<< Updated upstream
         imageView.setImageResource(imageId[position]);
 
+=======
+        imageView.setImageURI(Uri.parse(dogs.get(position).image));
+>>>>>>> Stashed changes
         return rowView;
     }
 }

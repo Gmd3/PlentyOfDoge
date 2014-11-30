@@ -79,6 +79,7 @@
     <string name="activityLevel">Activity level</string>
     <string name="dog_description">Short description of your dog</string>
     <string name="Upload">Upload</string>
+    <string name="fileName">File Name: </string>
 
     <string-array name="breeds">
         <item>Puppey</item>
