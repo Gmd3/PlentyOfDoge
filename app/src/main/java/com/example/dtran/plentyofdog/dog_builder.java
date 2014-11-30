@@ -37,10 +37,7 @@ public class dog_builder extends Activity {
         db4 = new OwnerHelper(getApplicationContext());
 
         setContentView(R.layout.activity_dog_builder);
-<<<<<<< Updated upstream
 
-        if (!isNew){
-=======
         Log.d("dogID: ", ""+dogID);
         if (dogID != -0){
             Dog dog = db.getDog(dogID);
@@ -72,7 +69,6 @@ public class dog_builder extends Activity {
             imageGrab.setImageURI(Uri.parse(dog.image));
             uri = Uri.parse(dog.image);
 
->>>>>>> Stashed changes
             Button b = (Button)findViewById(R.id.btnNext);
             b.setText("Submit");
         }
