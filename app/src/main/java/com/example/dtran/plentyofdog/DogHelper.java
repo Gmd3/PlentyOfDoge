@@ -122,6 +122,34 @@ public class DogHelper extends SQLiteOpenHelper
         cursor.close();
         return dogList;
     }
+
+    public Dog getDog(Preference preference, int id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM Dog WHERE _id = " + id + " AND Size = '" + preference.size + "' AND ActivityLevel = '" + preference.temperament + "'";
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if(cursor != null) {
+            cursor.moveToFirst();
+            Log.d("Number of Dogs from cursor: ", "" + cursor.getCount());
+            Dog dog = new Dog(
+                    cursor.getInt(0)
+                    , cursor.getString(1)
+                    , cursor.getString(2)
+                    , cursor.getInt(3)
+                    , cursor.getString(4)
+                    , cursor.getString(5)
+                    , cursor.getString(6)
+                    , cursor.getString(7)
+                    , cursor.getString(8)
+                    , cursor.getString(9)
+                    , cursor.getString(10)
+                    , cursor.getString(11)
+                    , cursor.getString(12)
+            );
+            cursor.close();
+
+        return dog;
+        } return null;
+    }
     public int getDogCount(){
         String selectQuery = "SELECT * FROM Dog";
 

@@ -19,16 +19,11 @@ public class MyDogs extends Activity {
 
     ListView list;
     SimpleDogList adapter;
-    Integer[] imageId = {
-            R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher
-    };
 
     List<Dog> myDogs;
-    List<DogOwner> dogOwners;
     DogHelper db;
     DogOwnerHelper db2;
     UserHelper db3;
-    Intent dogBuilder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,7 +98,7 @@ public class MyDogs extends Activity {
                         myDogs = temp;
 
                         if (myDogs != null){
-                            adapter = new SimpleDogList(MyDogs.this, imageId, myDogs);
+                            adapter = new SimpleDogList(MyDogs.this,  myDogs);
                             list = (ListView) findViewById(R.id.list);
                             list.setAdapter(adapter);
                             adapter.notifyDataSetChanged();

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,15 +20,12 @@ public class DogSelection extends Activity {
 
     ListView list;
     FullDogList adapter;
-    Integer[] imageId = {
-            R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher, R.drawable.ic_launcher,  R.drawable.ic_launcher
-    };
 
     List<Dog> myDogs;
-    List<DogOwner> dogOwners;
     DogHelper db;
     DogOwnerHelper db2;
     UserHelper db3;
+    PreferenceHelper db4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,24 +67,32 @@ public class DogSelection extends Activity {
                         db = new DogHelper(getApplicationContext());
                         db2 = new DogOwnerHelper(getApplicationContext());
                         db3 = new UserHelper(getApplicationContext());
+                        db4 = new PreferenceHelper(getApplicationContext());
 
                         Intent intent = getIntent();
                         int ownerID = db3.getOwnerID(intent.getStringExtra("username"));
-                        ArrayList<Integer> DogIDs = db2.getMyDogs(ownerID);
+                        Preference p = db4.getPreference(intent.getStringExtra("username"));
 
+                        ArrayList<Integer> DogIDs = db2.getOtherDogs(ownerID);
                         ArrayList<Dog> temp = new ArrayList<Dog>();
 
 
+                        Log.d("owner prefs: ", "" + p.size + ", "  + p.temperament +  ", "  + p.hairtype);
                         for(int i = 0; i < DogIDs.size(); i++){
-                            temp.add(db.getDog(DogIDs.get(i)));
+                            Dog tempDog = db.getDog(DogIDs.get(i));
+                            Log.d("tempDog stats: ", "" + tempDog.size + ", "  + tempDog.activitylevel +  ", "  + tempDog.breed);
+
+                            if (p.size.equals(tempDog.size) && p.temperament.equals(tempDog.activitylevel) && rightBreed(tempDog.breed, p.hairtype)){
+                                temp.add(tempDog);
+                            }
                         }
 
-                        //myDogs = temp;
+                        myDogs = temp;
 
-                        myDogs = db.getAllDog();
+                        //myDogs = db.getAllDog();
 
                         if (myDogs != null){
-                            adapter = new FullDogList(DogSelection.this, imageId, myDogs);
+                            adapter = new FullDogList(DogSelection.this,  myDogs);
                             list = (ListView) findViewById(R.id.list);
                             list.setAdapter(adapter);
                             adapter.notifyDataSetChanged();
@@ -108,6 +114,40 @@ public class DogSelection extends Activity {
             return resp;
         }
 
+
+
+        protected boolean rightBreed(String breed, String hairType){
+            Log.d("Passed into rightBreed: ", breed + " , " + hairType);
+
+            ArrayList<String> shortHair = new ArrayList<String>();
+            shortHair.add("Corgi");
+            shortHair.add("Retriever");
+            shortHair.add("Shiba");
+            shortHair.add("Samoyed");
+            shortHair.add("Chow");
+
+            ArrayList<String> longHair = new ArrayList<String>();
+            longHair.add("Pug");
+            longHair.add("Bulldog");
+            longHair.add("Rottweiler");
+            longHair.add("Husky");
+            longHair.add("Terrier");
+
+            if (hairType.equals("noHair")){
+                Log.d("noHair", "");
+                return true;
+            }
+            else if (hairType.equals("shortHaired")){
+                Log.d("shortHaired", "");
+                if (shortHair.contains(breed)) return true;
+            } else if (hairType.equals("longHaired")){
+                Log.d("longHaired", "");
+                if (longHair.contains(breed)) return true;
+            }
+
+            Log.d("returning False", "");
+            return false;
+        }
 
         @Override
         protected void onPostExecute(String result) {

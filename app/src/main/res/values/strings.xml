@@ -82,14 +82,17 @@
     <string name="fileName">File Name: </string>
 
     <string-array name="breeds">
-        <item>Puppey</item>
-        <item>Dog</item>
-        <item>Doge</item>
-        <item>Super Doge</item>
-        <item>Puppan</item>
-        <item>Doig</item>
-        <item>Dog</item>
-        <item>Shuper Doge</item>
+        <item>Corgi</item>
+        <item>Retriever</item>
+        <item>Shiba</item>
+        <item>Samoyed</item>
+        <item>Chow</item>
+        <item>Pug</item>
+        <item>Bulldog</item>
+        <item>Rottweiler</item>
+        <item>Husky</item>
+        <item>Terrier</item>
+        <item>Other</item>
     </string-array>
     <string-array name="temperaments">
         <item>No Preference</item>

@@ -68,18 +68,18 @@ public class DogFilter extends Activity {
             preference.hairtype = "longHaired";
         }
 
-        if(pref.size.equals("small")) {
+        if(pref.size.equals("Small")) {
             small.setBackgroundColor(0xff57adff);
             small.setTextColor(0xfffff3a3);
-            preference.size = "small";
-        } else if(pref.size.equals("medium")) {
+            preference.size = "Small";
+        } else if(pref.size.equals("Medium")) {
             medium.setBackgroundColor(0xff57adff);
             medium.setTextColor(0xfffff3a3);
-            preference.size = "medium";
-        } else if(pref.size.equals("large")) {
+            preference.size = "Medium";
+        } else if(pref.size.equals("Large")) {
             large.setBackgroundColor(0xff57adff);
             large.setTextColor(0xfffff3a3);
-            preference.size = "large";
+            preference.size = "Large";
         } else if(pref.size.equals("noSize")) {
             noSize.setBackgroundColor(0xff57adff);
             noSize.setTextColor(0xfffff3a3);
@@ -90,14 +90,14 @@ public class DogFilter extends Activity {
             noTemperament.setBackgroundColor(0xff57adff);
             noTemperament.setTextColor(0xfffff3a3);
             preference.temperament = "noTemperament";
-        } else if(pref.temperament.equals("mellow")) {
+        } else if(pref.temperament.equals("Mellow")) {
             mellow.setBackgroundColor(0xff57adff);
             mellow.setTextColor(0xfffff3a3);
-            preference.temperament = "mellow";
-        } else if(pref.temperament.equals("hyper")) {
+            preference.temperament = "Mellow";
+        } else if(pref.temperament.equals("Hyper")) {
             hyper.setBackgroundColor(0xff57adff);
             hyper.setTextColor(0xfffff3a3);
-            preference.temperament = "hyper";
+            preference.temperament = "Hyper";
         }
 
 
@@ -173,7 +173,7 @@ public class DogFilter extends Activity {
             case (R.id.small):
                 //do something
 
-                preference.size = "small";
+                preference.size = "Small";
                 noSize.setBackgroundColor(0xfffff3a3);
                 noSize.setTextColor(0xff57adff);
                 medium.setBackgroundColor(0xfffff3a3);
@@ -188,7 +188,7 @@ public class DogFilter extends Activity {
             case (R.id.medium):
                 //do something
 
-                preference.size = "medium";
+                preference.size = "Medium";
                 noSize.setBackgroundColor(0xfffff3a3);
                 noSize.setTextColor(0xff57adff);
                 small.setBackgroundColor(0xfffff3a3);
@@ -203,7 +203,7 @@ public class DogFilter extends Activity {
             case (R.id.large):
                 //do something
 
-                preference.size = "large";
+                preference.size = "Large";
                 small.setBackgroundColor(0xfffff3a3);
                 small.setTextColor(0xff57adff);
                 medium.setBackgroundColor(0xfffff3a3);
@@ -289,7 +289,7 @@ public class DogFilter extends Activity {
             case (R.id.mellow):
                 //do something
 
-                preference.temperament = "mellow";
+                preference.temperament = "Mellow";
                 noTemperament.setBackgroundColor(0xfffff3a3);
                 noTemperament.setTextColor(0xff57adff);
                 hyper.setBackgroundColor(0xfffff3a3);
@@ -301,7 +301,7 @@ public class DogFilter extends Activity {
             case (R.id.hyper):
                 //do something
 
-                preference.temperament = "hyper";
+                preference.temperament = "Hyper";
                 noTemperament.setBackgroundColor(0xfffff3a3);
                 noTemperament.setTextColor(0xff57adff);
                 mellow.setBackgroundColor(0xfffff3a3);

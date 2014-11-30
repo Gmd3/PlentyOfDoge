@@ -30,6 +30,7 @@
             android:padding="6dip">
 
             <ImageView
+                android:id="@+id/img"
                 android:layout_width="150dip"
                 android:layout_height="180dip"
                 android:scaleType="centerCrop"

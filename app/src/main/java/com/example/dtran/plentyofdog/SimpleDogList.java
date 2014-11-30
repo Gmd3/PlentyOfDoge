@@ -13,13 +13,11 @@ import java.util.List;
 
 public class SimpleDogList extends ArrayAdapter<Dog>{
     private final Activity context;
-    private final Integer[] imageId;
     private List<Dog> dogs;
 
-    public SimpleDogList(Activity context, Integer[] imageId, List<Dog> dogs) {
+    public SimpleDogList(Activity context,  List<Dog> dogs) {
         super(context, R.layout.dog_single_simple, dogs);
         this.context = context;
-        this.imageId = imageId;
         this.dogs = dogs;
     }
     @Override
@@ -29,18 +27,13 @@ public class SimpleDogList extends ArrayAdapter<Dog>{
 
         TextView txtName = (TextView) rowView.findViewById(R.id.dog_simple_name);
         TextView txtBreed = (TextView) rowView.findViewById(R.id.breed);
-
-
         ImageView imageView = (ImageView) rowView.findViewById(R.id.img);
 
         txtName.setText(dogs.get(position).name);
         txtBreed.setText(dogs.get(position).breed);
-<<<<<<< Updated upstream
-        imageView.setImageResource(imageId[position]);
 
-=======
         imageView.setImageURI(Uri.parse(dogs.get(position).image));
->>>>>>> Stashed changes
+
         return rowView;
     }
 }

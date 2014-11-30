@@ -11,6 +11,7 @@ public class Preference {
     public Preference(){
 
     }
+
     public Preference(String username, String size, String hairtype, String temperament) {
         this.username = username;
         this.size = size;

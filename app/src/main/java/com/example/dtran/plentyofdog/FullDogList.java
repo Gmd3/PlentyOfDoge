@@ -5,23 +5,23 @@ package com.example.dtran.plentyofdog;
  */
 
 import android.app.Activity;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
 
 public class FullDogList extends ArrayAdapter<Dog> {
     private final Activity context;
-    private final Integer[] imageId;
     private List<Dog> dogs;
 
-    public FullDogList(Activity context, Integer[] imageId, List<Dog> dogs) {
+    public FullDogList(Activity context, List<Dog> dogs) {
         super(context, R.layout.dog_single_full, dogs);
         this.context = context;
-        this.imageId = imageId;
         this.dogs = dogs;
     }
     @Override
@@ -38,8 +38,7 @@ public class FullDogList extends ArrayAdapter<Dog> {
         TextView txtActivity = (TextView) rowView.findViewById(R.id.Temperament);
         TextView txtArea= (TextView) rowView.findViewById(R.id.Area);
         TextView txtDesc= (TextView) rowView.findViewById(R.id.dogDesc);
-
-
+        ImageView imageView = (ImageView) rowView.findViewById(R.id.img);
 
         txtName.setText(dogs.get(position).name);
         txtBreed.setText(dogs.get(position).breed);
@@ -50,6 +49,7 @@ public class FullDogList extends ArrayAdapter<Dog> {
         txtActivity.setText(dogs.get(position).activitylevel);
         txtArea.setText(dogs.get(position).area);
         txtDesc.setText(dogs.get(position).description);
+        imageView.setImageURI(Uri.parse(dogs.get(position).image));
 
 
         return rowView;

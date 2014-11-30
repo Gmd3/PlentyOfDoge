@@ -142,4 +142,19 @@ public class DogOwnerHelper extends SQLiteOpenHelper
         cursor.close();
         return MyDogs;
     }
+
+    public ArrayList<Integer> getOtherDogs(int ownerID){
+        ArrayList<Integer> MyDogs = new ArrayList<Integer>();
+        String selectQuery = "SELECT * FROM DogOwner WHERE OwnerID != '" + ownerID + "'";
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery,null);
+
+        if(cursor.moveToFirst()){
+            do {
+                MyDogs.add(cursor.getInt(1));
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        return MyDogs;
+    }
 }
