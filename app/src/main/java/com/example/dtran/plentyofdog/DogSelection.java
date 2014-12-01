@@ -81,23 +81,18 @@ public class DogSelection extends Activity {
                         for(int i = 0; i < DogIDs.size(); i++){
                             Dog tempDog = db.getDog(DogIDs.get(i));
                             Log.d("tempDog stats: ", "" + tempDog.size + ", "  + tempDog.activitylevel +  ", "  + tempDog.breed);
-                            /*
-                            if (p.size.equals(tempDog.size) && p.temperament.equals(tempDog.activitylevel) && rightBreed(tempDog.breed, p.hairtype)){
-                                temp.add(tempDog);
-                            }
-                            */
+
                             if (rightSize(p.size, tempDog.size) &&
                                 rightTemperment(p.temperament, tempDog.activitylevel) &&
                                 rightBreed(tempDog.breed, p.hairtype)){
-
-                                    temp.add(tempDog);
+                                temp.add(tempDog);
                             }
                         }
 
                         myDogs = temp;
 
                         if (myDogs != null){
-                            adapter = new FullDogList(DogSelection.this,  myDogs);
+                            adapter = new FullDogList(DogSelection.this,  myDogs, ownerID);
                             list = (ListView) findViewById(R.id.list);
                             list.setAdapter(adapter);
                             adapter.notifyDataSetChanged();

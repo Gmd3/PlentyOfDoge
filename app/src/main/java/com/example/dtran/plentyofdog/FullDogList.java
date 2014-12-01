@@ -9,23 +9,36 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
 public class FullDogList extends ArrayAdapter<Dog> {
     private final Activity context;
+    private int userID;
     private List<Dog> dogs;
+    private MatchHelper db;
 
     public FullDogList(Activity context, List<Dog> dogs) {
         super(context, R.layout.dog_single_full, dogs);
         this.context = context;
         this.dogs = dogs;
     }
+
+    public FullDogList(Activity context, List<Dog> dogs, int userID) {
+        super(context, R.layout.dog_single_full, dogs);
+        this.context = context;
+        this.dogs = dogs;
+        this.userID = userID;
+    }
+
     @Override
-    public View getView(int position, View view, ViewGroup parent) {
+    public View getView(final int position, View view, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
         View rowView= inflater.inflate(R.layout.dog_single_full, null, true);
 
@@ -51,7 +64,26 @@ public class FullDogList extends ArrayAdapter<Dog> {
         txtDesc.setText(dogs.get(position).description);
         imageView.setImageURI(Uri.parse(dogs.get(position).image));
 
+        Button btnYes = (Button) rowView.findViewById(R.id.btnYes);
+        Button btnNo = (Button) rowView.findViewById(R.id.btnNo);
+
+        btnYes.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                db = new MatchHelper(context);
+                db.addMatch(new Match(userID, dogs.get(position).id, 0, "Today"));
+                Toast.makeText(context, "userID " + userID + " liked dog " + dogs.get(position).id, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btnNo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Toast.makeText(context, "You hate " + dogs.get(position).name, Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         return rowView;
     }
+
+
 }

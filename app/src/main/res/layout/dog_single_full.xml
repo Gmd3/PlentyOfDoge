@@ -173,7 +173,7 @@
             android:layout_height="0dip"
             android:text="No"
             android:layout_weight=".5"
-            android:id="@+id/btnNewDog"
+            android:id="@+id/btnNo"
             android:onClick="newDog" />
 
     </LinearLayout>

@@ -23,60 +23,66 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/edit_profile"
-        android:id="@+id/button1"
+        android:id="@+id/edit_profile"
         android:textColor="#ff57adff"
         android:background="#fffff3a3"
         android:textSize="30sp"
         android:onClick="changeProfile"
-        android:layout_above="@+id/small"/>
+        android:layout_below="@+id/textView"/>
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/set_preferences"
-        android:id="@+id/small"
+        android:id="@+id/set_preferences"
         android:textColor="#ff57adff"
         android:background="#fffff3a3"
         android:textSize="30sp"
         android:onClick="setPreference"
         android:layout_marginTop="5dp"
-        android:layout_above="@+id/medium"/>
+        android:layout_below="@+id/edit_profile"/>
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/start_browsing"
-        android:id="@+id/medium"
+        android:id="@+id/start_browsing"
         android:onClick="dogBrowse"
         android:textColor="#ff57adff"
         android:background="#fffff3a3"
         android:textSize="30sp"
         android:layout_marginTop="5dp"
-        android:layout_above="@+id/large"/>
+        android:layout_below="@+id/set_preferences"/>
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/my_dogs"
-        android:id="@+id/large"
+        android:id="@+id/my_dogs"
         android:onClick="myDogs"
         android:textColor="#ff57adff"
         android:background="#fffff3a3"
         android:textSize="30sp"
         android:layout_marginTop="5dp"
-        android:layout_above="@+id/button5"/>
+        android:layout_below="@+id/start_browsing"/>
 
-    <Button
-        android:layout_width="fill_parent"
+    <TextView
+        android:text="My matches"
+        android:textStyle="bold"
+        android:textSize="30dip"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/check_matches"
-        android:id="@+id/button5"
-        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/my_matches"
         android:textColor="#ff57adff"
-        android:background="#fffff3a3"
-        android:textSize="30sp"
-        android:layout_marginTop="5dp"
-        android:onClick="test"/>
+        android:layout_below="@+id/my_dogs"/>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_below="@+id/my_matches"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+    </ListView>
 
 
 </RelativeLayout>
