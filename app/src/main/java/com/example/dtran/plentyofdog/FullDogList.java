@@ -61,6 +61,8 @@ public class FullDogList extends ArrayAdapter<Dog> {
         txtActivity.setText(dogs.get(position).activitylevel);
         txtArea.setText(dogs.get(position).area);
         txtDesc.setText(dogs.get(position).description);
+
+
         imageView.setImageURI(Uri.parse(dogs.get(position).image));
 
         Button btnYes = (Button) rowView.findViewById(R.id.btnYes);
