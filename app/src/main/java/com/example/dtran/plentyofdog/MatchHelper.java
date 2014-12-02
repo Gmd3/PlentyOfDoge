@@ -53,10 +53,10 @@ public class MatchHelper extends SQLiteOpenHelper
         if(cursor != null)
             cursor.moveToFirst();
         Match match = new Match(
-                cursor.getInt(0)
-                ,cursor.getInt(1)
+                cursor.getInt(1)
                 ,cursor.getInt(2)
-                ,cursor.getString(3)
+                ,cursor.getInt(3)
+                ,cursor.getString(4)
 
         );
         cursor.close();
@@ -79,6 +79,27 @@ public class MatchHelper extends SQLiteOpenHelper
                 matchlist.add(match);
             }while(cursor.moveToNext());
         }
+        cursor.close();
+        return matchlist;
+    }
+    public List<Match> getAllMatchesDogID(int dogID){
+        List<Match> matchlist = new ArrayList<Match>();
+        String selectQuery = "SELECT * FROM Match WHERE dogID = " + dogID;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery,null);
+
+        if(cursor.moveToFirst()){
+            do {
+                Match match = new Match(
+                        cursor.getInt(1)
+                        ,cursor.getInt(2)
+                        ,cursor.getInt(3)
+                        ,cursor.getString(4));
+                matchlist.add(match);
+            }while(cursor.moveToNext());
+        }
+
         cursor.close();
         return matchlist;
     }

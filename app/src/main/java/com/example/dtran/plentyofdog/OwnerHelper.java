@@ -59,7 +59,8 @@ import java.util.List;
             if(cursor != null)
                 cursor.moveToFirst();
             Owner owner = new Owner(
-                    cursor.getString(1)
+                    cursor.getInt(0)
+                    ,cursor.getString(1)
                     ,cursor.getString(2)
                     ,cursor.getString(3)
                     ,cursor.getInt(4)
