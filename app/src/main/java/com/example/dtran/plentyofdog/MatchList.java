@@ -5,6 +5,8 @@ package com.example.dtran.plentyofdog;
  */
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +39,7 @@ public class MatchList extends ArrayAdapter<Owner> {
         txtName.setText(dogs.get(position).name);
         txtOwner.setText(owners.get(position).firstName + " " + owners.get(position).lastName);
 
+        imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         imageView.setImageURI(Uri.parse(dogs.get(position).image));
 
         return rowView;

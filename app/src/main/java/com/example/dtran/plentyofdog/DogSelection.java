@@ -87,8 +87,9 @@ public class DogSelection extends Activity {
                             if (rightSize(p.size, tempDog.size) &&
                                 rightTemperment(p.temperament, tempDog.activitylevel) &&
                                 rightBreed(tempDog.breed, p.hairtype) &&
-                                    !alreadyMatched(DogIDs.get(i), ownerID)){
-                                temp.add(tempDog);
+                                !alreadyMatched(DogIDs.get(i), ownerID)){
+
+                                    temp.add(tempDog);
                             }
                         }
 

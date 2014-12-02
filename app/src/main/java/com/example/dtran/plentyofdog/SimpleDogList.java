@@ -32,6 +32,7 @@ public class SimpleDogList extends ArrayAdapter<Dog>{
         txtName.setText(dogs.get(position).name);
         txtBreed.setText(dogs.get(position).breed);
 
+
         imageView.setImageURI(Uri.parse(dogs.get(position).image));
 
         return rowView;

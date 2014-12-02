@@ -8,35 +8,35 @@
         android:label="@string/app_name"
         android:theme="@style/DogTheme" >
         <activity
-            android:name="com.example.dtran.plentyofdog.WelcomeScreen"
+            android:name=".WelcomeScreen"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.example.dtran.plentyofdog.ProfileBuild"
+            android:name=".ProfileBuild"
             android:label="@string/title_activity_profile_build" >
         </activity>
         <activity
-            android:name="com.example.dtran.plentyofdog.DogFilter"
+            android:name=".DogFilter"
             android:label="@string/title_activity_dog_filter" >
         </activity>
         <activity
-            android:name="com.example.dtran.plentyofdog.Splash"
+            android:name=".Splash"
             android:label="@string/title_activity_splash" >
         </activity>
         <activity
-            android:name="com.example.dtran.plentyofdog.DogSelection"
+            android:name=".DogSelection"
             android:label="@string/title_activity_dog_selection" >
         </activity>
         <activity
-            android:name="com.example.dtran.plentyofdog.home_screen"
+            android:name=".home_screen"
             android:label="@string/title_activity_home_screen" >
         </activity>
         <activity
-            android:name="com.example.dtran.plentyofdog.dog_builder"
+            android:name=".dog_builder"
             android:label="@string/title_activity_dog_builder" >
         </activity>
         <activity
-            android:name="com.example.dtran.plentyofdog.logOn_signUp"
+            android:name=".logOn_signUp"
             android:label="@string/title_activity_log_on_sign_up" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,16 +45,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.dtran.plentyofdog.ImageUploader"
+            android:name=".ImageUploader"
             android:label="@string/title_activity_image_uploader" >
         </activity>
         <activity
-            android:name="com.example.dtran.plentyofdog.MyDogs"
+            android:name=".MyDogs"
             android:label="@string/title_activity_my_dogs" >
         </activity>
         <activity
-            android:name="com.example.dtran.plentyofdog.ProfileChange"
+            android:name=".ProfileChange"
             android:label="@string/title_activity_profile_change" >
+        </activity>
+        <activity
+            android:name=".view_profile"
+            android:label="@string/title_activity_view_profile" >
         </activity>
     </application>
 

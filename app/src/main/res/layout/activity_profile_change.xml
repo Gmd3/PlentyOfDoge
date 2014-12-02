@@ -103,6 +103,61 @@ tools:context="com.example.dtran.plentyofdog.ProfileChange"
         android:textColor="#ff57adff"
         android:maxLines="1" />
 </LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dip"
+    android:layout_weight=".05"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".3"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/first_name"
+        android:gravity="center"
+        android:id="@+id/lblFname"
+        android:textSize="15dp"
+        android:textColor="#ff57adff" />
+
+    <EditText
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".7"
+        android:gravity="center"
+        android:id="@+id/firstNameInput"
+        android:textColor="#ff57adff"
+        android:maxLines="1" />
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dip"
+    android:layout_weight=".05"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".3"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/last_name"
+        android:gravity="center"
+        android:id="@+id/lblLastName"
+        android:textSize="15dp"
+        android:textColor="#ff57adff" />
+
+    <EditText
+        android:layout_width="0dip"
+        android:layout_height="match_parent"
+        android:layout_weight=".7"
+        android:gravity="center"
+        android:id="@+id/lasttNameInput"
+        android:textColor="#ff57adff"
+        android:maxLines="1" />
+</LinearLayout>
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="0dip"

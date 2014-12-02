@@ -110,13 +110,14 @@
         <item>Short-haired</item>
         <item>Long-haired</item>
     </string-array>
+
     <string name="back">Back</string>
     <string name="update">Update</string>
     <string name="title_activity_log_on_sign_up">Plenty Of Dog Log in</string>
     <string name="title_activity_image_uploader">Image Uploader</string>
     <string name="title_activity_my_dogs">My Dogs</string>
-
     <string name="title_activity_profile_change">Profile Changer</string>
     <string name="ChangeYourProfileHere">Change your profile here</string>
+    <string name="title_activity_view_profile">view_profile</string>
 
 </resources>

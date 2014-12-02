@@ -66,6 +66,9 @@ public class dog_builder extends Activity {
             int position3 = breedAdap.getPosition(dog.size);
             breedGrab.setSelection(position3);
             descGrab.setText(dog.description);
+
+            imageGrab.setScaleType(ImageView.ScaleType.CENTER);
+
             imageGrab.setImageURI(Uri.parse(dog.image));
             uri = Uri.parse(dog.image);
 

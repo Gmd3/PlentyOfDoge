@@ -38,6 +38,8 @@ public class ProfileChange extends Activity {
         EditText gender = (EditText)findViewById(R.id.genderInput);
         EditText phone = (EditText)findViewById(R.id.phoneInput);
         EditText area = (EditText)findViewById(R.id.hometownInput);
+        EditText firstName = (EditText)findViewById(R.id.firstNameInput);
+        EditText lastName = (EditText)findViewById(R.id.lasttNameInput);
 
         email.setText(owner.email);
         age.setText(""+ owner.age);
@@ -47,6 +49,8 @@ public class ProfileChange extends Activity {
         experience.setSelection(position);
         gender.setText(owner.gender);
         phone.setText(""+owner.phone);
+        firstName.setText(owner.firstName);
+        lastName.setText(owner.lastName);
 
 
     }
@@ -87,6 +91,8 @@ public class ProfileChange extends Activity {
         EditText gender = (EditText)findViewById(R.id.genderInput);
         EditText phone = (EditText)findViewById(R.id.phoneInput);
         EditText area = (EditText)findViewById(R.id.hometownInput);
+        EditText firstName = (EditText)findViewById(R.id.firstNameInput);
+        EditText lastName = (EditText)findViewById(R.id.lasttNameInput);
         SimpleDateFormat s = new SimpleDateFormat("ddMMyyyy");
         String date = s.format(new Date());
 
@@ -116,8 +122,8 @@ public class ProfileChange extends Activity {
 
         if(errors == 0) {
             Owner ownerTemp = new Owner(
-                    owner.firstName,
-                    owner.lastName,
+                    firstName.getText().toString(),
+                    lastName.getText().toString(),
                     experience.getSelectedItem().toString(),
                     Integer.parseInt(age.getText().toString())
                     , gender.getText().toString(),
