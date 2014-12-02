@@ -128,6 +128,11 @@ public class DogOwnerHelper extends SQLiteOpenHelper
         db.delete("DogOwner", "_id = ?", new String[]{String.valueOf(dogOwner.id)});
     }
 
+    public void deleteDogOwner(int dogID){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete("DogOwner", "DogID = ?", new String[]{String.valueOf(dogID)});
+    }
+
     public ArrayList<Integer> getMyDogs(int ownerID){
         ArrayList<Integer> MyDogs = new ArrayList<Integer>();
         String selectQuery = "SELECT * FROM DogOwner WHERE OwnerID = '" + ownerID + "'";

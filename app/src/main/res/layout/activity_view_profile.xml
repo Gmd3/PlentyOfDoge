@@ -1,16 +1,278 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.dtran.plentyofdog.view_profile">
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    tools:context="com.example.dtran.plentyofdog.ProfileChange"
+    >
 
-    <TextView
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="94dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="25dip"
+            android:text="@string/User_Profile"
+            android:id="@+id/lblWelcomeTo"
+            android:textColor="#ff57adff" />
+    </LinearLayout>
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".05"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".3"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/Email"
+            android:gravity="center"
+            android:id="@+id/lblEmail"
+            android:textSize="15dp"
+            android:textColor="#ff57adff" />
+
+        <EditText
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".7"
+            android:gravity="center"
+            android:id="@+id/emailInput"
+            android:textColor="#ff57adff"
+            android:maxLines="1" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".05"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".3"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/first_name"
+            android:gravity="center"
+            android:id="@+id/lblFname"
+            android:textSize="15dp"
+            android:textColor="#ff57adff" />
+
+        <EditText
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".7"
+            android:gravity="center"
+            android:id="@+id/firstNameInput"
+            android:textColor="#ff57adff"
+            android:maxLines="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".05"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".3"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/last_name"
+            android:gravity="center"
+            android:id="@+id/lblLastName"
+            android:textSize="15dp"
+            android:textColor="#ff57adff" />
+
+        <EditText
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".7"
+            android:gravity="center"
+            android:id="@+id/lasttNameInput"
+            android:textColor="#ff57adff"
+            android:maxLines="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".05"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".3"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/Age"
+            android:id="@+id/lblAge"
+            android:textSize="15dp"
+            android:textColor="#ff57adff" />
+
+        <EditText
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".7"
+            android:gravity="center"
+            android:inputType="number"
+            android:id="@+id/ageInput"
+            android:textColor="#ff57adff"
+            android:maxLines="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".05"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".3"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/Hometown"
+            android:gravity="center"
+            android:id="@+id/lblHometown"
+            android:textSize="15dp"
+            android:textColor="#ff57adff" />
+
+        <EditText
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".7"
+            android:gravity="center"
+            android:id="@+id/hometownInput"
+            android:textColor="#ff57adff"
+            android:maxLines="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".05"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".3"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/Gender"
+            android:gravity="center"
+            android:id="@+id/lblGender"
+            android:textSize="15dp"
+            android:textColor="#ff57adff" />
+
+        <EditText
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".7"
+            android:gravity="center"
+            android:id="@+id/genderInput"
+            android:textColor="#ff57adff"
+            android:maxLines="1" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".05"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".3"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/Phone"
+            android:gravity="center"
+            android:id="@+id/lblPhone"
+            android:textSize="15dp"
+            android:textColor="#ff57adff" />
+
+        <EditText
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".7"
+            android:gravity="center"
+            android:inputType="phone"
+            android:id="@+id/phoneInput"
+            android:textColor="#ff57adff"
+            android:maxLines="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight=".07"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".3"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/YOE"
+            android:gravity="center"
+            android:id="@+id/lblYOE"
+            android:textSize="15dp"
+            android:textColor="#ff57adff" />
+
+        <Spinner
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight=".7"
+            android:gravity="center"
+            android:entries="@array/xp_lvl"
+            android:id="@+id/yoeInput"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="0.09"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reject"
+            android:id="@+id/button"
+            android:onClick="reject"
+            android:textColor="#ff57adff"
+            android:background="#fffff3a3"
+            android:textSize="35sp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="15dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TAKE MY DOG"
+            android:id="@+id/btnYESYESYES"
+            android:layout_gravity="right"
+            android:onClick="YES"
+            android:textColor="#ff57adff"
+            android:background="#fffff3a3"
+            android:textSize="35sp"
+            android:layout_marginBottom="15dp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -22,6 +22,8 @@ public class dog_builder extends Activity {
     private DogOwnerHelper db2;
     private UserHelper db3;
     private OwnerHelper db4;
+    private MatchHelper db5;
+
     Uri uri = null;
     int dogID;
     @Override
@@ -35,6 +37,7 @@ public class dog_builder extends Activity {
         db2 = new DogOwnerHelper(getApplicationContext());
         db3 = new UserHelper(getApplicationContext());
         db4 = new OwnerHelper(getApplicationContext());
+        db5 = new MatchHelper(getApplicationContext());
 
         setContentView(R.layout.activity_dog_builder);
 
@@ -205,6 +208,15 @@ public class dog_builder extends Activity {
         startActivity(intent);
     }
     public void delete(View view){
-     db.deleteDog(db.getDog(dogID));
+        db.deleteDog(db.getDog(dogID));
+        db2.deleteDogOwner(dogID);
+        db5.deleteMatch(dogID);
+
+        Intent UserIntent = getIntent();
+
+        Intent intent = new Intent(this, home_screen.class);
+        intent.putExtra("username", UserIntent.getStringExtra("username"));
+        intent.putExtra("new", false);
+        startActivity(intent);
     }
 }

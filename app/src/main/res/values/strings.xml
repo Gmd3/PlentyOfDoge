@@ -27,6 +27,7 @@
     <string name="Phone">Phone #</string>
     <string name="description">Short description of yourself</string>
     <string name="title_activity_dog_filter">Dog Filter</string>
+    <string name="User_Profile">User Profile</string>
 
     <string-array name="xp_lvl">
         <item>Puppey</item>
@@ -119,5 +120,6 @@
     <string name="title_activity_profile_change">Profile Changer</string>
     <string name="ChangeYourProfileHere">Change your profile here</string>
     <string name="title_activity_view_profile">view_profile</string>
+    <string name="reject">Reject</string>
 
 </resources>

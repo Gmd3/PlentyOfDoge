@@ -27,6 +27,9 @@ public class home_screen extends Activity {
     List<Owner> myOwners;
     MatchList adapter;
     ListView list;
+    List<Match> matchlist;
+    ArrayList<Owner> temp2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,9 +113,9 @@ public class home_screen extends Activity {
                         ArrayList<Integer> DogIDs = db2.getMyDogs(ownerID);
 
                         ArrayList<Dog> temp = new ArrayList<Dog>();
-                        ArrayList<Owner> temp2 = new ArrayList<Owner>();
+                        temp2 = new ArrayList<Owner>();
 
-                        List<Match> matchlist = new ArrayList<Match>();
+                        matchlist = new ArrayList<Match>();
 
                         for(int i = 0; i < DogIDs.size(); i++){
                             matchlist = db4.getAllMatchesDogID(DogIDs.get(i));
@@ -140,9 +143,10 @@ public class home_screen extends Activity {
                                 public void onItemClick(AdapterView<?> parent, View view,
                                                         int position, long id) {
                                     Toast.makeText(home_screen.this, "You Clicked at " + myDogs.get(position).id, Toast.LENGTH_SHORT).show();
-                                    Intent dogIntent = new Intent(home_screen.this, dog_builder.class);
-                                    dogIntent.putExtra("username", getIntent().getStringExtra("username"));
+                                    Intent dogIntent = new Intent(home_screen.this, view_profile.class);
+                                    dogIntent.putExtra("ownerID", temp2.get(position).id);
                                     dogIntent.putExtra("dogID", myDogs.get(position).id);
+
                                     startActivity(dogIntent);
                                 }
                             });

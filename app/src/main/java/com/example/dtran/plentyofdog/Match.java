@@ -10,6 +10,13 @@ public class Match {
         this.matched = matched;
         this.dateMatched = dateMatched;
     }
+    public Match(int id, int userID, int dogID, int matched, String dateMatched) {
+        this.id = id;
+        this.userID = userID;
+        this.dogID = dogID;
+        this.matched = matched;
+        this.dateMatched = dateMatched;
+    }
     int id;
     int userID;
     int dogID;

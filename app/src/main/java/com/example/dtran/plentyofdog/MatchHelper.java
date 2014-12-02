@@ -75,6 +75,32 @@ public class MatchHelper extends SQLiteOpenHelper
             return false;
         return true;
     }
+    public Match getMatch(int userID, int dogID){
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Log.d("Owner ID = ", "" + userID);
+
+        Log.d("Dog ID = ", "" + dogID);
+
+        Cursor cursor = db.rawQuery("SELECT * FROM Match WHERE UserID = " + userID + " AND DogID = " + dogID, null);
+
+        if(cursor != null){
+            cursor.moveToFirst();
+            Log.d("Match Count: ", "" + cursor.getCount());
+
+            Match match = new Match(
+                cursor.getInt(0)
+                ,cursor.getInt(1)
+                ,cursor.getInt(2)
+                ,cursor.getInt(3)
+                ,cursor.getString(4)
+            );
+            cursor.close();
+            return match;
+        }
+        return null;
+    }
+
     public List<Match> getAllMatches(){
         List<Match> matchlist = new ArrayList<Match>();
         String selectQuery = "SELECT * FROM Match";
@@ -105,7 +131,8 @@ public class MatchHelper extends SQLiteOpenHelper
         if(cursor.moveToFirst()){
             do {
                 Match match = new Match(
-                        cursor.getInt(1)
+                        cursor.getInt(0)
+                        ,cursor.getInt(1)
                         ,cursor.getInt(2)
                         ,cursor.getInt(3)
                         ,cursor.getString(4));
@@ -134,8 +161,12 @@ public class MatchHelper extends SQLiteOpenHelper
 
         return db.update("Match", values, "_id = ?", new String[]{String.valueOf(match.id)});
     }
-    public void deleteDog(Dog dog){
+
+
+    public void deleteMatch(int dogID){
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete("Dog", "_id = ?", new String[]{String.valueOf(dog.id)});
+        db.delete("Match", "DogID = ?", new String[]{String.valueOf(dogID)});
     }
+
+
 }
