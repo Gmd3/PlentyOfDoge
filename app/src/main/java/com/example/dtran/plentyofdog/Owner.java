@@ -99,6 +99,28 @@ public class Owner {
         this.dateCreated = dateCreated;
         this.lastEdited = lastEdited;
     }
+    public Owner( int id, String firstName,
+                  String lastName,
+                  String experience,
+                  int age,
+                  String gender,
+                  String email,
+                  String phone,
+                  String area,
+                  String dateCreated,
+                  String lastEdited){
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.experience = experience;
+        this.age = age;
+        this.gender = gender;
+        this.email = email;
+        this.phone = phone;
+        this.area = area;
+        this.dateCreated = dateCreated;
+        this.lastEdited = lastEdited;
+    }
     public Owner(){
 
     }
