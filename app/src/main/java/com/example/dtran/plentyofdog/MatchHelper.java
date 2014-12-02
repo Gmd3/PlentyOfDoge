@@ -62,6 +62,19 @@ public class MatchHelper extends SQLiteOpenHelper
         cursor.close();
         return match;
     }
+    public Boolean existUserDogID(int userID, int dogID){
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT * FROM Match WHERE UserID = " + userID + " AND DogID = " + dogID, null);
+        if(cursor != null)
+            cursor.moveToFirst();
+        int count = cursor.getCount();
+        cursor.close();
+        Log.d("EXISTUSERDOGID COUNT", "" + count);
+        if(count == 0)
+            return false;
+        return true;
+    }
     public List<Match> getAllMatches(){
         List<Match> matchlist = new ArrayList<Match>();
         String selectQuery = "SELECT * FROM Match";

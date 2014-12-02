@@ -26,6 +26,7 @@ public class DogSelection extends Activity {
     DogOwnerHelper db2;
     UserHelper db3;
     PreferenceHelper db4;
+    MatchHelper db5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +69,7 @@ public class DogSelection extends Activity {
                         db2 = new DogOwnerHelper(getApplicationContext());
                         db3 = new UserHelper(getApplicationContext());
                         db4 = new PreferenceHelper(getApplicationContext());
+                        db5 = new MatchHelper(getApplicationContext());
 
                         Intent intent = getIntent();
                         int ownerID = db3.getOwnerID(intent.getStringExtra("username"));
@@ -84,7 +86,8 @@ public class DogSelection extends Activity {
 
                             if (rightSize(p.size, tempDog.size) &&
                                 rightTemperment(p.temperament, tempDog.activitylevel) &&
-                                rightBreed(tempDog.breed, p.hairtype)){
+                                rightBreed(tempDog.breed, p.hairtype) &&
+                                    !alreadyMatched(DogIDs.get(i), ownerID)){
                                 temp.add(tempDog);
                             }
                         }
@@ -131,6 +134,11 @@ public class DogSelection extends Activity {
                 return true;
             }
 
+            return false;
+        }
+        protected boolean alreadyMatched(int dogID, int userID){
+            if(db5.existUserDogID(userID, dogID))
+                return true;
             return false;
         }
 
