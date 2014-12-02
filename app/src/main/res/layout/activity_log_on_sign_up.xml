@@ -8,61 +8,69 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
-
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true">
     <TextView
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/Email"
+        android:layout_centerHorizontal="true"
         android:id="@+id/lblemail"
         android:layout_marginTop="40dp"
         android:textColor="#ff57adff" />
 
     <EditText
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/usernameInput"
+        android:layout_centerHorizontal="true"
         android:width="250dp"
         android:layout_below="@+id/lblemail"
         android:textColor="#ff57adff"
         android:maxLines="1" />
 
     <EditText
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/passwordInput"
+        android:layout_centerHorizontal="true"
         android:width="250dp"
         android:layout_below="@+id/lblpassword"
         android:password="true"
         android:textColor="#ff57adff"
         android:maxLines="1" />
     <TextView
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_centerHorizontal="true"
+        android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/password"
+        android:layout_marginTop="10dp"
         android:id="@+id/lblpassword"
         android:layout_below="@+id/usernameInput"
         android:textColor="#ff57adff" />
-
+</RelativeLayout>
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:padding="10dp"
+
         android:id="@+id/linearLayout5">
         <Button
             android:id="@+id/btnSingIn"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:layout_margin="4dp"
             android:text="Sign In"
             style=""
             android:onClick="loginClick"
-            android:textColor="#ff57adff"
-            android:background="#fffff3a3"
+            android:textColor="#fefefe"
+            android:background="#ff7bd2f3"
             android:textSize="30sp" />
         <Button
             android:id="@+id/btnSignUp"
@@ -73,8 +81,8 @@
             android:text="Sign Up"
             style=""
             android:onClick="signUpClick"
-            android:textColor="#ff57adff"
-            android:background="#fffff3a3"
+            android:textColor="#fefefe"
+            android:background="#ff7bd2f3"
             android:textSize="30sp" />
 
     </LinearLayout>

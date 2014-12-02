@@ -19,8 +19,8 @@
             android:text="Add new dog"
             android:id="@+id/btnNewDog"
 
-            android:textColor="#ff57adff"
-            android:background="#fffff3a3"
+            android:textColor="#fefefe"
+            android:background="#ff7bd2f3"
             android:onClick="newDog" />
 
     </LinearLayout>
@@ -48,8 +48,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
 
-            android:textColor="#ff57adff"
-            android:background="#fffff3a3"
+            android:textColor="#fefefe"
+            android:background="#ff7bd2f3"
             android:text="Back to home"
             android:id="@+id/btnYes"
             android:onClick="backHome" />

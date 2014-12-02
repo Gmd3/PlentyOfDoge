@@ -12,6 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:background="#ff7bd2f3"
         android:orientation="horizontal">
         <TextView
             android:layout_width="0dip"
@@ -21,7 +22,7 @@
             android:textSize="25dip"
             android:text="@string/LetsBuildYourProfile"
             android:id="@+id/lblWelcomeTo"
-            android:textColor="#ff57adff" />
+            android:textColor="#FEFEFE" />
     </LinearLayout>
 
     <LinearLayout
@@ -277,14 +278,14 @@
         android:gravity="right"
         android:orientation="horizontal">
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/next"
             android:id="@+id/btnNext"
             android:layout_gravity="right"
             android:onClick="dogPicker"
-            android:textColor="#ff57adff"
-            android:background="#fffff3a3" />
+            android:textColor="#FEFEFE"
+            android:background="#ff7bd2f3" />
     </LinearLayout>
 
 </LinearLayout>

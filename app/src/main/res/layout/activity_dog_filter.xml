@@ -12,7 +12,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
-        android:layout_weight=".03"
+        android:layout_weight=".095"
+        android:background="#ff7bd2f3"
         android:orientation="horizontal">
         <TextView
             android:layout_width="0dip"
@@ -21,7 +22,7 @@
             android:gravity="center"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/AnyParticularDog"
-            android:textColor="#ff57adff"
+            android:textColor="#FEFEFE"
             android:id="@+id/lblWelcomeTo"/>
     </LinearLayout>
 
@@ -59,8 +60,8 @@
             android:text="@string/NoPreference"
             android:id="@+id/noSizePreference"
             android:onClick="onSizeClick"
-            android:textColor="#ff57adff"
-            android:background="#fffff3a3"
+            android:textColor="#FEFEFE"
+            android:background="#ffc1e9fb"
             android:layout_marginRight="5dp" />
 
         <Button
@@ -71,8 +72,8 @@
             android:text="@string/smallDog"
             android:id="@+id/small"
             android:onClick="onSizeClick"
-            android:textColor="#ff57adff"
-            android:background="#fffff3a3"
+            android:textColor="#FEFEFE"
+            android:background="#ffc1e9fb"
             android:layout_marginRight="5dp" />
 
         <Button
@@ -83,8 +84,8 @@
             android:text="@string/mediumDog"
             android:id="@+id/medium"
             android:onClick="onSizeClick"
-            android:textColor="#ff57adff"
-            android:background="#fffff3a3"
+            android:textColor="#FEFEFE"
+            android:background="#ffc1e9fb"
             android:layout_marginRight="5dp" />
 
         <Button
@@ -95,8 +96,8 @@
             android:text="@string/largeDog"
             android:id="@+id/large"
             android:onClick="onSizeClick"
-            android:textColor="#ff57adff"
-            android:background="#fffff3a3"
+            android:textColor="#FEFEFE"
+            android:background="#ffc1e9fb"
             android:layout_marginRight="5dp" />
     </LinearLayout>
 
@@ -134,8 +135,8 @@
             android:text="@string/NoPreference"
             android:id="@+id/noHairTypePreference"
             android:onClick="onHairTypeClick"
-            android:textColor="#ff57adff"
-            android:background="#fffff3a3"
+            android:textColor="#FEFEFE"
+            android:background="#ffc1e9fb"
             android:layout_marginRight="5dp" />
 
         <Button
@@ -146,8 +147,8 @@
             android:text="@string/shortHaired"
             android:id="@+id/shortHaired"
             android:onClick="onHairTypeClick"
-            android:textColor="#ff57adff"
-            android:background="#fffff3a3"
+            android:textColor="#FEFEFE"
+            android:background="#ffc1e9fb"
             android:layout_marginRight="5dp" />
 
         <Button
@@ -158,8 +159,8 @@
             android:text="@string/longHaired"
             android:id="@+id/longHaired"
             android:onClick="onHairTypeClick"
-            android:textColor="#ff57adff"
-            android:background="#fffff3a3"
+            android:textColor="#FEFEFE"
+            android:background="#ffc1e9fb"
             android:layout_marginRight="5dp" />
 
     </LinearLayout>
@@ -198,8 +199,8 @@
             android:text="@string/NoPreference"
             android:id="@+id/noTempermentPreference"
             android:onClick="onTemperamentClick"
-            android:textColor="#ff57adff"
-            android:background="#fffff3a3"
+            android:textColor="#FEFEFE"
+            android:background="#ffc1e9fb"
             android:layout_marginRight="5dp" />
 
         <Button
@@ -210,8 +211,8 @@
             android:text="@string/mellow"
             android:id="@+id/mellow"
             android:onClick="onTemperamentClick"
-            android:textColor="#ff57adff"
-            android:background="#fffff3a3"
+            android:textColor="#FEFEFE"
+            android:background="#ffc1e9fb"
             android:layout_marginRight="5dp" />
 
         <Button
@@ -222,8 +223,8 @@
             android:text="@string/hyper"
             android:id="@+id/hyper"
             android:onClick="onTemperamentClick"
-            android:textColor="#ff57adff"
-            android:background="#fffff3a3"
+            android:textColor="#FEFEFE"
+            android:background="#ffc1e9fb"
             android:layout_marginRight="5dp" />
 
     </LinearLayout>
@@ -239,7 +240,8 @@
         android:layout_height="0dip"
         android:layout_weight=".05"
         android:gravity="right"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:background="#ff7bd2f3">
 
         <Button
             android:layout_width="wrap_content"
@@ -247,9 +249,10 @@
             android:text="@string/skip"
             android:id="@+id/button6"
             android:onClick="skip"
-            android:textColor="#fffff3a3"
+            android:textColor="#FEFEFE"
             android:background="#ff57adff"
-            android:layout_marginRight="15dp" />
+            android:layout_marginRight="15dp"
+            android:layout_weight=".5" />
 
         <Button
             android:layout_width="wrap_content"
@@ -258,8 +261,9 @@
             android:id="@+id/btnNext"
             android:layout_gravity="right"
             android:onClick="save"
-            android:textColor="#fffff3a3"
-            android:background="#ff57adff" />
+            android:textColor="#FEFEFE"
+            android:background="#ff57adff"
+            android:layout_weight=".5" />
     </LinearLayout>
     <!--<LinearLayout-->
         <!--android:layout_width="match_parent"-->

@@ -56,47 +56,47 @@ public class DogFilter extends Activity {
         Log.d("pref.hairtype.equals(noHair", ""+pref.hairtype);
         if(pref.hairtype.equals("noHair")) {
             noHair.setBackgroundColor(0xff57adff);
-            noHair.setTextColor(0xfffff3a3);
+            noHair.setTextColor(0xffc1e9fb);
             preference.hairtype = "noHair";
         } else if(pref.hairtype.equals("shortHaired")) {
             shorthaired.setBackgroundColor(0xff57adff);
-            shorthaired.setTextColor(0xfffff3a3);
+            shorthaired.setTextColor(0xffc1e9fb);
             preference.hairtype = "shortHaired";
         } else if(pref.hairtype.equals("longHaired")) {
             longhaired.setBackgroundColor(0xff57adff);
-            longhaired.setTextColor(0xfffff3a3);
+            longhaired.setTextColor(0xffc1e9fb);
             preference.hairtype = "longHaired";
         }
 
         if(pref.size.equals("Small")) {
             small.setBackgroundColor(0xff57adff);
-            small.setTextColor(0xfffff3a3);
+            small.setTextColor(0xffc1e9fb);
             preference.size = "Small";
         } else if(pref.size.equals("Medium")) {
             medium.setBackgroundColor(0xff57adff);
-            medium.setTextColor(0xfffff3a3);
+            medium.setTextColor(0xffc1e9fb);
             preference.size = "Medium";
         } else if(pref.size.equals("Large")) {
             large.setBackgroundColor(0xff57adff);
-            large.setTextColor(0xfffff3a3);
+            large.setTextColor(0xffc1e9fb);
             preference.size = "Large";
         } else if(pref.size.equals("noSize")) {
             noSize.setBackgroundColor(0xff57adff);
-            noSize.setTextColor(0xfffff3a3);
+            noSize.setTextColor(0xffc1e9fb);
             preference.size = "noSize";
         }
 
         if(pref.temperament.equals("noTemperament")) {
             noTemperament.setBackgroundColor(0xff57adff);
-            noTemperament.setTextColor(0xfffff3a3);
+            noTemperament.setTextColor(0xffc1e9fb);
             preference.temperament = "noTemperament";
         } else if(pref.temperament.equals("Mellow")) {
             mellow.setBackgroundColor(0xff57adff);
-            mellow.setTextColor(0xfffff3a3);
+            mellow.setTextColor(0xffc1e9fb);
             preference.temperament = "Mellow";
         } else if(pref.temperament.equals("Hyper")) {
             hyper.setBackgroundColor(0xff57adff);
-            hyper.setTextColor(0xfffff3a3);
+            hyper.setTextColor(0xffc1e9fb);
             preference.temperament = "Hyper";
         }
 
@@ -159,61 +159,61 @@ public class DogFilter extends Activity {
                 //do something
                 preference.size = "noSize";
 
-                small.setBackgroundColor(0xfffff3a3);
+                small.setBackgroundColor(0xffc1e9fb);
                 small.setTextColor(0xff57adff);
-                medium.setBackgroundColor(0xfffff3a3);
+                medium.setBackgroundColor(0xffc1e9fb);
                 medium.setTextColor(0xff57adff);
-                large.setBackgroundColor(0xfffff3a3);
+                large.setBackgroundColor(0xffc1e9fb);
                 large.setTextColor(0xff57adff);
 
 
                 noSize.setBackgroundColor(0xff57adff);
-                noSize.setTextColor(0xfffff3a3);
+                noSize.setTextColor(0xffc1e9fb);
                 break;
             case (R.id.small):
                 //do something
 
                 preference.size = "Small";
-                noSize.setBackgroundColor(0xfffff3a3);
+                noSize.setBackgroundColor(0xffc1e9fb);
                 noSize.setTextColor(0xff57adff);
-                medium.setBackgroundColor(0xfffff3a3);
+                medium.setBackgroundColor(0xffc1e9fb);
                 medium.setTextColor(0xff57adff);
-                large.setBackgroundColor(0xfffff3a3);
+                large.setBackgroundColor(0xffc1e9fb);
                 large.setTextColor(0xff57adff);
 
 
                 small.setBackgroundColor(0xff57adff);
-                small.setTextColor(0xfffff3a3);
+                small.setTextColor(0xffc1e9fb);
                 break;
             case (R.id.medium):
                 //do something
 
                 preference.size = "Medium";
-                noSize.setBackgroundColor(0xfffff3a3);
+                noSize.setBackgroundColor(0xffc1e9fb);
                 noSize.setTextColor(0xff57adff);
-                small.setBackgroundColor(0xfffff3a3);
+                small.setBackgroundColor(0xffc1e9fb);
                 small.setTextColor(0xff57adff);
-                large.setBackgroundColor(0xfffff3a3);
+                large.setBackgroundColor(0xffc1e9fb);
                 large.setTextColor(0xff57adff);
 
 
                 medium.setBackgroundColor(0xff57adff);
-                medium.setTextColor(0xfffff3a3);
+                medium.setTextColor(0xffc1e9fb);
                 break;
             case (R.id.large):
                 //do something
 
                 preference.size = "Large";
-                small.setBackgroundColor(0xfffff3a3);
+                small.setBackgroundColor(0xffc1e9fb);
                 small.setTextColor(0xff57adff);
-                medium.setBackgroundColor(0xfffff3a3);
+                medium.setBackgroundColor(0xffc1e9fb);
                 medium.setTextColor(0xff57adff);
-                noSize.setBackgroundColor(0xfffff3a3);
+                noSize.setBackgroundColor(0xffc1e9fb);
                 noSize.setTextColor(0xff57adff);
 
 
                 large.setBackgroundColor(0xff57adff);
-                large.setTextColor(0xfffff3a3);
+                large.setTextColor(0xffc1e9fb);
                 break;
             default:
                 //do something
@@ -231,37 +231,37 @@ public class DogFilter extends Activity {
                 //do something
                 preference.hairtype = "noHair";
 
-                shorthaired.setBackgroundColor(0xfffff3a3);
+                shorthaired.setBackgroundColor(0xffc1e9fb);
                 shorthaired.setTextColor(0xff57adff);
-                longhaired.setBackgroundColor(0xfffff3a3);
+                longhaired.setBackgroundColor(0xffc1e9fb);
                 longhaired.setTextColor(0xff57adff);
 
                 noHair.setBackgroundColor(0xff57adff);
-                noHair.setTextColor(0xfffff3a3);
+                noHair.setTextColor(0xffc1e9fb);
                 break;
             case (R.id.shortHaired):
                 //do something
 
                 preference.hairtype = "shortHaired";
-                noHair.setBackgroundColor(0xfffff3a3);
+                noHair.setBackgroundColor(0xffc1e9fb);
                 noHair.setTextColor(0xff57adff);
-                longhaired.setBackgroundColor(0xfffff3a3);
+                longhaired.setBackgroundColor(0xffc1e9fb);
                 longhaired.setTextColor(0xff57adff);
 
                 shorthaired.setBackgroundColor(0xff57adff);
-                shorthaired.setTextColor(0xfffff3a3);
+                shorthaired.setTextColor(0xffc1e9fb);
                 break;
             case (R.id.longHaired):
                 //do something
 
                 preference.hairtype = "longHaired";
-                shorthaired.setBackgroundColor(0xfffff3a3);
+                shorthaired.setBackgroundColor(0xffc1e9fb);
                 shorthaired.setTextColor(0xff57adff);
-                noHair.setBackgroundColor(0xfffff3a3);
+                noHair.setBackgroundColor(0xffc1e9fb);
                 noHair.setTextColor(0xff57adff);
 
                 longhaired.setBackgroundColor(0xff57adff);
-                longhaired.setTextColor(0xfffff3a3);
+                longhaired.setTextColor(0xffc1e9fb);
                 break;
             default:
                 //do something
@@ -278,37 +278,37 @@ public class DogFilter extends Activity {
             case (R.id.noTempermentPreference):
                 //do something
                 preference.temperament = "noTemperament";
-                mellow.setBackgroundColor(0xfffff3a3);
+                mellow.setBackgroundColor(0xffc1e9fb);
                 mellow.setTextColor(0xff57adff);
-                hyper.setBackgroundColor(0xfffff3a3);
+                hyper.setBackgroundColor(0xffc1e9fb);
                 hyper.setTextColor(0xff57adff);
 
                 noTemperament.setBackgroundColor(0xff57adff);
-                noTemperament.setTextColor(0xfffff3a3);
+                noTemperament.setTextColor(0xffc1e9fb);
                 break;
             case (R.id.mellow):
                 //do something
 
                 preference.temperament = "Mellow";
-                noTemperament.setBackgroundColor(0xfffff3a3);
+                noTemperament.setBackgroundColor(0xffc1e9fb);
                 noTemperament.setTextColor(0xff57adff);
-                hyper.setBackgroundColor(0xfffff3a3);
+                hyper.setBackgroundColor(0xffc1e9fb);
                 hyper.setTextColor(0xff57adff);
 
                 mellow.setBackgroundColor(0xff57adff);
-                mellow.setTextColor(0xfffff3a3);
+                mellow.setTextColor(0xffc1e9fb);
                 break;
             case (R.id.hyper):
                 //do something
 
                 preference.temperament = "Hyper";
-                noTemperament.setBackgroundColor(0xfffff3a3);
+                noTemperament.setBackgroundColor(0xffc1e9fb);
                 noTemperament.setTextColor(0xff57adff);
-                mellow.setBackgroundColor(0xfffff3a3);
+                mellow.setBackgroundColor(0xffc1e9fb);
                 mellow.setTextColor(0xff57adff);
 
                 hyper.setBackgroundColor(0xff57adff);
-                hyper.setTextColor(0xfffff3a3);
+                hyper.setTextColor(0xffc1e9fb);
                 break;
             default:
                 //do something

@@ -78,7 +78,7 @@
     <string name="dog_breed">Breed</string>
     <string name="training">Training</string>
     <string name="activityLevel">Activity level</string>
-    <string name="dog_description">Short description of your dog</string>
+    <string name="dog_description">Description</string>
     <string name="Upload">Upload</string>
     <string name="fileName">File Name: </string>
 
