@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -72,12 +71,18 @@ public class FullDogList extends ArrayAdapter<Dog> {
                 db = new MatchHelper(context);
                 db.addMatch(new Match(userID, dogs.get(position).id, 0, "Today"));
                 Toast.makeText(context, "userID " + userID + " liked dog " + dogs.get(position).id, Toast.LENGTH_SHORT).show();
+                dogs.remove(position);
+
+                notifyDataSetChanged();
             }
         });
 
         btnNo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Toast.makeText(context, "You hate " + dogs.get(position).name, Toast.LENGTH_SHORT).show();
+                dogs.remove(position);
+                notifyDataSetChanged();
+
             }
         });
 
