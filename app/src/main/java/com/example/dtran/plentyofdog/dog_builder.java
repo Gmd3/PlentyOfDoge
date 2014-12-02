@@ -201,5 +201,7 @@ public class dog_builder extends Activity {
 
         startActivity(intent);
     }
-
+    public void delete(View view){
+     db.deleteDog(db.getDog(dogID));
+    }
 }

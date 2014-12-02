@@ -7,7 +7,17 @@
     android:paddingRight="10dp"
 
     tools:context=".WelcomeScreen">
-
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:id="@+id/deletebtn"
+        android:layout_gravity="right"
+        android:onClick="delete"
+        android:textColor="#ff57adff"
+        android:background="#ffff1418"
+        android:textSize="25dp"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dip"
@@ -294,6 +304,7 @@
             android:background="#fffff3a3"
             android:textSize="25dp"
             />
+
     </LinearLayout>
 
 </LinearLayout>

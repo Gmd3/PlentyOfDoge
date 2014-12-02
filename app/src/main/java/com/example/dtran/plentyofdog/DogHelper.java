@@ -180,7 +180,6 @@ public class DogHelper extends SQLiteOpenHelper
     public void deleteDog(Dog dog){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete("Dog", "_id = ?", new String[]{String.valueOf(dog.id)});
-
     }
 
     public Dog getLastDog(){
