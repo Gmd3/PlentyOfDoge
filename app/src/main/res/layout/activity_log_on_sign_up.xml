@@ -11,8 +11,9 @@
 <RelativeLayout
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    android:layout_centerHorizontal="true">
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="70dp"
+    android:id="@+id/loginRelativeLayout">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,8 +59,8 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-
+        android:layout_below="@+id/loginRelativeLayout"
+        android:layout_centerHorizontal="true"
         android:id="@+id/linearLayout5">
         <Button
             android:id="@+id/btnSingIn"

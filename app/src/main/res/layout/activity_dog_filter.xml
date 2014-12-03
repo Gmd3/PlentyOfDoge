@@ -57,7 +57,7 @@
             android:text="@string/NoPreference"
             android:id="@+id/noSizePreference"
             android:onClick="onSizeClick"
-            android:textColor="#FEFEFE"
+            android:textColor="#ff57adff"
             android:background="#ffc1e9fb"
             android:layout_marginRight="5dp" />
 
@@ -69,7 +69,7 @@
             android:text="@string/smallDog"
             android:id="@+id/small"
             android:onClick="onSizeClick"
-            android:textColor="#FEFEFE"
+            android:textColor="#ff57adff"
             android:background="#ffc1e9fb"
             android:layout_marginRight="5dp" />
 
@@ -81,7 +81,7 @@
             android:text="@string/mediumDog"
             android:id="@+id/medium"
             android:onClick="onSizeClick"
-            android:textColor="#FEFEFE"
+            android:textColor="#ff57adff"
             android:background="#ffc1e9fb"
             android:layout_marginRight="5dp" />
 
@@ -93,7 +93,7 @@
             android:text="@string/largeDog"
             android:id="@+id/large"
             android:onClick="onSizeClick"
-            android:textColor="#FEFEFE"
+            android:textColor="#ff57adff"
             android:background="#ffc1e9fb"
             android:layout_marginRight="5dp" />
     </LinearLayout>
@@ -132,7 +132,7 @@
             android:text="@string/NoPreference"
             android:id="@+id/noHairTypePreference"
             android:onClick="onHairTypeClick"
-            android:textColor="#FEFEFE"
+            android:textColor="#ff57adff"
             android:background="#ffc1e9fb"
             android:layout_marginRight="5dp" />
 
@@ -144,7 +144,7 @@
             android:text="@string/shortHaired"
             android:id="@+id/shortHaired"
             android:onClick="onHairTypeClick"
-            android:textColor="#FEFEFE"
+            android:textColor="#ff57adff"
             android:background="#ffc1e9fb"
             android:layout_marginRight="5dp" />
 
@@ -156,7 +156,7 @@
             android:text="@string/longHaired"
             android:id="@+id/longHaired"
             android:onClick="onHairTypeClick"
-            android:textColor="#FEFEFE"
+            android:textColor="#ff57adff"
             android:background="#ffc1e9fb"
             android:layout_marginRight="5dp" />
 
@@ -196,7 +196,7 @@
             android:text="@string/NoPreference"
             android:id="@+id/noTempermentPreference"
             android:onClick="onTemperamentClick"
-            android:textColor="#FEFEFE"
+            android:textColor="#ff57adff"
             android:background="#ffc1e9fb"
             android:layout_marginRight="5dp" />
 
@@ -208,7 +208,7 @@
             android:text="@string/mellow"
             android:id="@+id/mellow"
             android:onClick="onTemperamentClick"
-            android:textColor="#FEFEFE"
+            android:textColor="#ff57adff"
             android:background="#ffc1e9fb"
             android:layout_marginRight="5dp" />
 
@@ -220,7 +220,7 @@
             android:text="@string/hyper"
             android:id="@+id/hyper"
             android:onClick="onTemperamentClick"
-            android:textColor="#FEFEFE"
+            android:textColor="#ff57adff"
             android:background="#ffc1e9fb"
             android:layout_marginRight="5dp" />
 

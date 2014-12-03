@@ -277,7 +277,7 @@
         android:background="#ff7bd2f3"
         android:orientation="horizontal">
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/back"
             android:id="@+id/button"
@@ -285,15 +285,16 @@
             android:textColor="#FEFEFE"
             android:background="#ff57adff"
             android:textSize="35sp"
-            android:layout_weight="5"
-            android:layout_marginRight="20dp"
+            android:layout_weight=".5"
+            android:layout_marginRight="3dp"
             android:layout_marginBottom="15dp" />
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/update"
             android:id="@+id/btnNext"
-            android:layout_weight="5"
+            android:layout_weight=".5"
+            android:layout_marginLeft="3dp"
             android:onClick="update"
             android:textColor="#FEFEFE"
             android:background="#ff57adff"

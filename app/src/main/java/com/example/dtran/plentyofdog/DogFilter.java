@@ -56,47 +56,47 @@ public class DogFilter extends Activity {
         Log.d("pref.hairtype.equals(noHair", ""+pref.hairtype);
         if(pref.hairtype.equals("noHair")) {
             noHair.setBackgroundColor(0xff57adff);
-            noHair.setTextColor(0xffc1e9fb);
+            noHair.setTextColor(0xFEFEFEFE);
             preference.hairtype = "noHair";
         } else if(pref.hairtype.equals("shortHaired")) {
             shorthaired.setBackgroundColor(0xff57adff);
-            shorthaired.setTextColor(0xffc1e9fb);
+            shorthaired.setTextColor(0xFEFEFEFE);
             preference.hairtype = "shortHaired";
         } else if(pref.hairtype.equals("longHaired")) {
             longhaired.setBackgroundColor(0xff57adff);
-            longhaired.setTextColor(0xffc1e9fb);
+            longhaired.setTextColor(0xFEFEFEFE);
             preference.hairtype = "longHaired";
         }
 
         if(pref.size.equals("Small")) {
             small.setBackgroundColor(0xff57adff);
-            small.setTextColor(0xffc1e9fb);
+            small.setTextColor(0xFEFEFEFE);
             preference.size = "Small";
         } else if(pref.size.equals("Medium")) {
             medium.setBackgroundColor(0xff57adff);
-            medium.setTextColor(0xffc1e9fb);
+            medium.setTextColor(0xFEFEFEFE);
             preference.size = "Medium";
         } else if(pref.size.equals("Large")) {
             large.setBackgroundColor(0xff57adff);
-            large.setTextColor(0xffc1e9fb);
+            large.setTextColor(0xFEFEFEFE);
             preference.size = "Large";
         } else if(pref.size.equals("noSize")) {
             noSize.setBackgroundColor(0xff57adff);
-            noSize.setTextColor(0xffc1e9fb);
+            noSize.setTextColor(0xFEFEFEFE);
             preference.size = "noSize";
         }
 
         if(pref.temperament.equals("noTemperament")) {
             noTemperament.setBackgroundColor(0xff57adff);
-            noTemperament.setTextColor(0xffc1e9fb);
+            noTemperament.setTextColor(0xFEFEFEFE);
             preference.temperament = "noTemperament";
         } else if(pref.temperament.equals("Mellow")) {
             mellow.setBackgroundColor(0xff57adff);
-            mellow.setTextColor(0xffc1e9fb);
+            mellow.setTextColor(0xFEFEFEFE);
             preference.temperament = "Mellow";
         } else if(pref.temperament.equals("Hyper")) {
             hyper.setBackgroundColor(0xff57adff);
-            hyper.setTextColor(0xffc1e9fb);
+            hyper.setTextColor(0xFEFEFEFE);
             preference.temperament = "Hyper";
         }
 

@@ -6,15 +6,16 @@
     >
 <RelativeLayout
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="80dp"
     android:background="#ff7bd2f3"
+    android:paddingBottom="20px"
     android:id="@+id/relLayout2">
     <TextView
         android:text="@string/home"
         android:textStyle="bold"
         android:textSize="50dip"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="fill_parent"
         android:layout_centerHorizontal="true"
         android:id="@+id/textView"
         android:textColor="#fefefe"
