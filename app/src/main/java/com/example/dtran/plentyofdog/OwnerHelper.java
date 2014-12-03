@@ -81,7 +81,8 @@ import java.util.List;
             if(cursor != null)
                 cursor.moveToFirst();
             Owner owner = new Owner(
-                    cursor.getString(1)
+                    cursor.getInt(0)
+                    ,cursor.getString(1)
                     ,cursor.getString(2)
                     ,cursor.getString(3)
                     ,cursor.getInt(4)
@@ -92,6 +93,8 @@ import java.util.List;
                     ,cursor.getString(9)
                     ,cursor.getString(10)
             );
+            Log.d("email",
+                    cursor.getString(6));
             cursor.close();
             return owner;
         }
@@ -159,7 +162,7 @@ import java.util.List;
 
 
             Log.d("Gender" , "" + owner.gender);
-            return db.update("Owner", values, "Email = ?", new String[]{String.valueOf(owner.email)}) > 0;
+            return db.update("Owner", values, "_id = ?", new String[]{String.valueOf(owner.id)}) > 0;
         }
         public void deleteOwner(Owner owner){
             SQLiteDatabase db = this.getWritableDatabase();

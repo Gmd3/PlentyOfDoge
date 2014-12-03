@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -42,9 +43,9 @@ public class home_screen extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_home_screen);
         userIntent = getIntent();
-        Log.d("intent Dogfilter", " " + userIntent.getStringExtra("username"));
         matchedDogs = new ArrayList<Dog>();
         ApprovedMatchedOwnersList = new ArrayList<Owner>();
         new LoadMyMatches().execute("");
@@ -93,7 +94,6 @@ public class home_screen extends Activity {
     }
     public void dogBrowse(View view){
         Intent intent = new Intent(this, DogSelection.class);
-
         intent.putExtra("username", userIntent.getStringExtra("username"));
         startActivity(intent);
     }

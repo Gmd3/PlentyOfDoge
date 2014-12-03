@@ -52,4 +52,11 @@ public class User {
         this.password = password;
 
     }
+    public User(int id, String username, String password, int OwnerId){
+        this.id = id;
+        this.ownerId = OwnerId;
+        this.username = username;
+        this.password = password;
+
+    }
 }

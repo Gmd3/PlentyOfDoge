@@ -8,12 +8,16 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 
 public class dog_builder extends Activity {
@@ -38,7 +42,7 @@ public class dog_builder extends Activity {
         db3 = new UserHelper(getApplicationContext());
         db4 = new OwnerHelper(getApplicationContext());
         db5 = new MatchHelper(getApplicationContext());
-
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_dog_builder);
 
         Log.d("dogID: ", ""+dogID);
@@ -52,7 +56,7 @@ public class dog_builder extends Activity {
             Spinner sizeGrab = (Spinner)findViewById(R.id.spinner1);
             Spinner activityGrab = (Spinner)findViewById(R.id.spinner2);
             Spinner breedGrab = (Spinner)findViewById(R.id.breedInput);
-            EditText descGrab = (EditText)findViewById(R.id.dogDesc);
+            TextView descGrab = (TextView)findViewById(R.id.dogDesc);
             ImageView imageGrab = (ImageView)findViewById(R.id.image);
 
             nameGrab.setText(dog.name);
@@ -141,7 +145,7 @@ public class dog_builder extends Activity {
         }
     }
     public void submit(View v){
-
+        ArrayList<String> errors = new ArrayList<String>();
         Intent UserIntent = getIntent();
 
         Intent intent = new Intent(this, home_screen.class);
@@ -155,7 +159,7 @@ public class dog_builder extends Activity {
         Spinner sizeGrab = (Spinner)findViewById(R.id.spinner1);
         Spinner activityGrab = (Spinner)findViewById(R.id.spinner2);
         Spinner breedGrab = (Spinner)findViewById(R.id.breedInput);
-        EditText descGrab = (EditText)findViewById(R.id.dogDesc);
+        TextView descGrab = (TextView)findViewById(R.id.dogDesc);
         ImageView imageGrab = (ImageView)findViewById(R.id.image);
 
         String userName = UserIntent.getStringExtra("username");
@@ -170,6 +174,20 @@ public class dog_builder extends Activity {
         String desc = descGrab.getText().toString();
         Integer age = Integer.valueOf(ageString);
 
+        //Validation
+        //name
+        if(userName.equalsIgnoreCase(""))
+            errors.add("Name cannot be empty");
+        //breed
+        //age
+        //gender
+        //size
+        //training
+        //activity
+        //desc
+        //area
+        //image
+        //End validation
         Owner o = db4.getOwner(ownerID);
 
         Dog dog = new Dog(name, breed, age, gender, size, training,
