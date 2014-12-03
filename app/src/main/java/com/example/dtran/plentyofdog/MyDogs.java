@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -28,6 +29,7 @@ public class MyDogs extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_my_dogs);
 
         new LoadMyDogs().execute("");
@@ -67,6 +69,7 @@ public class MyDogs extends Activity {
 
     public void backHome(View view){
         Intent home = new Intent(this, home_screen.class);
+        home.putExtra("username", getIntent().getStringExtra("username"));
         startActivity(home);
     }
 

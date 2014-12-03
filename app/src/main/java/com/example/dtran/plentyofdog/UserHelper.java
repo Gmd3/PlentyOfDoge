@@ -71,7 +71,8 @@ public class UserHelper extends SQLiteOpenHelper
         if(cursor != null)
             cursor.moveToFirst();
         User user = new User(
-                cursor.getString(1)
+                cursor.getInt(0)
+                ,cursor.getString(1)
                 ,cursor.getString(2)
                 ,cursor.getInt(3)
         );

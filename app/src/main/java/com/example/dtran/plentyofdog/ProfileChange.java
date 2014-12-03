@@ -7,29 +7,59 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 
 public class ProfileChange extends Activity {
     Intent userIntent;
     OwnerHelper ownerdb;
     Owner owner;
+    UserHelper userDB;
+    String oldEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_profile_change);
         //load the current users data
         userIntent = getIntent();
         String username = userIntent.getStringExtra("username");
         ownerdb = new OwnerHelper(this);
         ownerdb.getWritableDatabase();
+        userDB = new UserHelper(getApplicationContext());
+        userDB.getWritableDatabase();
         Log.d("DB",""+ownerdb.getOwnerCount());
+        Log.d("ProfileChange username","" + username);
+
+
+        //DEBUG SECTION
+        List<Owner> owners = ownerdb.getAllOwner();
+        for(Owner o : owners) {
+            Log.d("OwnerDB", "OwnerID :" + o.id);
+            Log.d("OwnerDB", "Email :" + o.email);
+            Log.d("OwnerDB", "___________________ :");
+
+        }
+
+        Log.d("OwnerDB", "@@@@@@@@@@@@@@@@@@@@@@@@@ :");
+        List<User> users = userDB.getAllUser();
+        for(User u : users) {
+            Log.d("OwnerDB", "UserID :" + u.id);
+            Log.d("OwnerDB", "Email :" + u.username);
+            Log.d("OwnerDB", "OwnerID :" + u.ownerId);
+            Log.d("OwnerDB", "___________________ :");
+
+        }
+        //DEBUG
+
 
         owner = ownerdb.getOwner(username);
         EditText age = (EditText)findViewById(R.id.ageInput);
@@ -41,6 +71,7 @@ public class ProfileChange extends Activity {
         EditText firstName = (EditText)findViewById(R.id.firstNameInput);
         EditText lastName = (EditText)findViewById(R.id.lasttNameInput);
 
+        oldEmail = owner.email;
         email.setText(owner.email);
         age.setText(""+ owner.age);
         area.setText(owner.area);
@@ -107,8 +138,11 @@ public class ProfileChange extends Activity {
             }
             else {
                 Log.d("PASSWORDS ARE THE ", "SAME");
+
+                Log.d("old email ", "" + oldEmail);
                 UserHelper db = new UserHelper(this);
-                User userTempEmail = db.getUser(email.getText().toString());
+                User userTempEmail = db.getUser(oldEmail);
+                Log.d("New email ", "" + email.getText().toString());
 
                 User user = new User(email.getText().toString(),
                         password, userTempEmail.ownerId);
@@ -119,20 +153,25 @@ public class ProfileChange extends Activity {
             errors++;
         if(!confirm.equals("") && password.equals(""))
             errors++;
+        if(confirm.equals("") && password.equals("") && !email.getText().toString().equals(""))
+            errors++;
 
         if(errors == 0) {
-            Owner ownerTemp = new Owner(
-                    firstName.getText().toString(),
-                    lastName.getText().toString(),
-                    experience.getSelectedItem().toString(),
-                    Integer.parseInt(age.getText().toString())
-                    , gender.getText().toString(),
-                    email.getText().toString(),
-                    phone.getText().toString()
-                    , area.getText().toString(),
-                    owner.dateCreated,
-                    date);
-            Log.d("DB UPDATE SUCCESS ? : ", "" + ownerdb.updateOwner(ownerTemp));
+
+            Owner owner = ownerdb.getOwner(oldEmail);
+
+            owner.firstName = firstName.getText().toString();
+            owner.lastName = lastName.getText().toString();
+            owner.experience = experience.getSelectedItem().toString();
+            owner.age = Integer.parseInt(age.getText().toString());
+            owner.gender =  gender.getText().toString();
+            owner.email = email.getText().toString();
+            owner.phone = phone.getText().toString();
+            owner.area =  area.getText().toString();
+            owner.lastEdited = date;
+
+
+            Log.d("DB UPDATE SUCCESS ? : ", "" + ownerdb.updateOwner(owner));
             intent.putExtra("username",email.getText().toString());
             startActivity(intent);
         } else {
