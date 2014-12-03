@@ -11,6 +11,7 @@ import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -63,7 +64,7 @@ public class ProfileChange extends Activity {
 
         owner = ownerdb.getOwner(username);
         EditText age = (EditText)findViewById(R.id.ageInput);
-        EditText email = (EditText)findViewById(R.id.emailInput);
+        TextView email = (TextView)findViewById(R.id.emailInput);
         Spinner experience = (Spinner)findViewById(R.id.yoeInput);
         EditText gender = (EditText)findViewById(R.id.genderInput);
         EditText phone = (EditText)findViewById(R.id.phoneInput);
@@ -117,7 +118,7 @@ public class ProfileChange extends Activity {
         int errors = 0;
         Intent intent = new Intent(this, home_screen.class);
         EditText age = (EditText)findViewById(R.id.ageInput);
-        EditText email = (EditText)findViewById(R.id.emailInput);
+        TextView email = (TextView)findViewById(R.id.emailInput);
         Spinner experience = (Spinner)findViewById(R.id.yoeInput);
         EditText gender = (EditText)findViewById(R.id.genderInput);
         EditText phone = (EditText)findViewById(R.id.phoneInput);
@@ -137,6 +138,26 @@ public class ProfileChange extends Activity {
                 errors++;
             }
             else {
+                PreferenceHelper prefDB = new PreferenceHelper(getApplicationContext());
+                if(prefDB.preferenceExist(oldEmail)) {
+                    Preference prevPref = prefDB.getPreference(oldEmail);
+                    Log.d("Old username ProfileChange :", prevPref.username);
+                    prevPref.username = email.getText().toString();
+
+                    Log.d("Official Size : ", "" + prevPref.size);
+                    Log.d("Official HairType : ", "" + prevPref.hairtype);
+                    Log.d("Official Temperament : ", "" + prevPref.temperament);
+                    Log.d("Official username : ", "" + prevPref.username);
+
+                    prefDB.updatePreference(prevPref);
+
+                    Log.d("New username ProfileChange :", prevPref.username);
+                }
+                else
+                {
+                    Log.d("Preference doens't exist", "");
+                }
+
                 Log.d("PASSWORDS ARE THE ", "SAME");
 
                 Log.d("old email ", "" + oldEmail);
@@ -146,6 +167,8 @@ public class ProfileChange extends Activity {
 
                 User user = new User(email.getText().toString(),
                         password, userTempEmail.ownerId);
+
+                Log.d("User email : user.email", user.username);
                 db.updateUser(user);
             }
         }
@@ -170,6 +193,11 @@ public class ProfileChange extends Activity {
             owner.area =  area.getText().toString();
             owner.lastEdited = date;
 
+            //update preferences
+
+            //Updating Owner
+            Log.d("Owner email: owner.email", owner.email);
+            ownerdb.updateOwner(owner);
 
             Log.d("DB UPDATE SUCCESS ? : ", "" + ownerdb.updateOwner(owner));
             intent.putExtra("username",email.getText().toString());

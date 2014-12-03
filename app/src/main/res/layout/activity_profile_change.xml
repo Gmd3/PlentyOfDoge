@@ -35,7 +35,7 @@
             android:id="@+id/lblEmail"
             android:textSize="15dp"
             android:textColor="#ff57adff" />
-        <EditText
+        <TextView
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight=".7"
