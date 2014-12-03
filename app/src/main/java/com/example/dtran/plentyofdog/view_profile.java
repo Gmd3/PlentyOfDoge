@@ -88,6 +88,7 @@ public class view_profile extends Activity {
             matchDB.updateMatch(match);
         }
         Intent intent = new Intent(this, home_screen.class);
+        intent.putExtra("username" ,matchIntent.getStringExtra("username"));
         startActivity(intent);
     }
     public void reject(View view){

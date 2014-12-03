@@ -28,6 +28,15 @@ public class home_screen extends Activity {
     MatchList adapter;
     ListView list;
     List<Match> matchlist;
+
+
+    List<Match> ApprovedMatchesList;
+    ArrayList<Owner> ApprovedMatchedOwnersList;
+    ArrayList<Dog> matchedDogs;
+    ApprovedMatchList adapter2;
+    ListView list2;
+
+    ArrayList<Owner> temp3;
     ArrayList<Owner> temp2;
 
     @Override
@@ -36,6 +45,8 @@ public class home_screen extends Activity {
         setContentView(R.layout.activity_home_screen);
         userIntent = getIntent();
         Log.d("intent Dogfilter", " " + userIntent.getStringExtra("username"));
+        matchedDogs = new ArrayList<Dog>();
+        ApprovedMatchedOwnersList = new ArrayList<Owner>();
         new LoadMyMatches().execute("");
     }
 
@@ -110,13 +121,13 @@ public class home_screen extends Activity {
 
                         Intent intent = getIntent();
                         int ownerID = db3.getOwnerID(intent.getStringExtra("username"));
-                        ArrayList<Integer> DogIDs = db2.getMyDogs(ownerID);
 
+                        //Left List
+                        ArrayList<Integer> DogIDs = db2.getMyDogs(ownerID);
                         ArrayList<Dog> temp = new ArrayList<Dog>();
                         temp2 = new ArrayList<Owner>();
-
                         matchlist = new ArrayList<Match>();
-
+                        //End Left List
                         for(int i = 0; i < DogIDs.size(); i++){
                             matchlist = db4.getAllMatchesDogID(DogIDs.get(i));
                             for(Match m : matchlist){
@@ -146,12 +157,47 @@ public class home_screen extends Activity {
                                     Intent dogIntent = new Intent(home_screen.this, view_profile.class);
                                     dogIntent.putExtra("ownerID", temp2.get(position).id);
                                     dogIntent.putExtra("dogID", myDogs.get(position).id);
-
+                                    dogIntent.putExtra("username", userIntent.getStringExtra("username"));
                                     startActivity(dogIntent);
                                 }
                             });
                             resp = "All dogs loaded!";
-                        } else resp = "No dogs found!";
+                        } //End Left List
+
+                        //Start Right List
+                        ApprovedMatchesList = db4.getAllMatches(ownerID);
+
+
+                        if (ApprovedMatchesList != null){
+                            Log.d("Size of ApprovedMAtchesList ", "" + ApprovedMatchesList.size());
+                            for (Match m : ApprovedMatchesList){
+                                Dog tempDog = db.getDog(m.dogID);
+                                Log.d("ownerID", ""+m.userID);
+                                matchedDogs.add(tempDog);
+                                ApprovedMatchedOwnersList.add(db5.getOwner(m.userID));
+                            }
+                            adapter2 = new ApprovedMatchList(home_screen.this, ApprovedMatchesList, ApprovedMatchedOwnersList, matchedDogs);
+                            list2 = (ListView) findViewById(R.id.list2);
+                            list2.setAdapter(adapter2);
+                            adapter2.notifyDataSetChanged();
+                            /*
+                            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                @Override
+                                public void onItemClick(AdapterView<?> parent, View view,
+                                                        int position, long id) {
+                                    Toast.makeText(home_screen.this, "You Clicked at " + ApprovedMatchesList.get(position).dogID, Toast.LENGTH_SHORT).show();
+                                    Intent dogIntent = new Intent(home_screen.this, view_profile.class);
+                                    dogIntent.putExtra("ownerID", temp2.get(position).id);
+                                    dogIntent.putExtra("dogID", myDogs.get(position).id);
+                                    dogIntent.putExtra("username", userIntent.getStringExtra("username"));
+                                    startActivity(dogIntent);
+                                }
+                            });
+                            */
+                            resp += "All matches loaded!";
+                        }
+
+
                     }
                 });
             } catch (Exception e) {

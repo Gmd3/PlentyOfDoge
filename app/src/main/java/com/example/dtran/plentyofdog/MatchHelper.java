@@ -89,8 +89,7 @@ public class MatchHelper extends SQLiteOpenHelper
             Log.d("Match Count: ", "" + cursor.getCount());
 
             Match match = new Match(
-                cursor.getInt(0)
-                ,cursor.getInt(1)
+                cursor.getInt(1)
                 ,cursor.getInt(2)
                 ,cursor.getInt(3)
                 ,cursor.getString(4)
@@ -100,7 +99,6 @@ public class MatchHelper extends SQLiteOpenHelper
         }
         return null;
     }
-
     public List<Match> getAllMatches(){
         List<Match> matchlist = new ArrayList<Match>();
         String selectQuery = "SELECT * FROM Match";
@@ -115,6 +113,27 @@ public class MatchHelper extends SQLiteOpenHelper
                         ,cursor.getInt(1)
                         ,cursor.getInt(2)
                         ,cursor.getString(3));
+                matchlist.add(match);
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        return matchlist;
+    }
+    public List<Match> getAllMatches(int userID){
+        List<Match> matchlist = new ArrayList<Match>();
+        String selectQuery = "SELECT * FROM Match WHERE UserID = " + userID;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery,null);
+
+        if(cursor.moveToFirst()){
+            do {
+                Match match = new Match(
+                        cursor.getInt(0)
+                        ,cursor.getInt(1)
+                        ,cursor.getInt(2)
+                        ,cursor.getInt(3)
+                        ,cursor.getString(4));
                 matchlist.add(match);
             }while(cursor.moveToNext());
         }
