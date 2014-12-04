@@ -90,7 +90,7 @@ public class ProfileBuild extends Activity {
         EditText ageGrab = (EditText) findViewById(R.id.ageInput);
         EditText hometownGrab = (EditText) findViewById(R.id.hometownInput);
         EditText descGrab = (EditText) findViewById(R.id.shortDesc);
-        EditText genderGrab = (EditText) findViewById(R.id.genderInput);
+        Spinner genderGrab = (Spinner) findViewById(R.id.genderInput);
         EditText emailGrab = (EditText) findViewById(R.id.emailInput);
         EditText phoneGrab = (EditText) findViewById(R.id.phoneInput);
         EditText passwordGrab = (EditText) findViewById(R.id.lblpasswordinput);
@@ -100,7 +100,7 @@ public class ProfileBuild extends Activity {
         String hometown = hometownGrab.getText().toString();
         String desc = descGrab.getText().toString();
         String age = ageGrab.getText().toString();
-        String gender = genderGrab.getText().toString();
+        String gender = genderGrab.getSelectedItem().toString();
         String email = emailGrab.getText().toString();
         String phone = phoneGrab.getText().toString();
         String xp = yoeGrab.getSelectedItem().toString();

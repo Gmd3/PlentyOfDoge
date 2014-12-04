@@ -66,7 +66,7 @@ public class ProfileChange extends Activity {
         EditText age = (EditText)findViewById(R.id.ageInput);
         TextView email = (TextView)findViewById(R.id.emailInput);
         Spinner experience = (Spinner)findViewById(R.id.yoeInput);
-        EditText gender = (EditText)findViewById(R.id.genderInput);
+        Spinner gender = (Spinner)findViewById(R.id.genderInput);
         EditText phone = (EditText)findViewById(R.id.phoneInput);
         EditText area = (EditText)findViewById(R.id.hometownInput);
         EditText firstName = (EditText)findViewById(R.id.firstNameInput);
@@ -79,7 +79,9 @@ public class ProfileChange extends Activity {
         ArrayAdapter myadap = (ArrayAdapter)experience.getAdapter();
         int position = myadap.getPosition(owner.experience);
         experience.setSelection(position);
-        gender.setText(owner.gender);
+        ArrayAdapter genadap = (ArrayAdapter) gender.getAdapter();
+        int genpos = genadap.getPosition(owner.gender);
+        gender.setSelection(genpos);
         phone.setText(""+owner.phone);
         firstName.setText(owner.firstName);
         lastName.setText(owner.lastName);
@@ -120,7 +122,7 @@ public class ProfileChange extends Activity {
         EditText age = (EditText)findViewById(R.id.ageInput);
         TextView email = (TextView)findViewById(R.id.emailInput);
         Spinner experience = (Spinner)findViewById(R.id.yoeInput);
-        EditText gender = (EditText)findViewById(R.id.genderInput);
+        Spinner gender = (Spinner)findViewById(R.id.genderInput);
         EditText phone = (EditText)findViewById(R.id.phoneInput);
         EditText area = (EditText)findViewById(R.id.hometownInput);
         EditText firstName = (EditText)findViewById(R.id.firstNameInput);
@@ -167,7 +169,7 @@ public class ProfileChange extends Activity {
             owner.lastName = lastName.getText().toString();
             owner.experience = experience.getSelectedItem().toString();
             owner.age = Integer.parseInt(age.getText().toString());
-            owner.gender =  gender.getText().toString();
+            owner.gender =  gender.getSelectedItem().toString();
             owner.email = email.getText().toString();
             owner.phone = phone.getText().toString();
             owner.area =  area.getText().toString();
