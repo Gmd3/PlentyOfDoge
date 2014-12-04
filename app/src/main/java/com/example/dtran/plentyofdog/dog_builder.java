@@ -51,7 +51,7 @@ public class dog_builder extends Activity {
 
             EditText nameGrab = (EditText)findViewById(R.id.nameInput);
             EditText ageGrab = (EditText)findViewById(R.id.ageInput);
-            Spinner genderGrab = (Spinner)findViewById(R.id.genderInput);
+            EditText genderGrab = (EditText)findViewById(R.id.genderInput);
             EditText trainingGrab = (EditText)findViewById(R.id.trainingInput);
             Spinner sizeGrab = (Spinner)findViewById(R.id.spinner1);
             Spinner activityGrab = (Spinner)findViewById(R.id.spinner2);
@@ -61,9 +61,7 @@ public class dog_builder extends Activity {
 
             nameGrab.setText(dog.name);
             ageGrab.setText(""+dog.age);
-            ArrayAdapter genadap = (ArrayAdapter)genderGrab.getAdapter();
-            int genpos = genadap.getPosition(dog.age);
-            genderGrab.setSelection(genpos);
+            genderGrab.setText(dog.gender);
             trainingGrab.setText(dog.training);
             ArrayAdapter myadap = (ArrayAdapter)sizeGrab.getAdapter();
             int position = myadap.getPosition(dog.size);
@@ -147,6 +145,7 @@ public class dog_builder extends Activity {
         }
     }
     public void submit(View v){
+        ArrayList<String> errors = new ArrayList<String>();
         Intent UserIntent = getIntent();
 
         Intent intent = new Intent(this, home_screen.class);
@@ -155,7 +154,7 @@ public class dog_builder extends Activity {
 
         EditText nameGrab = (EditText)findViewById(R.id.nameInput);
         EditText ageGrab = (EditText)findViewById(R.id.ageInput);
-        Spinner genderGrab = (Spinner)findViewById(R.id.genderInput);
+        EditText genderGrab = (EditText)findViewById(R.id.genderInput);
         EditText trainingGrab = (EditText)findViewById(R.id.trainingInput);
         Spinner sizeGrab = (Spinner)findViewById(R.id.spinner1);
         Spinner activityGrab = (Spinner)findViewById(R.id.spinner2);
@@ -168,97 +167,63 @@ public class dog_builder extends Activity {
         String name = nameGrab.getText().toString();
         String breed = breedGrab.getSelectedItem().toString();
         String ageString = ageGrab.getText().toString();
-        String gender = genderGrab.getSelectedItem().toString();
+        String gender = genderGrab.getText().toString();
         String size = sizeGrab.getSelectedItem().toString();
         String training = trainingGrab.getText().toString();
         String activity = activityGrab.getSelectedItem().toString();
         String desc = descGrab.getText().toString();
         Integer age = Integer.valueOf(ageString);
 
-//        Owner o = db4.getOwner(ownerID);
-//
-//        Dog dog = new Dog(name, breed, age, gender, size, training,
-//                activity, desc, o.area, "today","today", uri.toString());
-//        Dog d;
-//        if (dogID != -0) {
-//            Dog dogToUpdate = db.getDog(dogID);
-//            dogToUpdate.name = name;
-//            dogToUpdate.breed = breed;
-//            dogToUpdate.age = age;
-//            dogToUpdate.gender = gender;
-//            dogToUpdate.size = size;
-//            dogToUpdate.training = training;
-//            dogToUpdate.activitylevel = activity;
-//            dogToUpdate.description = desc;
-//            dogToUpdate.image = uri.toString();
-//
-//            db.updateDog(dogToUpdate);
-//            d = db.getLastDog();
-//            DogOwner oldDogOwner = db2.getDogOwnerFromDogID(dogID);
-//            db2.updateDogOwner(oldDogOwner);
-        int errors = 0;
-        ArrayList<String> errorMsgs = new ArrayList<String>();
+        //Validation
+        //name
+        if(userName.equalsIgnoreCase(""))
+            errors.add("Name cannot be empty");
+        //breed
+        //age
+        //gender
+        //size
+        //training
+        //activity
+        //desc
+        //area
+        //image
+        //End validation
+        Owner o = db4.getOwner(ownerID);
 
-        if(name.length() < 1) {
-            errorMsgs.add("Enter the name");
-            errors++;
-        }
+        Dog dog = new Dog(name, breed, age, gender, size, training,
+                activity, desc, o.area, "today","today", uri.toString());
+        Dog d;
+        if (dogID != -0) {
+            Dog dogToUpdate = db.getDog(dogID);
+            dogToUpdate.name = name;
+            dogToUpdate.breed = breed;
+            dogToUpdate.age = age;
+            dogToUpdate.gender = gender;
+            dogToUpdate.size = size;
+            dogToUpdate.training = training;
+            dogToUpdate.activitylevel = activity;
+            dogToUpdate.description = desc;
+            dogToUpdate.image = uri.toString();
 
-        if(age < 0 || age > 13) {
-            errorMsgs.add("A dog can only live for 13 years!");
-            errors++;
-        }
+            db.updateDog(dogToUpdate);
+            d = db.getLastDog();
+            DogOwner oldDogOwner = db2.getDogOwnerFromDogID(dogID);
+            db2.updateDogOwner(oldDogOwner);
 
-        if(training.length() < 1) {
-            errorMsgs.add("Enter a training");
-            errors++;
-        }
-
-        if(desc.length() < 1) {
-            errorMsgs.add("Enter a description");
-            errors++;
-        }
-
-        if(errors == 0) {
-            Owner o = db4.getOwner(ownerID);
-
-            Dog dog = new Dog(name, breed, age, gender, size, training,
-                    activity, desc, o.area, "today", "today", uri.toString());
-            Dog d;
-            if (dogID != -0) {
-                Dog dogToUpdate = db.getDog(dogID);
-                dogToUpdate.name = name;
-                dogToUpdate.breed = breed;
-                dogToUpdate.age = age;
-                dogToUpdate.gender = gender;
-                dogToUpdate.size = size;
-                dogToUpdate.training = training;
-                dogToUpdate.activitylevel = activity;
-                dogToUpdate.description = desc;
-                dogToUpdate.image = uri.toString();
-
-                db.updateDog(dogToUpdate);
-                d = db.getLastDog();
-                DogOwner oldDogOwner = db2.getDogOwnerFromDogID(dogID);
-                db2.updateDogOwner(oldDogOwner);
-
-            } else {
-                db.addDog(dog);
-                d = db.getLastDog();
-                DogOwner newDogOwner = new DogOwner(d.id,
-                        ownerID,
-                        "today", "today", "Active");
-                db2.addDogOwner(newDogOwner);
-
-            }
-
-            Toast toast = Toast.makeText(getApplicationContext(), "Dog ID: " + d.id, Toast.LENGTH_SHORT);
-            toast.show();
-
-            startActivity(intent);
         } else {
-            Toast.makeText(this, errorMsgs.get(0), Toast.LENGTH_LONG).show();
+            db.addDog(dog);
+            d = db.getLastDog();
+            DogOwner newDogOwner = new DogOwner(d.id,
+                    ownerID,
+                    "today", "today", "Active");
+            db2.addDogOwner(newDogOwner);
+
         }
+
+        Toast toast = Toast.makeText(getApplicationContext(), "Dog ID: " + d.id, Toast.LENGTH_SHORT);
+        toast.show();
+
+        startActivity(intent);
     }
     public void delete(View view){
         db.deleteDog(db.getDog(dogID));

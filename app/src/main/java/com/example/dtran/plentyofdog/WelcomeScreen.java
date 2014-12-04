@@ -8,9 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import java.util.ArrayList;
 
 
 public class WelcomeScreen extends Activity {
@@ -48,25 +45,9 @@ public class WelcomeScreen extends Activity {
         String fname = fnameGrab.getText().toString();
         String lname = lnameGrab.getText().toString();
 
-        ArrayList<String> errorMsgs = new ArrayList<String>();
-        int errors = 0;
 
-        if(fname.length() < 1) {
-            errorMsgs.add("Please insert a first name");
-            errors++;
-        }
-
-        if(lname.length() < 1) {
-            errorMsgs.add("Please insert a last name");
-            errors++;
-        }
-
-        if(errors == 0) {
-            intent.putExtra("WelcomeStringsFName", fname);
-            intent.putExtra("WelcomeStringsLName", lname);
-            startActivity(intent);
-        } else {
-            Toast.makeText(this, errorMsgs.get(0), Toast.LENGTH_LONG).show();
-        }
+        intent.putExtra("WelcomeStringsFName", fname);
+        intent.putExtra("WelcomeStringsLName", lname);
+        startActivity(intent);
     }
 }

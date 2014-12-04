@@ -29,11 +29,6 @@
     <string name="title_activity_dog_filter">Dog Filter</string>
     <string name="User_Profile">User Profile</string>
 
-    <string-array name="gender_type">
-        <item>Male</item>
-        <item>Female</item>
-    </string-array>
-
     <string-array name="xp_lvl">
         <item>Puppey</item>
         <item>Dog</item>

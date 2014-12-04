@@ -90,7 +90,7 @@ public class ProfileBuild extends Activity {
         EditText ageGrab = (EditText)findViewById(R.id.ageInput);
         EditText hometownGrab = (EditText)findViewById(R.id.hometownInput);
         EditText descGrab = (EditText)findViewById(R.id.shortDesc);
-        Spinner genderGrab = (Spinner)findViewById(R.id.genderInput);
+        EditText genderGrab = (EditText)findViewById(R.id.genderInput);
         EditText emailGrab = (EditText)findViewById(R.id.emailInput);
         EditText phoneGrab = (EditText)findViewById(R.id.phoneInput);
         EditText passwordGrab = (EditText)findViewById(R.id.lblpasswordinput);
@@ -100,7 +100,7 @@ public class ProfileBuild extends Activity {
         String hometown = hometownGrab.getText().toString();
         String desc = descGrab.getText().toString();
         String age = ageGrab.getText().toString();
-        String gender = genderGrab.getSelectedItem().toString();
+        String gender = genderGrab.getText().toString();
         String email = emailGrab.getText().toString();
         String phone = phoneGrab.getText().toString();
         String xp = yoeGrab.getSelectedItem().toString();
@@ -109,40 +109,26 @@ public class ProfileBuild extends Activity {
         String password =passwordGrab.getText().toString();
         String confirm = confirmGrab.getText().toString();
 
-        ArrayList<String> errorMsg = new ArrayList<String>();
-
-        if(firstname.equals("")) {
-            errorMsg.add("Enter a first name");
+        if(hometown.equals(""))
             errors++;
-        }
-        if(lastname.equals("")) {
-            errorMsg.add("Enter a last name");
+        if(desc.equals(""))
             errors++;
-        }
-        if(email.equals("")) {
-            errorMsg.add("Enter an email");
+        if(age.equals(""))
             errors++;
-        }
-        if(!password.equals(confirm)) {
-            errorMsg.add("Enter a password");
+        if(gender.equals(""))
             errors++;
-        }
-        if(age.equals("")) {
-            errorMsg.add("Enter an age");
+        if(email.equals(""))
             errors++;
-        }
-        if(hometown.equals("")) {
-            errorMsg.add("Enter a hometown");
+        if(phone.equals(""))
             errors++;
-        }
-        if(phone.length() != 10) {
-            errorMsg.add("Enter a phone number");
+        if(xp.equals(""))
             errors++;
-        }
-        if(desc.equals("")) {
-            errorMsg.add("Enter a description");
+        if(firstname.equals(""))
             errors++;
-        }
+        if(lastname.equals(""))
+            errors++;
+        if(!password.equals(confirm))
+            errors++;
 
         if(errors == 0) {
             Calendar c = Calendar.getInstance();
@@ -174,8 +160,6 @@ public class ProfileBuild extends Activity {
             Log.d("Leaving ", "Activity");
 
             startActivity(intent);
-        } else {
-            Toast.makeText(this, errorMsg.get(0), Toast.LENGTH_LONG).show();
         }
     }
 

@@ -11,10 +11,8 @@ import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -67,7 +65,7 @@ public class ProfileChange extends Activity {
         EditText age = (EditText)findViewById(R.id.ageInput);
         EditText email = (EditText)findViewById(R.id.emailInput);
         Spinner experience = (Spinner)findViewById(R.id.yoeInput);
-        Spinner gender = (Spinner)findViewById(R.id.genderInput);
+        EditText gender = (EditText)findViewById(R.id.genderInput);
         EditText phone = (EditText)findViewById(R.id.phoneInput);
         EditText area = (EditText)findViewById(R.id.hometownInput);
         EditText firstName = (EditText)findViewById(R.id.firstNameInput);
@@ -80,9 +78,7 @@ public class ProfileChange extends Activity {
         ArrayAdapter myadap = (ArrayAdapter)experience.getAdapter();
         int position = myadap.getPosition(owner.experience);
         experience.setSelection(position);
-        ArrayAdapter genadap = (ArrayAdapter)gender.getAdapter();
-        int genpos = genadap.getPosition(owner.gender);
-        gender.setSelection(genpos);
+        gender.setText(owner.gender);
         phone.setText(""+owner.phone);
         firstName.setText(owner.firstName);
         lastName.setText(owner.lastName);
@@ -118,25 +114,18 @@ public class ProfileChange extends Activity {
         startActivity(intent);
     }
     public void update(View view){
-        UserHelper db = new UserHelper(this);
         int errors = 0;
-        ArrayList<String> errorMsg = new ArrayList<String>();
         Intent intent = new Intent(this, home_screen.class);
         EditText age = (EditText)findViewById(R.id.ageInput);
         EditText email = (EditText)findViewById(R.id.emailInput);
         Spinner experience = (Spinner)findViewById(R.id.yoeInput);
-        Spinner gender = (Spinner)findViewById(R.id.genderInput);
+        EditText gender = (EditText)findViewById(R.id.genderInput);
         EditText phone = (EditText)findViewById(R.id.phoneInput);
         EditText area = (EditText)findViewById(R.id.hometownInput);
         EditText firstName = (EditText)findViewById(R.id.firstNameInput);
         EditText lastName = (EditText)findViewById(R.id.lasttNameInput);
         SimpleDateFormat s = new SimpleDateFormat("ddMMyyyy");
         String date = s.format(new Date());
-
-        String strEmail =  email.getText().toString();
-        String strFName = firstName.getText().toString();
-        String strLName = lastName.getText().toString();
-        String strHome = area.getText().toString();
 
         //password section
         EditText passwordgrab = (EditText)findViewById(R.id.lblpasswordinput);
@@ -149,11 +138,13 @@ public class ProfileChange extends Activity {
             }
             else {
                 Log.d("PASSWORDS ARE THE ", "SAME");
+
                 Log.d("old email ", "" + oldEmail);
+                UserHelper db = new UserHelper(this);
                 User userTempEmail = db.getUser(oldEmail);
                 Log.d("New email ", "" + email.getText().toString());
 
-                User user = new User(strEmail,
+                User user = new User(email.getText().toString(),
                         password, userTempEmail.ownerId);
                 db.updateUser(user);
             }
@@ -165,31 +156,6 @@ public class ProfileChange extends Activity {
         if(confirm.equals("") && password.equals("") && !email.getText().toString().equals(""))
             errors++;
 
-        if(strEmail.length() < 1) {
-            errorMsg.add("Email cannot be empty!");
-            errors++;
-        }
-
-        if(strFName.length() < 1) {
-            errorMsg.add("First name cannot be empty!");
-            errors++;
-        }
-
-        if(strLName.length() < 1) {
-            errorMsg.add("Last name cannot be empty!");
-            errors++;
-        }
-
-        if(strHome.length() < 1) {
-            errorMsg.add("Hometown cannot be empty!");
-            errors++;
-        }
-
-        if(phone.getText().length() != 10) {
-            errorMsg.add("Invalid phone number");
-            errors++;
-        }
-
         if(errors == 0) {
 
             Owner owner = ownerdb.getOwner(oldEmail);
@@ -198,7 +164,7 @@ public class ProfileChange extends Activity {
             owner.lastName = lastName.getText().toString();
             owner.experience = experience.getSelectedItem().toString();
             owner.age = Integer.parseInt(age.getText().toString());
-            owner.gender =  gender.getSelectedItem().toString();
+            owner.gender =  gender.getText().toString();
             owner.email = email.getText().toString();
             owner.phone = phone.getText().toString();
             owner.area =  area.getText().toString();
@@ -209,7 +175,6 @@ public class ProfileChange extends Activity {
             intent.putExtra("username",email.getText().toString());
             startActivity(intent);
         } else {
-            Toast.makeText(this, errorMsg.get(0), Toast.LENGTH_LONG).show();
             passwordgrab.setText("");
             confirmgrab.setText("");
         }
