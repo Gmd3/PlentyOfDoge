@@ -131,6 +131,7 @@ public class home_screen extends Activity {
                         //End Left List
                         for(int i = 0; i < DogIDs.size(); i++){
                             matchlist = db4.getAllMatchesDogID(DogIDs.get(i));
+                            Log.d("Matchlist count: "  ,""+  matchlist.size());
                             for(Match m : matchlist){
                                 temp.add(db.getDog(DogIDs.get(i)));
                                 Log.d("m.userID"  ,""+  m.userID);

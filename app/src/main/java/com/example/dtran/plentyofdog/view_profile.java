@@ -81,14 +81,17 @@ public class view_profile extends Activity {
 
         Match match = matchDB.getMatch(ownerID,dogID);
 
-        if(match.matched==0)
+        Log.d("Match status is: ", "" +  match.matched);
+
+        if(match.matched == 0)
         {
-            Button yesbutton = (Button)findViewById(R.id.btnYESYESYES);
-            yesbutton.setEnabled(false);
-        } else {
             match.matched = 1;
             matchDB.updateMatch(match);
+        } else {
+            Button yesbutton = (Button)findViewById(R.id.btnYESYESYES);
+            yesbutton.setEnabled(false);
         }
+
         Intent intent = new Intent(this, home_screen.class);
         intent.putExtra("username" ,matchIntent.getStringExtra("username"));
         startActivity(intent);

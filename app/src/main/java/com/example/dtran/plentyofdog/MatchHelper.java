@@ -89,7 +89,8 @@ public class MatchHelper extends SQLiteOpenHelper
             Log.d("Match Count: ", "" + cursor.getCount());
 
             Match match = new Match(
-                cursor.getInt(1)
+                cursor.getInt(0)
+                ,cursor.getInt(1)
                 ,cursor.getInt(2)
                 ,cursor.getInt(3)
                 ,cursor.getString(4)
@@ -178,6 +179,8 @@ public class MatchHelper extends SQLiteOpenHelper
         values.put("DateMatched", match.dateMatched);
         values.put("Matched", match.matched);
 
+        Log.d("Match to update: ", "" +  match.id);
+        Log.d("Status: ", "" +  match.matched);
         return db.update("Match", values, "_id = ?", new String[]{String.valueOf(match.id)});
     }
 
