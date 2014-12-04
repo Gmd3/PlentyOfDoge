@@ -46,6 +46,10 @@ public class DogOwnerHelper extends SQLiteOpenHelper
 
         Log.d("DogOwner", " Added");
         db.insert("DogOwner", null, values);
+
+        Log.d("Added Dog", ""+dogOwner.dogID);
+
+        Log.d("with ownerID", ""+dogOwner.ownerID);
         db.close();
     }
     public DogOwner getDogOwner(int id){

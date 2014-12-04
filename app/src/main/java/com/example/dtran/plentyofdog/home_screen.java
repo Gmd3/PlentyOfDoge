@@ -120,6 +120,7 @@ public class home_screen extends Activity {
                         db5 = new OwnerHelper(getApplicationContext());
 
                         Intent intent = getIntent();
+                        Log.d("COMMON PLACE TO CRASH: username is ", intent.getStringExtra("username"));
                         int ownerID = db3.getOwnerID(intent.getStringExtra("username"));
 
                         //Left List

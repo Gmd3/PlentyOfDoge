@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.List;
+
 
 public class DogFilter extends Activity {
     Preference preference;
@@ -26,8 +28,21 @@ public class DogFilter extends Activity {
         preference = new Preference();
 
         username = userIntent.getStringExtra("username");
-        if(db.preferenceExist(username)) {
+        Log.d("@@@@@@@@@@@@@@@All preferences : ", "" );
 
+        List<Preference> preflists = db.getAllPreferences();
+        for(Preference p : preflists) {
+            Log.d("Official Size : ", "" + p.size);
+            Log.d("Official HairType : ", "" + p.hairtype);
+            Log.d("Official Temperament : ", "" + p.temperament);
+            Log.d("Official username : ", "" + p.username);
+
+            Log.d("$$$$$$$$$$$$$$", "" );
+        }
+        Log.d("@@@@@@@@@@@@@@@All preferences  END: ", "" );
+
+        if(db.preferenceExist(username)) {
+            Log.d("DogFilter onCreate() Official stats ", "");
             Preference prevPref = db.getPreference(username);
             Log.d("Official Size : ", "" + prevPref.size);
             Log.d("Official HairType : ", "" + prevPref.hairtype);
@@ -132,17 +147,20 @@ public class DogFilter extends Activity {
         if(preference.temperament== null)
             preference.temperament = "noTemperament";
 
-        Log.d("Official Size : ", "" + preference.size);
-        Log.d("Official HairType : ", "" + preference.hairtype);
-        Log.d("Official Temperament : ", "" + preference.temperament);
-        Log.d("Official Username : ", "" + userIntent.getStringExtra("username"));
+        Log.d("dE Official Size : ", "" + preference.size);
+        Log.d("dE Official HairType : ", "" + preference.hairtype);
+        Log.d("dE Official Temperament : ", "" + preference.temperament);
+        Log.d("dE Official Username : ", "" + userIntent.getStringExtra("username"));
         preference.username = userIntent.getStringExtra("username");
 
 
-        if(!db.preferenceExist(userIntent.getStringExtra("username")))
+        if(!db.preferenceExist(userIntent.getStringExtra("username"))) {
             db.addPreference(preference);
-        else {
-            db.updatePreference(preference);
+
+            Log.d("preference add", "");
+        }else {
+            db.updatePreference(preference) ;
+            Log.d("preference update", "" );
         }
         Log.d("count: ", "" + db.countPreference());
         intent.putExtra("username", userIntent.getStringExtra("username"));

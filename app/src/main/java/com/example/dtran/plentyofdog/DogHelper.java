@@ -66,11 +66,12 @@ public class DogHelper extends SQLiteOpenHelper
         values.put("Image", dog.image);
 
         db.insert("Dog", null, values);
+        Log.d("Added Dog name", ""+dog.name);
         db.close();
     }
     public Dog getDog(int id){
         SQLiteDatabase db = this.getReadableDatabase();
-
+        Log.d("DogHelper", "  : id :" + id);
         Cursor cursor = db.rawQuery("SELECT * FROM Dog WHERE _id = " + id, null);
         if(cursor != null)
             cursor.moveToFirst();

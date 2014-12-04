@@ -8,11 +8,19 @@ public class Preference {
     String size;
     String temperament;
     String hairtype;
+    int id;
     public Preference(){
 
     }
 
-    public Preference(String username, String size, String hairtype, String temperament) {
+    public Preference(String size, String hairtype , String temperament, String username) {
+        this.username = username;
+        this.size = size;
+        this.temperament = temperament;
+        this.hairtype = hairtype;
+    }
+    public Preference(int id, String size, String hairtype , String temperament, String username) {
+        this.id = id;
         this.username = username;
         this.size = size;
         this.temperament = temperament;

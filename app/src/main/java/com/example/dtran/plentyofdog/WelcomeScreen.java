@@ -8,6 +8,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 
 public class WelcomeScreen extends Activity {
@@ -41,13 +44,30 @@ public class WelcomeScreen extends Activity {
         Intent intent = new Intent(this, ProfileBuild.class);
         EditText fnameGrab = (EditText)findViewById(R.id.firstNameInput);
         EditText lnameGrab = (EditText)findViewById(R.id.lasttNameInput);
-
+        int errors = 0;
         String fname = fnameGrab.getText().toString();
         String lname = lnameGrab.getText().toString();
 
+        ArrayList<String> errorMsg = new ArrayList<String>();
 
-        intent.putExtra("WelcomeStringsFName", fname);
-        intent.putExtra("WelcomeStringsLName", lname);
-        startActivity(intent);
+        if(fname.equalsIgnoreCase("")) {
+            errors++;
+            errorMsg.add("Please fill in the first name field");
+        }
+        if(lname.equalsIgnoreCase("")) {
+            errors++;
+            errorMsg.add("Please fill in the last name field");
+        }
+
+        if(errors == 0) {
+            intent.putExtra("WelcomeStringsFName", fname);
+            intent.putExtra("WelcomeStringsLName", lname);
+            startActivity(intent);
+
+        } else
+        {
+            Toast.makeText(this, errorMsg.get(0), Toast.LENGTH_LONG).show();
+
+        }
     }
 }

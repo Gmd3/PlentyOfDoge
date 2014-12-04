@@ -145,8 +145,10 @@ public class dog_builder extends Activity {
         }
     }
     public void submit(View v){
-        ArrayList<String> errors = new ArrayList<String>();
         Intent UserIntent = getIntent();
+        int errors = 0;
+
+        ArrayList<String> errorMsgs = new ArrayList<String>();
 
         Intent intent = new Intent(this, home_screen.class);
         intent.putExtra("username", UserIntent.getStringExtra("username"));
@@ -162,6 +164,7 @@ public class dog_builder extends Activity {
         TextView descGrab = (TextView)findViewById(R.id.dogDesc);
         ImageView imageGrab = (ImageView)findViewById(R.id.image);
 
+
         String userName = UserIntent.getStringExtra("username");
         int ownerID = db3.getOwnerID(userName);
         String name = nameGrab.getText().toString();
@@ -172,58 +175,74 @@ public class dog_builder extends Activity {
         String training = trainingGrab.getText().toString();
         String activity = activityGrab.getSelectedItem().toString();
         String desc = descGrab.getText().toString();
-        Integer age = Integer.valueOf(ageString);
-
-        //Validation
-        //name
-        if(userName.equalsIgnoreCase(""))
-            errors.add("Name cannot be empty");
-        //breed
-        //age
-        //gender
-        //size
-        //training
-        //activity
-        //desc
-        //area
-        //image
-        //End validation
-        Owner o = db4.getOwner(ownerID);
-
-        Dog dog = new Dog(name, breed, age, gender, size, training,
-                activity, desc, o.area, "today","today", uri.toString());
-        Dog d;
-        if (dogID != -0) {
-            Dog dogToUpdate = db.getDog(dogID);
-            dogToUpdate.name = name;
-            dogToUpdate.breed = breed;
-            dogToUpdate.age = age;
-            dogToUpdate.gender = gender;
-            dogToUpdate.size = size;
-            dogToUpdate.training = training;
-            dogToUpdate.activitylevel = activity;
-            dogToUpdate.description = desc;
-            dogToUpdate.image = uri.toString();
-
-            db.updateDog(dogToUpdate);
-            d = db.getLastDog();
-            DogOwner oldDogOwner = db2.getDogOwnerFromDogID(dogID);
-            db2.updateDogOwner(oldDogOwner);
-
+        Integer age = null;
+        if(ageGrab.getText().toString().equals("")) {
+            errors++;
         } else {
-            db.addDog(dog);
-            d = db.getLastDog();
-            DogOwner newDogOwner = new DogOwner(d.id,
-                    ownerID,
-                    "today", "today", "Active");
-            db2.addDogOwner(newDogOwner);
+            age = Integer.valueOf(ageString);
+            if (age < 0 || age > 13) {
+                errorMsgs.add("A dog can only live for 13 years!");
+                errors++;
+            }
+        }
+        if(userName.equalsIgnoreCase(""))
+            errorMsgs.add("Name cannot be empty");
 
+        if(name.length() < 1) {
+            errorMsgs.add("Enter the name");
+            errors++;
         }
 
-        Toast toast = Toast.makeText(getApplicationContext(), "Dog ID: " + d.id, Toast.LENGTH_SHORT);
-        toast.show();
+        if(training.length() < 1) {
+            errorMsgs.add("Enter a training");
+            errors++;
+        }
 
-        startActivity(intent);
+        if(desc.length() < 1) {
+            errorMsgs.add("Enter a description");
+            errors++;
+        }
+        Owner o = db4.getOwner(ownerID);
+
+
+        Dog d;
+        if(errors == 0) {
+            Dog dog = new Dog(name, breed, age, gender, size, training,
+                    activity, desc, o.area, "today","today", uri.toString());
+            if (dogID != -0) {
+
+                Dog dogToUpdate = db.getDog(dogID);
+                dogToUpdate.name = name;
+                dogToUpdate.breed = breed;
+                dogToUpdate.age = age;
+                dogToUpdate.gender = gender;
+                dogToUpdate.size = size;
+                dogToUpdate.training = training;
+                dogToUpdate.activitylevel = activity;
+                dogToUpdate.description = desc;
+                dogToUpdate.image = uri.toString();
+
+                db.updateDog(dogToUpdate);
+                d = db.getLastDog();
+                DogOwner oldDogOwner = db2.getDogOwnerFromDogID(dogID);
+                db2.updateDogOwner(oldDogOwner);
+
+            } else {
+                db.addDog(dog);
+                d = db.getLastDog();
+                DogOwner newDogOwner = new DogOwner(d.id,
+                        ownerID,
+                        "today", "today", "Active");
+                db2.addDogOwner(newDogOwner);
+
+            }
+            startActivity(intent);
+        } else
+        {
+
+            Toast.makeText(this, errorMsgs.get(0), Toast.LENGTH_LONG).show();
+        }
+
     }
     public void delete(View view){
         db.deleteDog(db.getDog(dogID));
