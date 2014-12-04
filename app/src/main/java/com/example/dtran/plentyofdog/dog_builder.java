@@ -51,7 +51,7 @@ public class dog_builder extends Activity {
 
             EditText nameGrab = (EditText)findViewById(R.id.nameInput);
             EditText ageGrab = (EditText)findViewById(R.id.ageInput);
-            EditText genderGrab = (EditText)findViewById(R.id.genderInput);
+            Spinner genderGrab = (Spinner)findViewById(R.id.genderInput);
             EditText trainingGrab = (EditText)findViewById(R.id.trainingInput);
             Spinner sizeGrab = (Spinner)findViewById(R.id.spinner1);
             Spinner activityGrab = (Spinner)findViewById(R.id.spinner2);
@@ -61,7 +61,9 @@ public class dog_builder extends Activity {
 
             nameGrab.setText(dog.name);
             ageGrab.setText(""+dog.age);
-            genderGrab.setText(dog.gender);
+            ArrayAdapter myadapDog = (ArrayAdapter)genderGrab.getAdapter();
+            int positionDog = myadapDog.getPosition(dog.gender);
+            genderGrab.setSelection(positionDog);
             trainingGrab.setText(dog.training);
             ArrayAdapter myadap = (ArrayAdapter)sizeGrab.getAdapter();
             int position = myadap.getPosition(dog.size);
@@ -156,7 +158,7 @@ public class dog_builder extends Activity {
 
         EditText nameGrab = (EditText)findViewById(R.id.nameInput);
         EditText ageGrab = (EditText)findViewById(R.id.ageInput);
-        EditText genderGrab = (EditText)findViewById(R.id.genderInput);
+        Spinner genderGrab = (Spinner)findViewById(R.id.genderInput);
         EditText trainingGrab = (EditText)findViewById(R.id.trainingInput);
         Spinner sizeGrab = (Spinner)findViewById(R.id.spinner1);
         Spinner activityGrab = (Spinner)findViewById(R.id.spinner2);
@@ -170,7 +172,7 @@ public class dog_builder extends Activity {
         String name = nameGrab.getText().toString();
         String breed = breedGrab.getSelectedItem().toString();
         String ageString = ageGrab.getText().toString();
-        String gender = genderGrab.getText().toString();
+        String gender = genderGrab.getSelectedItem().toString();
         String size = sizeGrab.getSelectedItem().toString();
         String training = trainingGrab.getText().toString();
         String activity = activityGrab.getSelectedItem().toString();
