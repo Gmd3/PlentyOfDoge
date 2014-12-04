@@ -81,21 +81,21 @@ public class ProfileBuild extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void dogPicker(View v){
+    public void dogPicker(View v) {
         int errors = 0;
         Intent WelcomeScreenintent = getIntent();
 
         Intent intent = new Intent(this, DogFilter.class);
 
-        EditText ageGrab = (EditText)findViewById(R.id.ageInput);
-        EditText hometownGrab = (EditText)findViewById(R.id.hometownInput);
-        EditText descGrab = (EditText)findViewById(R.id.shortDesc);
-        EditText genderGrab = (EditText)findViewById(R.id.genderInput);
-        EditText emailGrab = (EditText)findViewById(R.id.emailInput);
-        EditText phoneGrab = (EditText)findViewById(R.id.phoneInput);
-        EditText passwordGrab = (EditText)findViewById(R.id.lblpasswordinput);
-        EditText confirmGrab = (EditText)findViewById(R.id.lblpasswordinput2);
-        Spinner yoeGrab = (Spinner)findViewById(R.id.yoeInput);
+        EditText ageGrab = (EditText) findViewById(R.id.ageInput);
+        EditText hometownGrab = (EditText) findViewById(R.id.hometownInput);
+        EditText descGrab = (EditText) findViewById(R.id.shortDesc);
+        EditText genderGrab = (EditText) findViewById(R.id.genderInput);
+        EditText emailGrab = (EditText) findViewById(R.id.emailInput);
+        EditText phoneGrab = (EditText) findViewById(R.id.phoneInput);
+        EditText passwordGrab = (EditText) findViewById(R.id.lblpasswordinput);
+        EditText confirmGrab = (EditText) findViewById(R.id.lblpasswordinput2);
+        Spinner yoeGrab = (Spinner) findViewById(R.id.yoeInput);
 
         String hometown = hometownGrab.getText().toString();
         String desc = descGrab.getText().toString();
@@ -105,30 +105,51 @@ public class ProfileBuild extends Activity {
         String phone = phoneGrab.getText().toString();
         String xp = yoeGrab.getSelectedItem().toString();
         String firstname = WelcomeScreenintent.getStringExtra("WelcomeStringsFName");
-        String lastname  = WelcomeScreenintent.getStringExtra("WelcomeStringsLName");
-        String password =passwordGrab.getText().toString();
+        String lastname = WelcomeScreenintent.getStringExtra("WelcomeStringsLName");
+        String password = passwordGrab.getText().toString();
         String confirm = confirmGrab.getText().toString();
 
-        if(hometown.equals(""))
+
+        ArrayList<String> errorMsg = new ArrayList<String>();
+
+
+        if (firstname.equals("")) {
+            errorMsg.add("Enter a first name");
             errors++;
-        if(desc.equals(""))
+        }
+        if (lastname.equals("")) {
+            errorMsg.add("Enter a last name");
             errors++;
-        if(age.equals(""))
+        }
+        if (email.equals("")) {
+            errorMsg.add("Enter an email");
             errors++;
-        if(gender.equals(""))
+        }
+        //check if email already exist
+        if (userdb.userExist(email)){
+            errorMsg.add("Email already exist");
             errors++;
-        if(email.equals(""))
+        }
+        if(!password.equals(confirm)) {
+            errorMsg.add("Enter a password");
             errors++;
-        if(phone.equals(""))
+        }
+        if(age.equals("")) {
+            errorMsg.add("Enter an age");
             errors++;
-        if(xp.equals(""))
+        }
+        if(hometown.equals("")) {
+            errorMsg.add("Enter a hometown");
             errors++;
-        if(firstname.equals(""))
+        }
+        if(phone.length() != 10) {
+            errorMsg.add("Enter a phone number");
             errors++;
-        if(lastname.equals(""))
+        }
+        if(desc.equals("")) {
+            errorMsg.add("Enter a description");
             errors++;
-        if(!password.equals(confirm))
-            errors++;
+        }
 
         if(errors == 0) {
             Calendar c = Calendar.getInstance();
@@ -160,6 +181,9 @@ public class ProfileBuild extends Activity {
             Log.d("Leaving ", "Activity");
 
             startActivity(intent);
+        } else
+        {
+            Toast.makeText(this, errorMsg.get(0), Toast.LENGTH_LONG).show();
         }
     }
 

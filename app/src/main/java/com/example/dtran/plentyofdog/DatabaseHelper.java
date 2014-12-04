@@ -37,6 +37,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
         String CREATE_PREFERENCE = "CREATE TABLE Preference( _id INTEGER PRIMARY KEY, Size VARCHAR, HairType VARCHAR, Temperament VARCHAR, Username VARCHAR NOT NULL)";
         db.execSQL(CREATE_PREFERENCE);
 
+
         Log.d("DB", "DB CREATED");
 
     }
