@@ -147,17 +147,20 @@ public class DogFilter extends Activity {
         if(preference.temperament== null)
             preference.temperament = "noTemperament";
 
-        Log.d("Official Size : ", "" + preference.size);
-        Log.d("Official HairType : ", "" + preference.hairtype);
-        Log.d("Official Temperament : ", "" + preference.temperament);
-        Log.d("Official Username : ", "" + userIntent.getStringExtra("username"));
+        Log.d("dE Official Size : ", "" + preference.size);
+        Log.d("dE Official HairType : ", "" + preference.hairtype);
+        Log.d("dE Official Temperament : ", "" + preference.temperament);
+        Log.d("dE Official Username : ", "" + userIntent.getStringExtra("username"));
         preference.username = userIntent.getStringExtra("username");
 
 
-        if(!db.preferenceExist(userIntent.getStringExtra("username")))
+        if(!db.preferenceExist(userIntent.getStringExtra("username"))) {
             db.addPreference(preference);
-        else {
+
+            Log.d("preference add", "");
+        }else {
             db.updatePreference(preference) ;
+            Log.d("preference update", "" );
         }
         Log.d("count: ", "" + db.countPreference());
         intent.putExtra("username", userIntent.getStringExtra("username"));

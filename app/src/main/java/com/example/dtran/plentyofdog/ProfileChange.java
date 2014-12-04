@@ -138,26 +138,6 @@ public class ProfileChange extends Activity {
                 errors++;
             }
             else {
-                PreferenceHelper prefDB = new PreferenceHelper(getApplicationContext());
-                if(prefDB.preferenceExist(oldEmail)) {
-                    Preference prevPref = prefDB.getPreference(oldEmail);
-                    Log.d("Old username ProfileChange :", prevPref.username);
-                    prevPref.username = email.getText().toString();
-
-                    Log.d("Official Size : ", "" + prevPref.size);
-                    Log.d("Official HairType : ", "" + prevPref.hairtype);
-                    Log.d("Official Temperament : ", "" + prevPref.temperament);
-                    Log.d("Official username : ", "" + prevPref.username);
-
-                    prefDB.updatePreference(prevPref);
-
-                    Log.d("New username ProfileChange :", prevPref.username);
-                }
-                else
-                {
-                    Log.d("Preference doens't exist", "");
-                }
-
                 Log.d("PASSWORDS ARE THE ", "SAME");
 
                 Log.d("old email ", "" + oldEmail);
@@ -193,7 +173,26 @@ public class ProfileChange extends Activity {
             owner.area =  area.getText().toString();
             owner.lastEdited = date;
 
-            //update preferences
+//            //update preferences
+//            PreferenceHelper prefDB = new PreferenceHelper(getApplicationContext());
+//            if(prefDB.preferenceExist(oldEmail)) {
+//                Preference prevPref = prefDB.getPreference(oldEmail);
+//                Log.d("Old username ProfileChange :", prevPref.username);
+//                prevPref.username = email.getText().toString();
+//
+//                Log.d("Official Size : ", "" + prevPref.size);
+//                Log.d("Official HairType : ", "" + prevPref.hairtype);
+//                Log.d("Official Temperament : ", "" + prevPref.temperament);
+//                Log.d("Official username : ", "" + prevPref.username);
+//
+//                prefDB.updatePreference(prevPref);
+//
+//                Log.d("New username ProfileChange :", prevPref.username);
+//            }
+//            else
+//            {
+//                Log.d("Preference doens't exist", "");
+//            }
 
             //Updating Owner
             Log.d("Owner email: owner.email", owner.email);

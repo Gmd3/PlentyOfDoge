@@ -124,7 +124,7 @@ public class PreferenceHelper extends SQLiteOpenHelper
         values.put("Username", pref.username);
 
         Log.d("Preference Update", " DONE");
-        return db.update("Preference", values, "_id = ?", new String[]{String.valueOf(pref.id)});
+        return db.update("Preference", values, "Username = ?", new String[]{String.valueOf(pref.username)});
     }
 
     public void deletePreference(Preference preference){
