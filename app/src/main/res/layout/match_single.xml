@@ -25,7 +25,7 @@
             android:layout_alignWithParentIfMissing="true"
             android:layout_toRightOf="@id/img"
             android:gravity="center_vertical"
-            android:textSize="30sp"
+            android:textSize="20sp"
 
             android:textColor="#ff57adff"
             android:text="Name" />
@@ -38,7 +38,7 @@
             android:layout_toRightOf="@id/img"
             android:ellipsize="marquee"
             android:singleLine="true"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:text="Username"
 
             android:textColor="#ff57adff"/>
