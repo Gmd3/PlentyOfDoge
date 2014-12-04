@@ -258,21 +258,21 @@
                 android:layout_weight=".05"
                 android:orientation="horizontal"
                 android:id="@+id/linearLayout5" >
-            <Button
-                android:id="@+id/buttonpick"
-                android:layout_width="169dp"
-                android:layout_height="wrap_content"
-                android:text="- PICK a file -"
-                android:textColor="#fefefe"
-                android:background="#ff7bd2f3"
-                android:onClick="uploader" />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxHeight="100dp"
-                android:maxWidth="100dp"
-                android:id="@+id/image"
-                />
+                <Button
+                    android:id="@+id/buttonpick"
+                    android:layout_width="169dp"
+                    android:layout_height="50dp"
+                    android:text="- PICK a file -"
+                    android:textColor="#fefefe"
+                    android:background="#ff7bd2f3"
+                    android:onClick="uploader" />
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:maxHeight="50dp"
+                    android:maxWidth="50dp"
+                    android:id="@+id/image"
+                    />
 
                 </LinearLayout>
 

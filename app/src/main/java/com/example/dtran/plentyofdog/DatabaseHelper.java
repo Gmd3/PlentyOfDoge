@@ -3,11 +3,14 @@ package com.example.dtran.plentyofdog;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.net.Uri;
 import android.util.Log;
+
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper
 {
-    private static final int DATABASE_VERSION = 7;
+    private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "plentyofdog";
 
     public DatabaseHelper(Context context) {
@@ -16,7 +19,6 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
 
         Log.d("DB", "DB CREATING");
         Log.d("DB", "DB CREATING ALL DATABASES");
@@ -38,6 +40,8 @@ public class DatabaseHelper extends SQLiteOpenHelper
         db.execSQL(CREATE_PREFERENCE);
 
 
+
+
         Log.d("DB", "DB CREATED");
 
     }
@@ -53,4 +57,6 @@ public class DatabaseHelper extends SQLiteOpenHelper
         db.execSQL("DROP TABLE IF EXISTS Preference");
         onCreate(db);
     }
+
+
 }
