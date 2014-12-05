@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,8 +32,7 @@ public class logOn_signUp extends Activity {
         db.getWritableDatabase();
         userdb = new UserHelper(this);
         userdb.getWritableDatabase();
-        loadData();
-    }
+<<}
     private void loadData() {
         //adding fake people and dogs
         //Owner
