@@ -72,21 +72,42 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-android:background="#ff7bd2f3"
     android:layout_marginTop="5dp"
     android:layout_below="@+id/my_dogs"
     android:id="@+id/weirdThing">
-    <TextView
-        android:text="My matches"
-        android:textStyle="bold"
-        android:textSize="40dip"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/my_matches"
-        android:textColor="#fefefe"
-        android:background="#ff7bd2f3"
-        android:layout_marginTop="10dp"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+        <TextView
+            android:text="Who liked
+My dogs?"
+            android:textStyle="bold"
+            android:textSize="20dip"
+            android:gravity="center_horizontal"
+            android:layout_width="0dip"
+            android:layout_height="50dp"
+            android:layout_weight=".5"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/matchesA"
+            android:textColor="#ff7bd2f3"
+            android:layout_marginTop="10dp"
+
+            />
+        <TextView
+            android:text="Dogs I liked!"
+            android:textStyle="bold"
+            android:textSize="20dip"
+            android:gravity="center_horizontal"
+            android:layout_width="0dip"
+            android:layout_height="50dp"
+            android:layout_weight=".5"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/matchesB"
+            android:textColor="#ff7bd2f3"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
 </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -97,6 +118,8 @@ android:background="#ff7bd2f3"
         android:layout_below="@+id/weirdThing"
         android:layout_width="match_parent"
         android:layout_weight=".5"
+        android:divider="#ff7dd2f3"
+        android:dividerHeight="2dp"
         android:layout_height="wrap_content" >
     </ListView>
     <ListView
@@ -104,7 +127,8 @@ android:background="#ff7bd2f3"
         android:layout_below="@+id/weirdThing"
         android:layout_toRightOf="@+id/list"
         android:layout_width="wrap_content"
-
+        android:divider="#ff7dd2f3"
+        android:dividerHeight="2dp"
         android:layout_weight=".5"
         android:layout_height="wrap_content" >
     </ListView>

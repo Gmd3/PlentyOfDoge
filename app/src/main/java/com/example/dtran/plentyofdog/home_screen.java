@@ -182,7 +182,7 @@ public class home_screen extends Activity {
                             list2 = (ListView) findViewById(R.id.list2);
                             list2.setAdapter(adapter2);
                             adapter2.notifyDataSetChanged();
-                            /*
+/*
                             list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view,
@@ -195,8 +195,8 @@ public class home_screen extends Activity {
                                     startActivity(dogIntent);
                                 }
                             });
-                            */
-                            resp += "All matches loaded!";
+*/
+                            resp += ", All matches loaded!";
                         }
 
 
