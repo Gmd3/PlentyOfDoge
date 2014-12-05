@@ -24,11 +24,11 @@ import java.util.ArrayList;
  */
 public class dog_builder extends Activity {
 
-    private DogHelper db;
-    private DogOwnerHelper db2;
-    private UserHelper db3;
-    private OwnerHelper db4;
-    private MatchHelper db5;
+    private DogHelper dogHelper;
+    private DogOwnerHelper dogOwnerHelper;
+    private UserHelper userHelper;
+    private OwnerHelper ownerHelper;
+    private MatchHelper matchHelper;
 
     Uri uri = null;
     int dogID;
@@ -39,16 +39,16 @@ public class dog_builder extends Activity {
         Intent typeIntent = getIntent();
         dogID = typeIntent.getIntExtra("dogID", -0);
 
-        db = new DogHelper(getApplicationContext());
-        db2 = new DogOwnerHelper(getApplicationContext());
-        db3 = new UserHelper(getApplicationContext());
-        db4 = new OwnerHelper(getApplicationContext());
-        db5 = new MatchHelper(getApplicationContext());
+        dogHelper = new DogHelper(getApplicationContext());
+        dogOwnerHelper = new DogOwnerHelper(getApplicationContext());
+        userHelper = new UserHelper(getApplicationContext());
+        ownerHelper = new OwnerHelper(getApplicationContext());
+        matchHelper = new MatchHelper(getApplicationContext());
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_dog_builder);
 
         if (dogID != -0){
-            Dog dog = db.getDog(dogID);
+            Dog dog = dogHelper.getDog(dogID);
 
             EditText nameGrab = (EditText)findViewById(R.id.nameInput);
             EditText ageGrab = (EditText)findViewById(R.id.ageInput);
@@ -97,9 +97,6 @@ public class dog_builder extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
@@ -109,18 +106,13 @@ public class dog_builder extends Activity {
     private static final int READ_REQUEST_CODE = 42;
     public void uploader(View v){
 
-        // ACTION_OPEN_DOCUMENT is the intent to choose a file via the system's file
-        // browser.
+
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
 
-        // Filter to only show results that can be "opened", such as a
-        // file (as opposed to a list of contacts or timezones)
+
         intent.addCategory(Intent.CATEGORY_OPENABLE);
 
-        // Filter to show only images, using the image MIME data type.
-        // If one wanted to search for ogg vorbis files, the type would be "audio/ogg".
-        // To search for all documents available via installed storage providers,
-        // it would be "*/*".
+
         intent.setType("image/*");
 
         startActivityForResult(intent, READ_REQUEST_CODE);
@@ -129,15 +121,9 @@ public class dog_builder extends Activity {
     public void onActivityResult(int requestCode, int resultCode,
                                  Intent resultData) {
 
-        // The ACTION_OPEN_DOCUMENT intent was sent with the request code
-        // READ_REQUEST_CODE. If the request code seen here doesn't match, it's the
-        // response to some other intent, and the code below shouldn't run at all.
 
         if (requestCode == READ_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            // The document selected by the user won't be returned in the intent.
-            // Instead, a URI to that document will be contained in the return intent
-            // provided to this method as a parameter.
-            // Pull that URI using resultData.getData().
+
 
             if (resultData != null) {
                 uri = resultData.getData();
@@ -169,7 +155,7 @@ public class dog_builder extends Activity {
 
 
         String userName = UserIntent.getStringExtra("username");
-        int ownerID = db3.getOwnerID(userName);
+        int ownerID = userHelper.getOwnerID(userName);
         String name = nameGrab.getText().toString();
         String breed = breedGrab.getSelectedItem().toString();
         String ageString = ageGrab.getText().toString();
@@ -205,7 +191,7 @@ public class dog_builder extends Activity {
             errorMsgs.add("Enter a description");
             errors++;
         }
-        Owner o = db4.getOwner(ownerID);
+        Owner o = ownerHelper.getOwner(ownerID);
 
 
         Dog d;
@@ -214,7 +200,7 @@ public class dog_builder extends Activity {
                     activity, desc, o.area, "today","today", uri.toString());
             if (dogID != -0) {
 
-                Dog dogToUpdate = db.getDog(dogID);
+                Dog dogToUpdate = dogHelper.getDog(dogID);
                 dogToUpdate.name = name;
                 dogToUpdate.breed = breed;
                 dogToUpdate.age = age;
@@ -225,18 +211,18 @@ public class dog_builder extends Activity {
                 dogToUpdate.description = desc;
                 dogToUpdate.image = uri.toString();
 
-                db.updateDog(dogToUpdate);
-                d = db.getLastDog();
-                DogOwner oldDogOwner = db2.getDogOwnerFromDogID(dogID);
-                db2.updateDogOwner(oldDogOwner);
+                dogHelper.updateDog(dogToUpdate);
+                d = dogHelper.getLastDog();
+                DogOwner oldDogOwner = dogOwnerHelper.getDogOwnerFromDogID(dogID);
+                dogOwnerHelper.updateDogOwner(oldDogOwner);
 
             } else {
-                db.addDog(dog);
-                d = db.getLastDog();
+                dogHelper.addDog(dog);
+                d = dogHelper.getLastDog();
                 DogOwner newDogOwner = new DogOwner(d.id,
                         ownerID,
                         "today", "today", "Active");
-                db2.addDogOwner(newDogOwner);
+                dogOwnerHelper.addDogOwner(newDogOwner);
 
             }
             startActivity(intent);
@@ -248,9 +234,9 @@ public class dog_builder extends Activity {
 
     }
     public void delete(View view){
-        db.deleteDog(db.getDog(dogID));
-        db2.deleteDogOwner(dogID);
-        db5.deleteMatch(dogID);
+        dogHelper.deleteDog(dogHelper.getDog(dogID));
+        dogOwnerHelper.deleteDogOwner(dogID);
+        matchHelper.deleteMatch(dogID);
 
         Intent UserIntent = getIntent();
 
