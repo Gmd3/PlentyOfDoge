@@ -32,7 +32,7 @@ public class logOn_signUp extends Activity {
         db.getWritableDatabase();
         userdb = new UserHelper(this);
         userdb.getWritableDatabase();
-        loadData();
+        //loadData();
         Log.d("@@@@@@@@@@@@@  ----  DB", "" + userdb.getUserCount());
     }
     private void loadData() {

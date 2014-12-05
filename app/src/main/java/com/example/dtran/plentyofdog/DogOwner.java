@@ -23,47 +23,6 @@ public final class DogOwner {
     }
 
     int id;
-
-    public int getOwnerID() {
-        return ownerID;
-    }
-
-    public void setOwnerID(int ownerID) {
-        this.ownerID = ownerID;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getDateCreated() {
-        return dateCreated;
-    }
-
-    public void setDateCreated(String dateCreated) {
-        this.dateCreated = dateCreated;
-    }
-
-    public String getLastEditted() {
-        return lastEditted;
-    }
-
-    public void setLastEditted(String lastEditted) {
-        this.lastEditted = lastEditted;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     int ownerID;
     String dateCreated;
     String lastEditted;
