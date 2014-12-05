@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
+/**
+ * This will be the tool to use to build the dog list that gets populated into the partial
+ */
 public class SimpleDogList extends ArrayAdapter<Dog>{
     private final Activity context;
     private List<Dog> dogs;

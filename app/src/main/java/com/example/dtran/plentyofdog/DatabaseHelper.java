@@ -5,6 +5,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+/**
+ * The controller for the dog model
+ */
 public class DatabaseHelper extends SQLiteOpenHelper
 {
     private static final int DATABASE_VERSION = 7;

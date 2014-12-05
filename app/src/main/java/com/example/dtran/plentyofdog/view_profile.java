@@ -8,12 +8,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 
+/**
+ * The controller that will allow the user to view their profile or other profiles
+ * This is powerful because it loads the current profile
+ */
 
 public class view_profile extends Activity {
     MatchHelper matchDB;

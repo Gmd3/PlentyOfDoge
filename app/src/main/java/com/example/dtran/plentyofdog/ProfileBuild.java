@@ -21,6 +21,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * The controller that will build the user to sign in with.
+ */
 
 public class ProfileBuild extends Activity {
     private static final String DB_NAME = "plentyofdoge_db";

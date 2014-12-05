@@ -2,6 +2,7 @@ package com.example.dtran.plentyofdog;
 
 /**
  * Created by dtran on 14-12-02.
+ * The controller that shows the approved matches
  */
 import android.app.Activity;
 import android.net.Uri;

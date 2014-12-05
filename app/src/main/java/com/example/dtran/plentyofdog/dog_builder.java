@@ -19,7 +19,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-
+/**
+ * The filter controller for the dog view
+ */
 public class dog_builder extends Activity {
 
     private DogHelper db;

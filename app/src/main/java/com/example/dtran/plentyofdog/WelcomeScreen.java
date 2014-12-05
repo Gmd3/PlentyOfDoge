@@ -12,7 +12,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-
+/**
+ * The first screen that shows up when the user goes onto the app
+ */
 public class WelcomeScreen extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -2,6 +2,7 @@ package com.example.dtran.plentyofdog;
 
 /**
  * Created by dtran on 14-11-11.
+ * The User class
  */
 public class User {
     int id;

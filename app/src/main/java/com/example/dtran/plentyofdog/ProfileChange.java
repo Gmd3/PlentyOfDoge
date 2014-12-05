@@ -17,7 +17,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-
+/**
+ * This is the controller that will change the current users profile, only the use that is logged in
+ * not the user they are viewing
+ */
 public class ProfileChange extends Activity {
     Intent userIntent;
     OwnerHelper ownerdb;

@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by dtran on 14-11-10.
+ *
+ * This is basically the Database helper for a User object
  */
 public class UserHelper extends SQLiteOpenHelper
 {
