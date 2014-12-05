@@ -22,32 +22,19 @@ public class DogFilter extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dog_filter);
         userIntent = getIntent();
-        Log.d("intent Dogfilter", " " + userIntent.getStringExtra("username"));
         db = new PreferenceHelper(this);
         db.getWritableDatabase();
         preference = new Preference();
 
         username = userIntent.getStringExtra("username");
-        Log.d("@@@@@@@@@@@@@@@All preferences : ", "" );
 
         List<Preference> preflists = db.getAllPreferences();
         for(Preference p : preflists) {
-            Log.d("Official Size : ", "" + p.size);
-            Log.d("Official HairType : ", "" + p.hairtype);
-            Log.d("Official Temperament : ", "" + p.temperament);
-            Log.d("Official username : ", "" + p.username);
 
-            Log.d("$$$$$$$$$$$$$$", "" );
         }
-        Log.d("@@@@@@@@@@@@@@@All preferences  END: ", "" );
 
         if(db.preferenceExist(username)) {
-            Log.d("DogFilter onCreate() Official stats ", "");
             Preference prevPref = db.getPreference(username);
-            Log.d("Official Size : ", "" + prevPref.size);
-            Log.d("Official HairType : ", "" + prevPref.hairtype);
-            Log.d("Official Temperament : ", "" + prevPref.temperament);
-            Log.d("Official username : ", "" + prevPref.username);
             setPref(prevPref);
 
         }
@@ -68,7 +55,6 @@ public class DogFilter extends Activity {
         Button shorthaired = (Button)findViewById(R.id.shortHaired);
         Button longhaired = (Button)findViewById(R.id.longHaired);
 
-        Log.d("pref.hairtype.equals(noHair", ""+pref.hairtype);
         if(pref.hairtype.equals("noHair")) {
             noHair.setBackgroundColor(0xff57adff);
             noHair.setTextColor(0xFEFEFEFE);
@@ -147,10 +133,6 @@ public class DogFilter extends Activity {
         if(preference.temperament== null)
             preference.temperament = "noTemperament";
 
-        Log.d("dE Official Size : ", "" + preference.size);
-        Log.d("dE Official HairType : ", "" + preference.hairtype);
-        Log.d("dE Official Temperament : ", "" + preference.temperament);
-        Log.d("dE Official Username : ", "" + userIntent.getStringExtra("username"));
         preference.username = userIntent.getStringExtra("username");
 
 
@@ -160,9 +142,7 @@ public class DogFilter extends Activity {
             Log.d("preference add", "");
         }else {
             db.updatePreference(preference) ;
-            Log.d("preference update", "" );
         }
-        Log.d("count: ", "" + db.countPreference());
         intent.putExtra("username", userIntent.getStringExtra("username"));
         startActivity(intent);
     }

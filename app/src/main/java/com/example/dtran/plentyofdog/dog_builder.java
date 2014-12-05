@@ -47,7 +47,6 @@ public class dog_builder extends Activity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_dog_builder);
 
-        Log.d("dogID: ", ""+dogID);
         if (dogID != -0){
             Dog dog = db.getDog(dogID);
 

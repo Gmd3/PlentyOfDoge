@@ -3,7 +3,6 @@ package com.example.dtran.plentyofdog;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 /**
  * The controller for the dog model
@@ -19,9 +18,6 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
-        Log.d("DB", "DB CREATING");
-        Log.d("DB", "DB CREATING ALL DATABASES");
         //create the tables
 
         String CREATE_DOG_TABLE = "CREATE TABLE Dog ( _id INTEGER PRIMARY KEY, Name VARCHAR NOT NULL, Breed VARCHAR NOT NULL, Age INTEGER NOT NULL, Gender VARCHAR NOT NULL, Size VARCHAR NOT NULL, Training VARCHAR NOT NULL, ActivityLevel VARCHAR NOT NULL, Description VARCHAR NOT NULL NOT NULL, Area VARCHAR NOT NULL, DateCreated DATE NOT NULL, LastEdited DATE, image BLOB)";
@@ -38,11 +34,6 @@ public class DatabaseHelper extends SQLiteOpenHelper
         db.execSQL(CREATE_USER_TABLE);
         String CREATE_PREFERENCE = "CREATE TABLE Preference( _id INTEGER PRIMARY KEY, Size VARCHAR, HairType VARCHAR, Temperament VARCHAR, Username VARCHAR NOT NULL)";
         db.execSQL(CREATE_PREFERENCE);
-
-
-
-
-        Log.d("DB", "DB CREATED");
 
     }
     @Override

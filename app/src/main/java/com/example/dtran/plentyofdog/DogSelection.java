@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -81,10 +80,8 @@ public class DogSelection extends Activity {
                         ArrayList<Dog> temp = new ArrayList<Dog>();
 
 
-                        Log.d("owner prefs: ", "" + p.size + ", "  + p.temperament +  ", "  + p.hairtype);
                         for(int i = 0; i < DogIDs.size(); i++){
                             Dog tempDog = db.getDog(DogIDs.get(i));
-                            Log.d("tempDog stats: ", "" + tempDog.size + ", "  + tempDog.activitylevel +  ", "  + tempDog.breed);
 
                             if (rightSize(p.size, tempDog.size) &&
                                 rightTemperment(p.temperament, tempDog.activitylevel) &&
@@ -147,7 +144,6 @@ public class DogSelection extends Activity {
 
 
         protected boolean rightBreed(String breed, String hairType){
-            Log.d("Passed into rightBreed: ", breed + " , " + hairType);
 
             ArrayList<String> shortHair = new ArrayList<String>();
             shortHair.add("Corgi");
@@ -164,18 +160,14 @@ public class DogSelection extends Activity {
             longHair.add("Terrier");
 
             if (hairType.equals("noHair")){
-                Log.d("noHair", "");
                 return true;
             }
             else if (hairType.equals("shortHaired")){
-                Log.d("shortHaired", "");
                 if (shortHair.contains(breed)) return true;
             } else if (hairType.equals("longHaired")){
-                Log.d("longHaired", "");
                 if (longHair.contains(breed)) return true;
             }
 
-            Log.d("returning False", "");
             return false;
         }
 
@@ -193,12 +185,5 @@ public class DogSelection extends Activity {
         }
     }
 
-    public void yes(View view){
-        //add to list of matches
 
-    }
-    public void no(View view){
-        //randomly choose another dog to view
-        
-    }
 }

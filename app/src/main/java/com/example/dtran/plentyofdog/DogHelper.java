@@ -24,7 +24,6 @@ public class DogHelper extends SQLiteOpenHelper
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.d("DB", "DB CREATING");
         db.execSQL("DROP TABLE IF EXISTS Dog");
         String CREATE_DOG_TABLE = "CREATE TABLE Dog (" +
                 " _id INTEGER PRIMARY KEY" +
@@ -41,7 +40,6 @@ public class DogHelper extends SQLiteOpenHelper
                 ", LastEdited DATE" +
                 ", Image VARCHAR)";
         db.execSQL(CREATE_DOG_TABLE);
-        Log.d("DB", "DB CREATED");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -66,12 +64,10 @@ public class DogHelper extends SQLiteOpenHelper
         values.put("Image", dog.image);
 
         db.insert("Dog", null, values);
-        Log.d("Added Dog name", ""+dog.name);
         db.close();
     }
     public Dog getDog(int id){
         SQLiteDatabase db = this.getReadableDatabase();
-        Log.d("DogHelper", "  : id :" + id);
         Cursor cursor = db.rawQuery("SELECT * FROM Dog WHERE _id = " + id, null);
         if(cursor != null)
             cursor.moveToFirst();
@@ -130,7 +126,6 @@ public class DogHelper extends SQLiteOpenHelper
         Cursor cursor = db.rawQuery(selectQuery, null);
         if(cursor != null) {
             cursor.moveToFirst();
-            Log.d("Number of Dogs from cursor: ", "" + cursor.getCount());
             Dog dog = new Dog(
                     cursor.getInt(0)
                     , cursor.getString(1)

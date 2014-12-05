@@ -24,10 +24,8 @@ public class DogOwnerHelper extends SQLiteOpenHelper
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.d("DB", "DOGOWNER CREATING");
         String CREATE_DOG_OWNER = "CREATE TABLE DogOwner( _id INTEGER PRIMARY KEY, DogID INTEGER NOT NULL, OwnerID INTEGER NOT NULL, DateCreated DATE NOT NULL, LastEdited DATE, Status VARCHAR NOT NULL)";
         db.execSQL(CREATE_DOG_OWNER);
-        Log.d("DB", "DOGOWNER CREATED");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -44,12 +42,7 @@ public class DogOwnerHelper extends SQLiteOpenHelper
         values.put("LastEdited", dogOwner.lastEditted);
         values.put("Status", dogOwner.status);
 
-        Log.d("DogOwner", " Added");
         db.insert("DogOwner", null, values);
-
-        Log.d("Added Dog", ""+dogOwner.dogID);
-
-        Log.d("with ownerID", ""+dogOwner.ownerID);
         db.close();
     }
     public DogOwner getDogOwner(int id){
