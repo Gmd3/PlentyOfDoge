@@ -29,16 +29,15 @@ public class home_screen extends Activity {
     MatchList adapter;
     ListView list;
     List<Match> matchlist;
-
+    ArrayList<Owner> temp2;
 
     List<Match> ApprovedMatchesList;
-    ArrayList<Owner> ApprovedMatchedOwnersList;
     ArrayList<Dog> matchedDogs;
     ApprovedMatchList adapter2;
     ListView list2;
 
-    ArrayList<Owner> temp3;
-    ArrayList<Owner> temp2;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +46,6 @@ public class home_screen extends Activity {
         setContentView(R.layout.activity_home_screen);
         userIntent = getIntent();
         matchedDogs = new ArrayList<Dog>();
-        ApprovedMatchedOwnersList = new ArrayList<Owner>();
         new LoadMyMatches().execute("");
     }
 
@@ -160,6 +158,7 @@ public class home_screen extends Activity {
                                     dogIntent.putExtra("ownerID", temp2.get(position).id);
                                     dogIntent.putExtra("dogID", myDogs.get(position).id);
                                     dogIntent.putExtra("username", userIntent.getStringExtra("username"));
+                                    dogIntent.putExtra("listFrom", 1);
                                     startActivity(dogIntent);
                                 }
                             });
@@ -176,26 +175,30 @@ public class home_screen extends Activity {
                                 Dog tempDog = db.getDog(m.dogID);
                                 Log.d("ownerID", ""+m.userID);
                                 matchedDogs.add(tempDog);
-                                ApprovedMatchedOwnersList.add(db5.getOwner(m.userID));
                             }
-                            adapter2 = new ApprovedMatchList(home_screen.this, ApprovedMatchesList, ApprovedMatchedOwnersList, matchedDogs);
+                            adapter2 = new ApprovedMatchList(home_screen.this, ApprovedMatchesList, matchedDogs);
                             list2 = (ListView) findViewById(R.id.list2);
                             list2.setAdapter(adapter2);
                             adapter2.notifyDataSetChanged();
-/*
-                            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                            list2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view,
                                                         int position, long id) {
-                                    Toast.makeText(home_screen.this, "You Clicked at " + ApprovedMatchesList.get(position).dogID, Toast.LENGTH_SHORT).show();
-                                    Intent dogIntent = new Intent(home_screen.this, view_profile.class);
-                                    dogIntent.putExtra("ownerID", temp2.get(position).id);
-                                    dogIntent.putExtra("dogID", myDogs.get(position).id);
-                                    dogIntent.putExtra("username", userIntent.getStringExtra("username"));
-                                    startActivity(dogIntent);
+                                    int myOwnerID = db2.getDogOwnerFromDogID(ApprovedMatchesList.get(position).dogID) .ownerID;
+                                    Toast.makeText(home_screen.this, "You Clicked at " + myOwnerID, Toast.LENGTH_SHORT).show();
+
+                                    Intent ownerIntent = new Intent(home_screen.this, view_profile.class);
+                                    ownerIntent.putExtra("ownerID", myOwnerID);
+                                    ownerIntent.putExtra("listFrom", 2);
+                                    ownerIntent.putExtra("username", userIntent.getStringExtra("username"));
+                                   // ownerIntent.putExtra("dogID", myDogs.get(position).id);
+                                   // ownerIntent.putExtra("username", userIntent.getStringExtra("username"));
+                                    startActivity(ownerIntent);
+
                                 }
                             });
-*/
+
                             resp += ", All matches loaded!";
                         }
 

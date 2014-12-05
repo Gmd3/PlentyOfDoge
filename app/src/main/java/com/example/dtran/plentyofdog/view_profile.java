@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 
 public class view_profile extends Activity {
@@ -32,27 +33,36 @@ public class view_profile extends Activity {
         ownerdb.getWritableDatabase();
         Log.d("DB", "" + ownerdb.getOwnerCount());
         int ownerID = matchIntent.getIntExtra("ownerID", 0);
+        int listFrom = matchIntent.getIntExtra("listFrom", 0);
         Owner owner = ownerdb.getOwner(ownerID);
 
-        EditText age = (EditText)findViewById(R.id.ageInput);
-        EditText email = (EditText)findViewById(R.id.emailInput);
-        Spinner experience = (Spinner)findViewById(R.id.yoeInput);
-        EditText gender = (EditText)findViewById(R.id.genderInput);
-        EditText phone = (EditText)findViewById(R.id.phoneInput);
-        EditText area = (EditText)findViewById(R.id.hometownInput);
-        EditText firstName = (EditText)findViewById(R.id.firstNameInput);
-        EditText lastName = (EditText)findViewById(R.id.lasttNameInput);
+        TextView age = (TextView)findViewById(R.id.ageInput);
+        TextView email = (TextView)findViewById(R.id.emailInput);
+        TextView experience = (TextView)findViewById(R.id.yoeInput);
+        TextView gender = (TextView)findViewById(R.id.genderInput);
+        TextView phone = (TextView)findViewById(R.id.phoneInput);
+        TextView area = (TextView)findViewById(R.id.hometownInput);
+        TextView firstName = (TextView)findViewById(R.id.firstNameInput);
+        TextView lastName = (TextView)findViewById(R.id.lasttNameInput);
+        Button approve = (Button)findViewById(R.id.approve);
+        Button reject = (Button)findViewById(R.id.reject);
 
         email.setText(owner.email);
         age.setText(""+ owner.age);
         area.setText(owner.area);
-        ArrayAdapter myadap = (ArrayAdapter)experience.getAdapter();
-        int position = myadap.getPosition(owner.experience);
-        experience.setSelection(position);
+        experience.setText(owner.experience);
         gender.setText(owner.gender);
         phone.setText(""+owner.phone);
         firstName.setText(owner.firstName);
         lastName.setText(owner.lastName);
+
+        if (listFrom == 1){
+            approve.setText("Approve");
+            reject.setText("Reject");
+        } else if (listFrom == 2){
+            approve.setVisibility(View.GONE);
+            reject.setText("Back to Home");
+        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -88,7 +98,7 @@ public class view_profile extends Activity {
             match.matched = 1;
             matchDB.updateMatch(match);
         } else {
-            Button yesbutton = (Button)findViewById(R.id.btnYESYESYES);
+            Button yesbutton = (Button)findViewById(R.id.approve);
             yesbutton.setEnabled(false);
         }
 
@@ -97,9 +107,18 @@ public class view_profile extends Activity {
         startActivity(intent);
     }
     public void reject(View view){
-        int matchID = Integer.parseInt(matchIntent.getStringExtra("matchID"));
-        matchDB.deleteMatch(matchID);
+        int listFrom = matchIntent.getIntExtra("listFrom", 0);
+
+        if (listFrom == 1){
+            int ownerID = matchIntent.getIntExtra("ownerID", 0);
+            int dogID =  matchIntent.getIntExtra("dogID", 0);
+            Match match = matchDB.getMatch(ownerID,dogID);
+            matchDB.deleteMatch(match.dogID);
+        } else if (listFrom == 2){
+
+        }
         Intent intent = new Intent(this, home_screen.class);
+        intent.putExtra("username" ,matchIntent.getStringExtra("username"));
         startActivity(intent);
     }
 }

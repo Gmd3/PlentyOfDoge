@@ -39,7 +39,7 @@
             android:textSize="15dp"
             android:textColor="#ff57adff" />
 
-        <EditText
+        <TextView
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight=".7"
@@ -68,7 +68,7 @@
             android:textSize="15dp"
             android:textColor="#ff57adff" />
 
-        <EditText
+        <TextView
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight=".7"
@@ -95,7 +95,7 @@
             android:textSize="15dp"
             android:textColor="#ff57adff" />
 
-        <EditText
+        <TextView
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight=".7"
@@ -122,7 +122,7 @@
             android:textSize="15dp"
             android:textColor="#ff57adff" />
 
-        <EditText
+        <TextView
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight=".7"
@@ -150,7 +150,7 @@
             android:textSize="15dp"
             android:textColor="#ff57adff" />
 
-        <EditText
+        <TextView
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight=".7"
@@ -177,7 +177,7 @@
             android:textSize="15dp"
             android:textColor="#ff57adff" />
 
-        <EditText
+        <TextView
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight=".7"
@@ -205,7 +205,7 @@
             android:textSize="15dp"
             android:textColor="#ff57adff" />
 
-        <EditText
+        <TextView
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight=".7"
@@ -233,12 +233,11 @@
             android:textSize="15dp"
             android:textColor="#ff57adff" />
 
-        <Spinner
+        <TextView
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight=".7"
             android:gravity="center"
-            android:entries="@array/xp_lvl"
             android:id="@+id/yoeInput"/>
     </LinearLayout>
 
@@ -254,7 +253,7 @@
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:text="@string/reject"
-            android:id="@+id/button"
+            android:id="@+id/reject"
             android:onClick="reject"
             android:textColor="#FEFEFE"
             android:textSize="35sp"
@@ -264,8 +263,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:text="TAKE MY DOG"
-            android:id="@+id/btnYESYESYES"
+            android:text="Approve"
+            android:id="@+id/approve"
             android:layout_gravity="right"
             android:onClick="YES"
             android:textColor="#FEFEFE"
