@@ -41,12 +41,10 @@ public class ProfileBuild extends Activity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_profile_build);
 
-        Log.d("DB ", "----------------------CREATING DB------------------------------");
         db = new OwnerHelper(this);
         db.getWritableDatabase();
         userdb = new UserHelper(this);
         userdb.getWritableDatabase();
-        Log.d("DB ", "----------------------FINISH CREATING DB------------------------------");
         Spinner xp = (Spinner)findViewById(R.id.yoeInput);
         xp.setOnItemSelectedListener(new ExperienceListener());
 
@@ -171,17 +169,14 @@ public class ProfileBuild extends Activity {
             userdb.addUser(new User(email, password, db.getLastOwnerID()));
             Toast toast = Toast.makeText(getApplicationContext(), "owner ID: " + db.getLastOwnerID(), Toast.LENGTH_SHORT);
             toast.show();
-            Log.d("DB", "Inserted Owner");
 
             List<Owner> owners = db.getAllOwner();
 
             for (Owner o : owners) {
                 String log = "ID: " + o.id + "\n";
-                Log.d("LOG id : ", log);
             }
             intent.putExtra("username", email);
 
-            Log.d("Leaving ", "Activity");
 
             startActivity(intent);
         } else

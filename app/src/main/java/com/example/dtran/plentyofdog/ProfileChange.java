@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 /**
  * This is the controller that will change the current users profile, only the use that is logged in
@@ -40,29 +39,6 @@ public class ProfileChange extends Activity {
         ownerdb.getWritableDatabase();
         userDB = new UserHelper(getApplicationContext());
         userDB.getWritableDatabase();
-        Log.d("DB",""+ownerdb.getOwnerCount());
-        Log.d("ProfileChange username","" + username);
-
-
-        //DEBUG SECTION
-        List<Owner> owners = ownerdb.getAllOwner();
-        for(Owner o : owners) {
-            Log.d("OwnerDB", "OwnerID :" + o.id);
-            Log.d("OwnerDB", "Email :" + o.email);
-            Log.d("OwnerDB", "___________________ :");
-
-        }
-
-        Log.d("OwnerDB", "@@@@@@@@@@@@@@@@@@@@@@@@@ :");
-        List<User> users = userDB.getAllUser();
-        for(User u : users) {
-            Log.d("OwnerDB", "UserID :" + u.id);
-            Log.d("OwnerDB", "Email :" + u.username);
-            Log.d("OwnerDB", "OwnerID :" + u.ownerId);
-            Log.d("OwnerDB", "___________________ :");
-
-        }
-        //DEBUG
 
 
         owner = ownerdb.getOwner(username);
@@ -143,17 +119,12 @@ public class ProfileChange extends Activity {
                 errors++;
             }
             else {
-                Log.d("PASSWORDS ARE THE ", "SAME");
-
-                Log.d("old email ", "" + oldEmail);
                 UserHelper db = new UserHelper(this);
                 User userTempEmail = db.getUser(oldEmail);
-                Log.d("New email ", "" + email.getText().toString());
 
                 User user = new User(email.getText().toString(),
                         password, userTempEmail.ownerId);
 
-                Log.d("User email : user.email", user.username);
                 db.updateUser(user);
             }
         }
@@ -178,32 +149,10 @@ public class ProfileChange extends Activity {
             owner.area =  area.getText().toString();
             owner.lastEdited = date;
 
-//            //update preferences
-//            PreferenceHelper prefDB = new PreferenceHelper(getApplicationContext());
-//            if(prefDB.preferenceExist(oldEmail)) {
-//                Preference prevPref = prefDB.getPreference(oldEmail);
-//                Log.d("Old username ProfileChange :", prevPref.username);
-//                prevPref.username = email.getText().toString();
-//
-//                Log.d("Official Size : ", "" + prevPref.size);
-//                Log.d("Official HairType : ", "" + prevPref.hairtype);
-//                Log.d("Official Temperament : ", "" + prevPref.temperament);
-//                Log.d("Official username : ", "" + prevPref.username);
-//
-//                prefDB.updatePreference(prevPref);
-//
-//                Log.d("New username ProfileChange :", prevPref.username);
-//            }
-//            else
-//            {
-//                Log.d("Preference doens't exist", "");
-//            }
 
             //Updating Owner
-            Log.d("Owner email: owner.email", owner.email);
             ownerdb.updateOwner(owner);
 
-            Log.d("DB UPDATE SUCCESS ? : ", "" + ownerdb.updateOwner(owner));
             intent.putExtra("username",email.getText().toString());
             startActivity(intent);
         } else {

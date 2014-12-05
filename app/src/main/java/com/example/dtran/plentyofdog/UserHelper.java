@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,11 +25,9 @@ public class UserHelper extends SQLiteOpenHelper
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.d("DB", "USER CREATING");
         String CREATE_USER_TABLE = "CREATE TABLE User( _id INTEGER PRIMARY KEY, Username VARCHAR NOT NULL, Password VARCHAR NOT NULL, OwnerID INTEGER NOT NULL)";
         db.execSQL(CREATE_USER_TABLE);
         this.db = db;
-        Log.d("DB", "USER CREATED");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -48,7 +45,6 @@ public class UserHelper extends SQLiteOpenHelper
 
 
         db.insert("User", null, values);
-        Log.d("DB:", "------------------USER ADDED");
         db.close();
     }
     public User getUser(int id){
@@ -117,7 +113,6 @@ public class UserHelper extends SQLiteOpenHelper
         values.put("Password", user.password);
         values.put("OwnerID", user.ownerId);
 
-        Log.d("User Update", " DONE");
         return db.update("User", values, "OwnerID = ?", new String[]{String.valueOf(user.ownerId)});
     }
     public boolean userExist(String username){

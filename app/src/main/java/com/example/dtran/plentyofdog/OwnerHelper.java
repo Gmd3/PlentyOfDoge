@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +23,8 @@ import java.util.List;
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-            Log.d("DB", "OWNER CREATING");
             String CREATE_OWNER_TABLE = "CREATE TABLE Owner (_id INTEGER PRIMARY KEY, FirstName VARCHAR NOT NULL, LastName VARCHAR NOT NULL, Experience VARCHAR NOT NULL, Age INTEGER NOT NULL, Gender VARCHAR NOT NULL, Email VARCHAR NOT NULL, Phone INTEGER, Area VARCHAR, DateCreated DATETIME, LastEdited DATETIME);";
             db.execSQL(CREATE_OWNER_TABLE);
-            Log.d("DB", "OWNER CREATED");
         }
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -93,8 +90,6 @@ import java.util.List;
                     ,cursor.getString(9)
                     ,cursor.getString(10)
             );
-            Log.d("email",
-                    cursor.getString(6));
             cursor.close();
             return owner;
         }
@@ -158,10 +153,6 @@ import java.util.List;
             values.put("Area", owner.area);
             values.put("DateCreated", owner.dateCreated);
             values.put("LastEdited", owner.lastEdited);
-            Log.d("DB", "Updated");
-
-
-            Log.d("Gender" , "" + owner.gender);
             return db.update("Owner", values, "_id = ?", new String[]{String.valueOf(owner.id)}) > 0;
         }
         public void deleteOwner(Owner owner){

@@ -28,10 +28,8 @@ public class PreferenceHelper extends SQLiteOpenHelper
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.d("DB", "PREFERENCE CREATING");
         String CREATE_PREFERENCE = "CREATE TABLE Preference( _id INTEGER PRIMARY KEY, Size VARCHAR, HairType VARCHAR, Temperament VARCHAR, Username VARCHAR)";
         db.execSQL(CREATE_PREFERENCE);
-        Log.d("DB", "PREFERENCE CREATED");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -49,14 +47,12 @@ public class PreferenceHelper extends SQLiteOpenHelper
 
 
         db.insert("Preference", null, values);
-        Log.d("DB","Preference Added");
         db.close();
     }
     public boolean preferenceExist(String username){
         SQLiteDatabase db = this.getReadableDatabase();
         String selectQuery = "SELECT * FROM Preference WHERE Username = '" + username + "'";
         Cursor cs = db.rawQuery(selectQuery,null);
-        Log.d("DB", "" + cs.getCount());
         if(cs.getCount() == 0) {
             return false;
         } else {
@@ -99,10 +95,6 @@ public class PreferenceHelper extends SQLiteOpenHelper
 
         );
         cursor.close();
-        Log.d("asdfOfficial Size : ", "" + preference.size);
-        Log.d("asdfOfficial HairType : ", "" + preference.hairtype);
-        Log.d("asdfOfficial Temperament : ", "" + preference.temperament);
-        Log.d("asdfOfficial Username : ", "" + preference.username);
         return preference;
     }
     public int countPreference(){
@@ -123,7 +115,6 @@ public class PreferenceHelper extends SQLiteOpenHelper
         values.put("Temperament", pref.temperament);
         values.put("Username", pref.username);
 
-        Log.d("Preference Update", " DONE");
         return db.update("Preference", values, "Username = ?", new String[]{String.valueOf(pref.username)});
     }
 

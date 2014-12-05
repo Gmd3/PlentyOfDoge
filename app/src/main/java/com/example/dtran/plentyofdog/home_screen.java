@@ -118,7 +118,6 @@ public class home_screen extends Activity {
                         db5 = new OwnerHelper(getApplicationContext());
 
                         Intent intent = getIntent();
-                        Log.d("COMMON PLACE TO CRASH: username is ", intent.getStringExtra("username"));
                         int ownerID = db3.getOwnerID(intent.getStringExtra("username"));
 
                         //Left List
@@ -129,12 +128,8 @@ public class home_screen extends Activity {
                         //End Left List
                         for(int i = 0; i < DogIDs.size(); i++){
                             matchlist = db4.getAllMatchesDogID(DogIDs.get(i));
-                            Log.d("Matchlist count: "  ,""+  matchlist.size());
                             for(Match m : matchlist){
                                 temp.add(db.getDog(DogIDs.get(i)));
-                                Log.d("m.userID"  ,""+  m.userID);
-
-                                Log.d("m.id"  ,""+  m.id);
 
                                 temp2.add(db5.getOwner(m.userID));
                             }
@@ -173,7 +168,6 @@ public class home_screen extends Activity {
                             Log.d("Size of ApprovedMAtchesList ", "" + ApprovedMatchesList.size());
                             for (Match m : ApprovedMatchesList){
                                 Dog tempDog = db.getDog(m.dogID);
-                                Log.d("ownerID", ""+m.userID);
                                 matchedDogs.add(tempDog);
                             }
                             adapter2 = new ApprovedMatchList(home_screen.this, ApprovedMatchesList, matchedDogs);

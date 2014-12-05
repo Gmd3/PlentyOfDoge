@@ -32,7 +32,6 @@ public class view_profile extends Activity {
 
         OwnerHelper ownerdb = new OwnerHelper(this);
         ownerdb.getWritableDatabase();
-        Log.d("DB", "" + ownerdb.getOwnerCount());
         int ownerID = matchIntent.getIntExtra("ownerID", 0);
         int listFrom = matchIntent.getIntExtra("listFrom", 0);
         Owner owner = ownerdb.getOwner(ownerID);
@@ -92,7 +91,6 @@ public class view_profile extends Activity {
 
         Match match = matchDB.getMatch(ownerID,dogID);
 
-        Log.d("Match status is: ", "" +  match.matched);
 
         if(match.matched == 0)
         {

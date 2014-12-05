@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,10 +23,8 @@ public class MatchHelper extends SQLiteOpenHelper
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.d("DB", "MATCH CREATING");
         String CREATE_MATCH_TABLE = "CREATE TABLE Match( _id INTEGER PRIMARY KEY, UserID INTEGER NOT NULL, DogID INTEGER NOT NULL, Matched BOOLEAN NOT NULL, DateMatched DATE NOT NULL)";
         db.execSQL(CREATE_MATCH_TABLE);
-        Log.d("DB", "MATCH CREATED");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -70,7 +67,6 @@ public class MatchHelper extends SQLiteOpenHelper
             cursor.moveToFirst();
         int count = cursor.getCount();
         cursor.close();
-        Log.d("EXISTUSERDOGID COUNT", "" + count);
         if(count == 0)
             return false;
         return true;
@@ -78,15 +74,10 @@ public class MatchHelper extends SQLiteOpenHelper
     public Match getMatch(int userID, int dogID){
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Log.d("Owner ID = ", "" + userID);
-
-        Log.d("Dog ID = ", "" + dogID);
-
         Cursor cursor = db.rawQuery("SELECT * FROM Match WHERE UserID = " + userID + " AND DogID = " + dogID, null);
 
         if(cursor != null){
             cursor.moveToFirst();
-            Log.d("Match Count: ", "" + cursor.getCount());
 
             Match match = new Match(
                 cursor.getInt(0)
@@ -179,8 +170,6 @@ public class MatchHelper extends SQLiteOpenHelper
         values.put("DateMatched", match.dateMatched);
         values.put("Matched", match.matched);
 
-        Log.d("Match to update: ", "" +  match.id);
-        Log.d("Status: ", "" +  match.matched);
         return db.update("Match", values, "_id = ?", new String[]{String.valueOf(match.id)});
     }
 

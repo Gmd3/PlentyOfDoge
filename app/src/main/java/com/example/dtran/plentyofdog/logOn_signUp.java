@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,7 +32,6 @@ public class logOn_signUp extends Activity {
         userdb = new UserHelper(this);
         userdb.getWritableDatabase();
         loadData();
-        Log.d("@@@@@@@@@@@@@  ----  DB", "" + userdb.getUserCount());
     }
     private void loadData() {
         //adding fake people and dogs
@@ -50,9 +48,6 @@ public class logOn_signUp extends Activity {
         //DEBUG SECTION
         List<Owner> owners = ownerDB.getAllOwner();
         for(Owner o : owners) {
-            Log.d("OwnerDB", "OwnerID :" + o.id);
-            Log.d("OwnerDB", "Email :" + o.email);
-            Log.d("OwnerDB", "___________________ :");
 
         }
         //User
@@ -157,11 +152,7 @@ public class logOn_signUp extends Activity {
 
 
         if(userdb.userExist(username) && password.equals(userdb.getUser(username).password)){
-            Log.d("userdb.getUser(username)", " " + userdb.getUser(username).username);
-
-
-                Log.d("LOGIN" , " PASSED");
-                intent.putExtra("username", username);
+            intent.putExtra("username", username);
                 startActivity(intent);
                 finish();
 
@@ -170,7 +161,6 @@ public class logOn_signUp extends Activity {
 
             passwordGrab.setText("");
             Toast.makeText(getApplicationContext(), "Password or Username is incorrect", Toast.LENGTH_SHORT).show();
-            Log.d("LOGIN", " FAILED");
         }
 
     }
