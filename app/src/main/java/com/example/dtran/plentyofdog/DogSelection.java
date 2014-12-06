@@ -22,11 +22,11 @@ public class DogSelection extends Activity {
     FullDogList adapter;
 
     List<Dog> myDogs;
-    DogHelper db;
-    DogOwnerHelper db2;
-    UserHelper db3;
-    PreferenceHelper db4;
-    MatchHelper db5;
+    DogHelper dogHelper;
+    DogOwnerHelper dogOwnerHelper;
+    UserHelper userHelper;
+    PreferenceHelper preferenceHelper;
+    MatchHelper matchHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,22 +66,22 @@ public class DogSelection extends Activity {
             try {
                 runOnUiThread(new Runnable() {
                     public void run() {
-                        db = new DogHelper(getApplicationContext());
-                        db2 = new DogOwnerHelper(getApplicationContext());
-                        db3 = new UserHelper(getApplicationContext());
-                        db4 = new PreferenceHelper(getApplicationContext());
-                        db5 = new MatchHelper(getApplicationContext());
+                        dogHelper = new DogHelper(getApplicationContext());
+                        dogOwnerHelper = new DogOwnerHelper(getApplicationContext());
+                        userHelper = new UserHelper(getApplicationContext());
+                        preferenceHelper = new PreferenceHelper(getApplicationContext());
+                        matchHelper = new MatchHelper(getApplicationContext());
 
                         Intent intent = getIntent();
-                        int ownerID = db3.getOwnerID(intent.getStringExtra("username"));
-                        Preference p = db4.getPreference(intent.getStringExtra("username"));
+                        int ownerID = userHelper.getOwnerID(intent.getStringExtra("username"));
+                        Preference p = preferenceHelper.getPreference(intent.getStringExtra("username"));
 
-                        ArrayList<Integer> DogIDs = db2.getOtherDogs(ownerID);
+                        ArrayList<Integer> DogIDs = dogOwnerHelper.getOtherDogs(ownerID);
                         ArrayList<Dog> temp = new ArrayList<Dog>();
 
 
                         for(int i = 0; i < DogIDs.size(); i++){
-                            Dog tempDog = db.getDog(DogIDs.get(i));
+                            Dog tempDog = dogHelper.getDog(DogIDs.get(i));
 
                             if (rightSize(p.size, tempDog.size) &&
                                 rightTemperment(p.temperament, tempDog.activitylevel) &&
@@ -137,7 +137,7 @@ public class DogSelection extends Activity {
             return false;
         }
         protected boolean alreadyMatched(int dogID, int userID){
-            if(db5.existUserDogID(userID, dogID))
+            if(matchHelper.existUserDogID(userID, dogID))
                 return true;
             return false;
         }

@@ -32,7 +32,7 @@ public class logOn_signUp extends Activity {
         db.getWritableDatabase();
         userdb = new UserHelper(this);
         userdb.getWritableDatabase();
-<<}
+    }
     private void loadData() {
         //adding fake people and dogs
         //Owner

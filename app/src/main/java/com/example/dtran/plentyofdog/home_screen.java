@@ -19,17 +19,18 @@ import java.util.List;
 
 public class home_screen extends Activity {
     Intent userIntent;
-    DogHelper db;
-    DogOwnerHelper db2;
-    UserHelper db3;
-    MatchHelper db4;
-    OwnerHelper db5;
+    DogHelper dogHelper;
+    DogOwnerHelper dogOwnerHelper;
+    UserHelper userHelper;
+    MatchHelper matchHelper;
+    OwnerHelper ownerHelper;
+
     List<Dog> myDogs;
     List<Owner> myOwners;
     MatchList adapter;
     ListView list;
     List<Match> matchlist;
-    ArrayList<Owner> temp2;
+    ArrayList<Owner> tempOwners;
 
     List<Match> ApprovedMatchesList;
     ArrayList<Dog> matchedDogs;
@@ -111,33 +112,32 @@ public class home_screen extends Activity {
             try {
                 runOnUiThread(new Runnable() {
                     public void run() {
-                        db = new DogHelper(getApplicationContext());
-                        db2 = new DogOwnerHelper(getApplicationContext());
-                        db3 = new UserHelper(getApplicationContext());
-                        db4 = new MatchHelper(getApplicationContext());
-                        db5 = new OwnerHelper(getApplicationContext());
+                        dogHelper = new DogHelper(getApplicationContext());
+                        dogOwnerHelper = new DogOwnerHelper(getApplicationContext());
+                        userHelper = new UserHelper(getApplicationContext());
+                        matchHelper = new MatchHelper(getApplicationContext());
+                        ownerHelper = new OwnerHelper(getApplicationContext());
 
                         Intent intent = getIntent();
-                        int ownerID = db3.getOwnerID(intent.getStringExtra("username"));
+                        int ownerID = userHelper.getOwnerID(intent.getStringExtra("username"));
 
                         //Left List
-                        ArrayList<Integer> DogIDs = db2.getMyDogs(ownerID);
-                        ArrayList<Dog> temp = new ArrayList<Dog>();
-                        temp2 = new ArrayList<Owner>();
+                        ArrayList<Integer> DogIDs = dogOwnerHelper.getMyDogs(ownerID);
+                        ArrayList<Dog> tempDogs = new ArrayList<Dog>();
+                        tempOwners = new ArrayList<Owner>();
                         matchlist = new ArrayList<Match>();
                         //End Left List
                         for(int i = 0; i < DogIDs.size(); i++){
-                            matchlist = db4.getAllMatchesDogID(DogIDs.get(i));
+                            matchlist = matchHelper.getAllMatchesDogID(DogIDs.get(i));
                             for(Match m : matchlist){
-                                temp.add(db.getDog(DogIDs.get(i)));
-
-                                temp2.add(db5.getOwner(m.userID));
+                                tempDogs.add(dogHelper.getDog(DogIDs.get(i)));
+                                tempOwners.add(ownerHelper.getOwner(m.userID));
                             }
 
                         }
-                        myOwners = temp2;
+                        myOwners = tempOwners;
 
-                        myDogs = temp;
+                        myDogs = tempDogs;
 
                         if (myDogs != null){
                             adapter = new MatchList(home_screen.this,  myDogs, myOwners);
@@ -150,7 +150,7 @@ public class home_screen extends Activity {
                                                         int position, long id) {
                                     Toast.makeText(home_screen.this, "You Clicked at " + myDogs.get(position).id, Toast.LENGTH_SHORT).show();
                                     Intent dogIntent = new Intent(home_screen.this, view_profile.class);
-                                    dogIntent.putExtra("ownerID", temp2.get(position).id);
+                                    dogIntent.putExtra("ownerID", tempOwners.get(position).id);
                                     dogIntent.putExtra("dogID", myDogs.get(position).id);
                                     dogIntent.putExtra("username", userIntent.getStringExtra("username"));
                                     dogIntent.putExtra("listFrom", 1);
@@ -161,13 +161,13 @@ public class home_screen extends Activity {
                         } //End Left List
 
                         //Start Right List
-                        ApprovedMatchesList = db4.getAllMatches(ownerID);
+                        ApprovedMatchesList = matchHelper.getAllMatches(ownerID);
 
 
                         if (ApprovedMatchesList != null){
                             Log.d("Size of ApprovedMAtchesList ", "" + ApprovedMatchesList.size());
                             for (Match m : ApprovedMatchesList){
-                                Dog tempDog = db.getDog(m.dogID);
+                                Dog tempDog = dogHelper.getDog(m.dogID);
                                 matchedDogs.add(tempDog);
                             }
                             adapter2 = new ApprovedMatchList(home_screen.this, ApprovedMatchesList, matchedDogs);
@@ -179,15 +179,13 @@ public class home_screen extends Activity {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view,
                                                         int position, long id) {
-                                    int myOwnerID = db2.getDogOwnerFromDogID(ApprovedMatchesList.get(position).dogID) .ownerID;
+                                    int myOwnerID = dogOwnerHelper.getDogOwnerFromDogID(ApprovedMatchesList.get(position).dogID) .ownerID;
                                     Toast.makeText(home_screen.this, "You Clicked at " + myOwnerID, Toast.LENGTH_SHORT).show();
 
                                     Intent ownerIntent = new Intent(home_screen.this, view_profile.class);
                                     ownerIntent.putExtra("ownerID", myOwnerID);
                                     ownerIntent.putExtra("listFrom", 2);
                                     ownerIntent.putExtra("username", userIntent.getStringExtra("username"));
-                                   // ownerIntent.putExtra("dogID", myDogs.get(position).id);
-                                   // ownerIntent.putExtra("username", userIntent.getStringExtra("username"));
                                     startActivity(ownerIntent);
 
                                 }

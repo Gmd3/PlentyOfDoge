@@ -22,9 +22,9 @@ public class MyDogs extends Activity {
     SimpleDogList adapter;
 
     List<Dog> myDogs;
-    DogHelper db;
-    DogOwnerHelper db2;
-    UserHelper db3;
+    DogHelper dogHelper;
+    DogOwnerHelper dogOwnerHelper;
+    UserHelper userHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,6 @@ public class MyDogs extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.my_dogs, menu);
 
 
@@ -48,9 +47,6 @@ public class MyDogs extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             return true;
@@ -83,19 +79,19 @@ public class MyDogs extends Activity {
             try {
                 runOnUiThread(new Runnable() {
                     public void run() {
-                        db = new DogHelper(getApplicationContext());
-                        db2 = new DogOwnerHelper(getApplicationContext());
-                        db3 = new UserHelper(getApplicationContext());
+                        dogHelper = new DogHelper(getApplicationContext());
+                        dogOwnerHelper = new DogOwnerHelper(getApplicationContext());
+                        userHelper = new UserHelper(getApplicationContext());
 
                         Intent intent = getIntent();
-                        int ownerID = db3.getOwnerID(intent.getStringExtra("username"));
-                        ArrayList<Integer> DogIDs = db2.getMyDogs(ownerID);
+                        int ownerID = userHelper.getOwnerID(intent.getStringExtra("username"));
+                        ArrayList<Integer> DogIDs = dogOwnerHelper.getMyDogs(ownerID);
 
                         ArrayList<Dog> temp = new ArrayList<Dog>();
 
 
                         for(int i = 0; i < DogIDs.size(); i++){
-                            temp.add(db.getDog(DogIDs.get(i)));
+                            temp.add(dogHelper.getDog(DogIDs.get(i)));
                         }
 
                         myDogs = temp;

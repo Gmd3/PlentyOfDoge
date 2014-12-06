@@ -21,7 +21,7 @@ public class FullDogList extends ArrayAdapter<Dog> {
     private final Activity context;
     private int userID;
     private List<Dog> dogs;
-    private MatchHelper db;
+    private MatchHelper matchHelper;
 
     public FullDogList(Activity context, List<Dog> dogs) {
         super(context, R.layout.dog_single_full, dogs);
@@ -70,8 +70,8 @@ public class FullDogList extends ArrayAdapter<Dog> {
 
         btnYes.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                db = new MatchHelper(context);
-                db.addMatch(new Match(userID, dogs.get(position).id, 0, "Today"));
+                matchHelper = new MatchHelper(context);
+                matchHelper.addMatch(new Match(userID, dogs.get(position).id, 0, "Today"));
                 Toast.makeText(context, "userID " + userID + " liked dog " + dogs.get(position).id, Toast.LENGTH_SHORT).show();
                 dogs.remove(position);
 
