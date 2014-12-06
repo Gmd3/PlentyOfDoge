@@ -87,14 +87,14 @@ public class MyDogs extends Activity {
                         int ownerID = userHelper.getOwnerID(intent.getStringExtra("username"));
                         ArrayList<Integer> DogIDs = dogOwnerHelper.getMyDogs(ownerID);
 
-                        ArrayList<Dog> temp = new ArrayList<Dog>();
+                        ArrayList<Dog> tempDogs = new ArrayList<Dog>();
 
 
                         for(int i = 0; i < DogIDs.size(); i++){
-                            temp.add(dogHelper.getDog(DogIDs.get(i)));
+                            tempDogs.add(dogHelper.getDog(DogIDs.get(i)));
                         }
 
-                        myDogs = temp;
+                        myDogs = tempDogs;
 
                         if (myDogs != null){
                             adapter = new SimpleDogList(MyDogs.this,  myDogs);
@@ -105,7 +105,6 @@ public class MyDogs extends Activity {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view,
                                                         int position, long id) {
-                                    Toast.makeText(MyDogs.this, "You Clicked at " + myDogs.get(position).id, Toast.LENGTH_SHORT).show();
                                     Intent dogIntent = new Intent(MyDogs.this, dog_builder.class);
                                     dogIntent.putExtra("username", getIntent().getStringExtra("username"));
                                     dogIntent.putExtra("dogID", myDogs.get(position).id);

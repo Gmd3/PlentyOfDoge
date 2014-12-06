@@ -72,7 +72,7 @@ public class FullDogList extends ArrayAdapter<Dog> {
             public void onClick(View v) {
                 matchHelper = new MatchHelper(context);
                 matchHelper.addMatch(new Match(userID, dogs.get(position).id, 0, "Today"));
-                Toast.makeText(context, "userID " + userID + " liked dog " + dogs.get(position).id, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "You liked dog " + dogs.get(position).name, Toast.LENGTH_SHORT).show();
                 dogs.remove(position);
 
                 notifyDataSetChanged();

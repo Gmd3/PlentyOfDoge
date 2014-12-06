@@ -103,7 +103,7 @@ public class DogSelection extends Activity {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view,
                                                         int position, long id) {
-                                    Toast.makeText(DogSelection.this, "You Clicked at " + myDogs.get(position).area, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(DogSelection.this, "Owner area: " + myDogs.get(position).area, Toast.LENGTH_SHORT).show();
                                 }
                             });
                             resp = "All dogs loaded!";

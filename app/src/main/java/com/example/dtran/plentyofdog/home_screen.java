@@ -148,7 +148,6 @@ public class home_screen extends Activity {
                                 @Override
                                 public void onItemClick(AdapterView<?> parent, View view,
                                                         int position, long id) {
-                                    Toast.makeText(home_screen.this, "You Clicked at " + myDogs.get(position).id, Toast.LENGTH_SHORT).show();
                                     Intent dogIntent = new Intent(home_screen.this, view_profile.class);
                                     dogIntent.putExtra("ownerID", tempOwners.get(position).id);
                                     dogIntent.putExtra("dogID", myDogs.get(position).id);
@@ -180,7 +179,6 @@ public class home_screen extends Activity {
                                 public void onItemClick(AdapterView<?> parent, View view,
                                                         int position, long id) {
                                     int myOwnerID = dogOwnerHelper.getDogOwnerFromDogID(ApprovedMatchesList.get(position).dogID) .ownerID;
-                                    Toast.makeText(home_screen.this, "You Clicked at " + myOwnerID, Toast.LENGTH_SHORT).show();
 
                                     Intent ownerIntent = new Intent(home_screen.this, view_profile.class);
                                     ownerIntent.putExtra("ownerID", myOwnerID);

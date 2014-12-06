@@ -103,17 +103,17 @@ import java.util.List;
             if(cursor.moveToFirst()){
                 do {
                     Owner owner = new Owner();
-                    owner.setOwnerID(cursor.getInt(0));
-                    owner.setFirstName(cursor.getString(1));
-                    owner.setLastName(cursor.getString(2));
-                    owner.setExperience(cursor.getString(3));
-                    owner.setAge(cursor.getInt(4));
-                    owner.setGender(cursor.getString(5));
-                    owner.setEmail(cursor.getString(6));
-                    owner.setPhone(cursor.getString(7));
-                    owner.setArea(cursor.getString(8));
-                    owner.setDateCreated(cursor.getString(9));
-                    owner.setLastEdited(cursor.getString(10));
+                    owner.id = (cursor.getInt(0));
+                    owner.firstName = (cursor.getString(1));
+                    owner.lastName = (cursor.getString(2));
+                    owner.experience = (cursor.getString(3));
+                    owner.age = (cursor.getInt(4));
+                    owner.gender = (cursor.getString(5));
+                    owner.email = (cursor.getString(6));
+                    owner.phone = (cursor.getString(7));
+                    owner.area = (cursor.getString(8));
+                    owner.dateCreated = (cursor.getString(9));
+                    owner.lastEdited = (cursor.getString(10));
                     ownerList.add(owner);
                 }while(cursor.moveToNext());
             }

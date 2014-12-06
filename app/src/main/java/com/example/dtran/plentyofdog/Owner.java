@@ -19,53 +19,6 @@ public class Owner {
     public static final String COLUMN_LAST_EDITTED = "lasteddited";
 
 
-
-
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setOwnerID(int ownerID) {
-        this.id = ownerID;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setExperience(String experience) {
-        this.experience = experience;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public void setArea(String are) {
-        this.area = area;
-    }
-
-    public void setDateCreated(String dateCreated) {
-        this.dateCreated = dateCreated;
-    }
-
-    public void setLastEdited(String lastEdited) {
-        this.lastEdited = lastEdited;
-    }
-
     int id;
     String firstName;
     String lastName;

@@ -28,8 +28,6 @@ public class DatabaseHelper extends SQLiteOpenHelper
         db.execSQL(CREATE_MATCH_TABLE);
         String CREATE_OWNER_TABLE = "CREATE TABLE Owner (_id INTEGER PRIMARY KEY, FirstName VARCHAR NOT NULL, LastName VARCHAR NOT NULL, Experience VARCHAR NOT NULL, Age INTEGER NOT NULL, Gender VARCHAR NOT NULL, Email VARCHAR NOT NULL, Phone INTEGER, Area VARCHAR, DateCreated DATETIME, LastEdited DATETIME);";
         db.execSQL(CREATE_OWNER_TABLE);
-        String CREATE_PET_NOTE = "CREATE TABLE PetNote( _id INTEGER PRIMARY KEY, DogID INTEGER NOT NULL, Title VARCHAR NOT NULL, Description VARCHAR NOT NULL)";
-        db.execSQL(CREATE_PET_NOTE);
         String CREATE_USER_TABLE = "CREATE TABLE User( _id INTEGER PRIMARY KEY, Username VARCHAR NOT NULL, Password VARCHAR NOT NULL, OwnerID INTEGER NOT NULL)";
         db.execSQL(CREATE_USER_TABLE);
         String CREATE_PREFERENCE = "CREATE TABLE Preference( _id INTEGER PRIMARY KEY, Size VARCHAR, HairType VARCHAR, Temperament VARCHAR, Username VARCHAR NOT NULL)";
@@ -43,7 +41,6 @@ public class DatabaseHelper extends SQLiteOpenHelper
         db.execSQL("DROP TABLE IF EXISTS Dog");
         db.execSQL("DROP TABLE IF EXISTS DogOwner");
         db.execSQL("DROP TABLE IF EXISTS Match");
-        db.execSQL("DROP TABLE IF EXISTS PetNote");
         db.execSQL("DROP TABLE IF EXISTS User");
         db.execSQL("DROP TABLE IF EXISTS Preference");
         onCreate(db);

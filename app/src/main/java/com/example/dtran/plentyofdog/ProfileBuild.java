@@ -144,7 +144,7 @@ public class ProfileBuild extends Activity {
             errors++;
         }
         if(phone.length() != 10) {
-            errorMsg.add("Enter a phone number");
+            errorMsg.add("Enter a valid phone number (10 digits)");
             errors++;
         }
         if(desc.equals("")) {
