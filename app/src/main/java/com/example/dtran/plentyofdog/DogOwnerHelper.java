@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +31,11 @@ public class DogOwnerHelper extends SQLiteOpenHelper
         db.execSQL("DROP TABLE IF EXISTS DogOwner");
         onCreate(db);
     }
+
+    /**
+     * Adds the dog owner
+     * @param dogOwner
+     */
     public void addDogOwner(DogOwner dogOwner){
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -45,6 +49,12 @@ public class DogOwnerHelper extends SQLiteOpenHelper
         db.insert("DogOwner", null, values);
         db.close();
     }
+
+    /**
+     * Gets the dog owner with the id
+     * @param id
+     * @return
+     */
     public DogOwner getDogOwner(int id){
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -62,6 +72,12 @@ public class DogOwnerHelper extends SQLiteOpenHelper
         cursor.close();
         return dogOwner;
     }
+
+    /**
+     * Gets the dog owner form the dog id
+     * @param id
+     * @return
+     */
     public DogOwner getDogOwnerFromDogID(int id){
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -79,6 +95,11 @@ public class DogOwnerHelper extends SQLiteOpenHelper
         cursor.close();
         return dogOwner;
     }
+
+    /**
+     * Gets all the dog owners
+     * @return
+     */
     public List<DogOwner> getAllDogOwners(){
         List<DogOwner> dogOwnerList = new ArrayList<DogOwner>();
         String selectQuery = "SELECT * FROM DogOwner";
@@ -101,6 +122,11 @@ public class DogOwnerHelper extends SQLiteOpenHelper
         cursor.close();
         return dogOwnerList;
     }
+
+    /**
+     * Gets the number of dogs
+     * @return
+     */
     public int getDogOwnerCount(){
         String selectQuery = "SELECT * FROM DogOwner";
 
@@ -109,6 +135,12 @@ public class DogOwnerHelper extends SQLiteOpenHelper
         cursor.close();
         return cursor.getCount();
     }
+
+    /**
+     * Updates the dog owner with the dog objects
+     * @param dogOwner
+     * @return
+     */
     public int updateDogOwner(DogOwner dogOwner){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -120,16 +152,30 @@ public class DogOwnerHelper extends SQLiteOpenHelper
 
         return db.update("DogOwner", values, "_id = ?", new String[]{String.valueOf(dogOwner.id)});
     }
+
+    /**
+     * Delets the dog owner wit hthe dog owner object
+     * @param dogOwner
+     */
     public void deleteDogOwner(DogOwner dogOwner){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete("DogOwner", "_id = ?", new String[]{String.valueOf(dogOwner.id)});
     }
 
+    /**
+     * Deletes the dog owner with the dogID
+     * @param dogID
+     */
     public void deleteDogOwner(int dogID){
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete("DogOwner", "DogID = ?", new String[]{String.valueOf(dogID)});
     }
 
+    /**
+     * Retreieves all the dogs
+     * @param ownerID
+     * @return
+     */
     public ArrayList<Integer> getMyDogs(int ownerID){
         ArrayList<Integer> MyDogs = new ArrayList<Integer>();
         String selectQuery = "SELECT * FROM DogOwner WHERE OwnerID = '" + ownerID + "'";
@@ -145,6 +191,11 @@ public class DogOwnerHelper extends SQLiteOpenHelper
         return MyDogs;
     }
 
+    /**
+     * Gets the dogs other than the one with the owner ID
+     * @param ownerID
+     * @return
+     */
     public ArrayList<Integer> getOtherDogs(int ownerID){
         ArrayList<Integer> MyDogs = new ArrayList<Integer>();
         String selectQuery = "SELECT * FROM DogOwner WHERE OwnerID != '" + ownerID + "'";

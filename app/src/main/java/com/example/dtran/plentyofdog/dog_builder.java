@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,6 +31,11 @@ public class dog_builder extends Activity {
 
     Uri uri = null;
     int dogID;
+
+    /**
+     * The builder will insert all of the current users dogs data
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -133,6 +137,11 @@ public class dog_builder extends Activity {
             }
         }
     }
+
+    /**
+     * The data will be updated in the data base when the submit button is clicked
+     * @param v
+     */
     public void submit(View v){
         Intent UserIntent = getIntent();
         int errors = 0;
@@ -233,6 +242,11 @@ public class dog_builder extends Activity {
         }
 
     }
+
+    /**
+     * The dog will be deleted from the database
+     * @param view
+     */
     public void delete(View view){
         dogHelper.deleteDog(dogHelper.getDog(dogID));
         dogOwnerHelper.deleteDogOwner(dogID);

@@ -16,6 +16,11 @@ public class DogFilter extends Activity {
     PreferenceHelper db;
     Intent userIntent;
     String username;
+
+    /**
+     * When the view loads, the dog filter will display the users preferences
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +45,11 @@ public class DogFilter extends Activity {
 
 
     }
+
+    /**
+     * Takes in the preference and updates the database whether the user is new or existing
+     * @param pref
+     */
     private void setPref(Preference pref){
         Button noSize = (Button)findViewById(R.id.noSizePreference);
         Button small = (Button)findViewById(R.id.small);
@@ -121,6 +131,11 @@ public class DogFilter extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    /**
+     * Very self explanatory, saves the dog preferences in the database
+     * @param v
+     */
     public void save(View v){
         Intent intent = new Intent(this, home_screen.class);
         //check for the parameters in preferences
@@ -145,6 +160,10 @@ public class DogFilter extends Activity {
         startActivity(intent);
     }
 
+    /**
+     * Depending on the object clicked the button will react to the selection
+     * @param view
+     */
     public void onSizeClick(View view) {
         Button noSize = (Button)findViewById(R.id.noSizePreference);
         Button small = (Button)findViewById(R.id.small);
@@ -218,6 +237,11 @@ public class DogFilter extends Activity {
 
         }
     }
+
+    /**
+     * Depending on the object clicked the button will react to the selection
+     * @param view
+     */
     public void onHairTypeClick(View view) {
         Button noHair = (Button)findViewById(R.id.noHairTypePreference);
         Button shorthaired = (Button)findViewById(R.id.shortHaired);
@@ -266,6 +290,11 @@ public class DogFilter extends Activity {
 
         }
     }
+
+    /**
+     * Depending on the object clicked the button will react to the selection
+     * @param view
+     */
     public void onTemperamentClick(View view) {
         Button noTemperament = (Button)findViewById(R.id.noTempermentPreference);
         Button mellow = (Button)findViewById(R.id.mellow);
@@ -313,6 +342,11 @@ public class DogFilter extends Activity {
 
         }
     }
+
+    /**
+     * This will act as a back button to the home screen
+     * @param view
+     */
     public void skip(View view){
         Intent intent = new Intent(this, home_screen.class);
         intent.putExtra("username", userIntent.getStringExtra("username"));

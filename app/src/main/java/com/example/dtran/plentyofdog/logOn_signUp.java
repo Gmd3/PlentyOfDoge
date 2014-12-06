@@ -135,10 +135,20 @@ public class logOn_signUp extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    /**
+     * Activates when the user clicks the sign up button
+     * @param v
+     */
     public void signUpClick(View v){
         Intent intent = new Intent(this, WelcomeScreen.class);
         startActivity(intent);
     }
+
+    /**
+     * Activates when the user clicks the login button, sign in and go to the menu
+     * @param v
+     */
     public void loginClick(View v){
         Intent intent = new Intent(this, home_screen.class);
         EditText usernameGrab = (EditText)findViewById(R.id.usernameInput);
